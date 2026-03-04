@@ -1417,6 +1417,8 @@ tr:hover td { background:#f9fafb }
 let SPI = [
   {code:'EMS',  group:'AB', submit1:8000,  obtained:1600, products:['SHEETPILE'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:1600, availableQuota:0,
+   utilizationByProd:{"SHEETPILE": 1600}, availableByProd:{},
    remarks:'SUBMIT MOT 30/10/25', spiRef:'SPI TERBIT 7/11/25 · Target re-apply Early-April',
    cycles:[
      {type:'Submit #1',  mt:8000, products:{SHEETPILE:8000},  submitType:'Submit MOI', submitDate:'15/10/2025', releaseType:'PERTEK', releaseDate:'29/10/2025', status:''},
@@ -1425,6 +1427,8 @@ let SPI = [
   {code:'HDP',  group:'AB', submit1:6000,  obtained:800,  products:['GL BORON'],
    revType:'active', revNote:'Submit #2: Additional GL BORON pending approval',
    revSubmitDate:'02/03/26', revStatus:'Menunggu Disposisi Kasi', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:800, availableQuota:0,
+   utilizationByProd:{"GL BORON": 800}, availableByProd:{},
    remarks:'SUBMIT MOT 30/10/25', spiRef:'SPI TERBIT 7/11/25 · Target re-apply End-Feb',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GL BORON':6000}, submitType:'Submit MOI', submitDate:'16/10/2025', releaseType:'PERTEK', releaseDate:'29/10/2025', status:''},
@@ -1434,6 +1438,8 @@ let SPI = [
    ]},
   {code:'AMP',  group:'AB', submit1:7000,  obtained:800,  products:['GL BORON','PPGL CARBON'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:800, availableQuota:0,
+   utilizationByProd:{"GL BORON": 400, "PPGL CARBON": 400}, availableByProd:{},
    remarks:'SUBMIT MOT 4/11/25', spiRef:"SPI TERBIT 27/11/25 · Target re-apply April'26",
    cycles:[
      {type:'Submit #1',  mt:7000, products:{'GL BORON':6000,'PPGL CARBON':1000}, submitType:'Submit MOI', submitDate:'16/10/2025', releaseType:'PERTEK', releaseDate:'23/10/2025', status:''},
@@ -1443,6 +1449,8 @@ let SPI = [
    revType:'active', revSubmitDate:'02/03/26', revStatus:'Menunggu Disposisi Kasi',
    revNote:'Submit #2: Additional 2,200 MT GI BORON pending approval',
    revFrom:[{prod:'GI BORON',mt:800,label:'Obtained #1'}], revTo:[{prod:'GI BORON',mt:2200,label:'Submit #2 (Additional)'}], revMT:2200,
+   utilizationMT:800, availableQuota:0,
+   utilizationByProd:{"GI BORON": 800}, availableByProd:{},
    remarks:'SUBMIT MOI Perubahan 25/02/26', spiRef:'SPI TERBIT 7/11/25',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GI BORON':6000}, submitType:'Submit MOI', submitDate:'16/10/2025', releaseType:'PERTEK', releaseDate:'29/10/2025', status:''},
@@ -1454,6 +1462,8 @@ let SPI = [
    revType:'active', revSubmitDate:'02/03/26', revStatus:'Menunggu Disposisi Kasi',
    revNote:'Submit #2: Additional 2,750 MT GL BORON pending approval',
    revFrom:[{prod:'GL BORON',mt:250,label:'Obtained #1'}], revTo:[{prod:'GL BORON',mt:2750,label:'Submit #2 (Additional)'}], revMT:2750,
+   utilizationMT:250, availableQuota:0,
+   utilizationByProd:{"GL BORON": 250}, availableByProd:{},
    remarks:'SUBMIT MOI Perubahan 25/02/26', spiRef:'SPI TERBIT 7/11/25',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GL BORON':6000}, submitType:'Submit MOI', submitDate:'14/10/2025', releaseType:'PERTEK', releaseDate:'29/10/2025', status:''},
@@ -1463,6 +1473,8 @@ let SPI = [
    ]},
   {code:'MIN',  group:'AB', submit1:6000,  obtained:600,  products:['BORDES ALLOY'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:247, availableQuota:353,
+   utilizationByProd:{"BORDES ALLOY": 247}, availableByProd:{"BORDES ALLOY": 353},
    remarks:'SUBMIT MOT 30/10/25', spiRef:'SPI TERBIT 7/11/25 · Target re-apply Early-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'BORDES ALLOY':6000}, submitType:'Submit MOI', submitDate:'15/10/2025', releaseType:'PERTEK', releaseDate:'29/10/2025', status:''},
@@ -1470,6 +1482,8 @@ let SPI = [
    ]},
   {code:'JKT',  group:'AB', submit1:6000,  obtained:300,  products:['GL BORON'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:300, availableQuota:0,
+   utilizationByProd:{"GL BORON": 300}, availableByProd:{},
    remarks:'SUBMIT MOT 22/12/25', spiRef:'SPI TERBIT 09/01/26 · Target re-apply Mid-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GL BORON':6000}, submitType:'Submit MOI', submitDate:'15/10/2025', releaseType:'PERTEK', releaseDate:'29/10/2025', status:''},
@@ -1477,6 +1491,8 @@ let SPI = [
    ]},
   {code:'BHG',  group:'AB', submit1:6000,  obtained:200,  products:['PPGL CARBON'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:200, availableQuota:0,
+   utilizationByProd:{"PPGL CARBON": 200}, availableByProd:{},
    remarks:'SUBMIT MOT 5/11/25', spiRef:'SPI TERBIT 5/12/25 · Target re-apply End-April',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'PPGL CARBON':6000}, submitType:'Submit MOI', submitDate:'21/10/2025', releaseType:'PERTEK', releaseDate:'03/11/2025', status:''},
@@ -1486,6 +1502,8 @@ let SPI = [
    revType:'active', revSubmitDate:'22/01/26', revStatus:'Menunggu Disposisi Kasi',
    revNote:'Product change: GI BORON → GL BORON (150 MT)',
    revFrom:[{prod:'GI BORON',mt:150,label:'Original'}], revTo:[{prod:'GL BORON',mt:150,label:'Revised'}], revMT:150,
+   utilizationMT:0, availableQuota:150,
+   utilizationByProd:{}, availableByProd:{"GI BORON": 150},
    remarks:'SUBMIT MOT Perubahan 22/1/26', spiRef:'SPI TERBIT 5/12/25',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GI BORON':6000}, submitType:'Submit MOI', submitDate:'22/10/2025', releaseType:'PERTEK', releaseDate:'04/11/2025', status:''},
@@ -1495,23 +1513,29 @@ let SPI = [
    ]},
   {code:'BBB',  group:'AB', submit1:6000,  obtained:400,  products:['GL BORON'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:400, availableQuota:0,
+   utilizationByProd:{"GL BORON": 400}, availableByProd:{},
    remarks:'SUBMIT MOT 3/12/25', spiRef:'SPI TERBIT 15/01/26 · Target re-apply Mid-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GL BORON':6000}, submitType:'Submit MOI', submitDate:'21/10/2025', releaseType:'PERTEK', releaseDate:'11/11/2025', status:''},
      {type:'Obtained #1',mt:400,  products:{'GL BORON':400},  submitType:'Submit MOT', submitDate:'03/12/2025', releaseType:'SPI',    releaseDate:'15/01/2026', status:'Target re-apply Mid-March'},
    ]},
-  {code:'GKL',  group:'AB', submit1:10000, obtained:2400, products:['GI BORON','ERW PIPE≤140','ERW PIPE>140'],
+  {code:'GKL',  group:'AB', submit1:10000, obtained:2400, products:['GI BORON','ERW PIPE OD≤140mm','ERW PIPE OD>140mm'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:1840, availableQuota:560,
+   utilizationByProd:{"GI BORON": 1000, "ERW PIPE OD≤140mm": 704, "ERW PIPE OD>140mm": 136}, availableByProd:{"GI BORON": 100, "ERW PIPE OD≤140mm": 96, "ERW PIPE OD>140mm": 364},
    remarks:'SUBMIT MOT 26/11/25', spiRef:'SPI TERBIT 24/12/25 · Target re-apply End-April',
    cycles:[
-     {type:'Submit #1',  mt:10000,products:{'GI BORON':6000,'ERW PIPE ≤140mm':3000,'ERW PIPE >140mm':1000}, submitType:'Submit MOI', submitDate:'15/10/2025', releaseType:'PERTEK', releaseDate:'11/11/2025', status:''},
-     {type:'Obtained #1',mt:2400, products:{'GI BORON':1100,'ERW PIPE ≤140mm':800, 'ERW PIPE >140mm':500},  submitType:'Submit MOT', submitDate:'26/11/2025', releaseType:'SPI',    releaseDate:'24/12/2025', status:'Target re-apply End-April'},
+     {type:'Submit #1',  mt:10000,products:{'GI BORON':6000,'ERW PIPE OD≤140mm':3000,'ERW PIPE OD>140mm':1000}, submitType:'Submit MOI', submitDate:'15/10/2025', releaseType:'PERTEK', releaseDate:'11/11/2025', status:''},
+     {type:'Obtained #1',mt:2400, products:{'GI BORON':1100,'ERW PIPE OD≤140mm':800, 'ERW PIPE OD>140mm':500},  submitType:'Submit MOT', submitDate:'26/11/2025', releaseType:'SPI',    releaseDate:'24/12/2025', status:'Target re-apply End-April'},
    ]},
   {code:'GAS',  group:'AB', submit1:6000,  obtained:200,  products:['BORDES ALLOY'],
    revType:'active', revSubmitDate:'20/01/26', revStatus:'Menunggu Disposisi Kasi',
    revNote:'Reallocation: 200 MT BORDES ALLOY → 130 MT BORDES ALLOY + 70 MT AS STEEL',
    revFrom:[{prod:'BORDES ALLOY',mt:200,label:'Original (total)'}],
    revTo:[{prod:'BORDES ALLOY',mt:130,label:'Retained'},{prod:'AS STEEL',mt:70,label:'Reallocated'}], revMT:70,
+   utilizationMT:0, availableQuota:200,
+   utilizationByProd:{}, availableByProd:{"BORDES ALLOY": 200},
    remarks:'SUBMIT MOI Perubahan 20/01/26', spiRef:'SPI TERBIT 09/01/26',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'BORDES ALLOY':6000}, submitType:'Submit MOI', submitDate:'27/10/2025', releaseType:'PERTEK', releaseDate:'11/11/2025', status:''},
@@ -1521,6 +1545,8 @@ let SPI = [
    ]},
   {code:'KJK',  group:'AB', submit1:6000,  obtained:950,  products:['GL BORON'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:950, availableQuota:0,
+   utilizationByProd:{"GL BORON": 950}, availableByProd:{},
    remarks:'SUBMIT MOT 03/12/25', spiRef:'SPI TERBIT 31/12/25 · Target re-apply Mid-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GL BORON':6000}, submitType:'Submit MOI', submitDate:'15/10/2025', releaseType:'PERTEK', releaseDate:'11/11/2025', status:''},
@@ -1528,6 +1554,8 @@ let SPI = [
    ]},
   {code:'HKG',  group:'AB', submit1:6000,  obtained:750,  products:['GL BORON'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:750, availableQuota:0,
+   utilizationByProd:{"GL BORON": 750}, availableByProd:{},
    remarks:'SUBMIT MOT 03/12/25', spiRef:'SPI TERBIT 31/12/25 · Target re-apply Early-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GL BORON':6000}, submitType:'Submit MOI', submitDate:'16/10/2025', releaseType:'PERTEK', releaseDate:'14/11/2025', status:''},
@@ -1535,6 +1563,8 @@ let SPI = [
    ]},
   {code:'SPA',  group:'CD', submit1:6000,  obtained:515,  products:['BORDES ALLOY'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:114, availableQuota:401,
+   utilizationByProd:{"BORDES ALLOY": 114}, availableByProd:{"BORDES ALLOY": 401},
    remarks:'SUBMIT MOT 3/12/25', spiRef:'SPI TERBIT 13/01/26 · Target re-apply Early-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'BORDES ALLOY':6000}, submitType:'Submit MOI', submitDate:'27/10/2025', releaseType:'PERTEK', releaseDate:'11/11/2025', status:''},
@@ -1542,6 +1572,8 @@ let SPI = [
    ]},
   {code:'ADP',  group:'CD', submit1:6000,  obtained:250,  products:['GL BORON'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:250, availableQuota:0,
+   utilizationByProd:{"GL BORON": 250}, availableByProd:{},
    remarks:'SUBMIT MOT 21/11/25', spiRef:'SPI TERBIT 16/12/25 · Target re-apply Mid-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GL BORON':6000}, submitType:'Submit MOI', submitDate:'28/10/2025', releaseType:'PERTEK', releaseDate:'14/11/2025', status:''},
@@ -1549,6 +1581,8 @@ let SPI = [
    ]},
   {code:'MSN',  group:'CD', submit1:6000,  obtained:150,  products:['GL BORON'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:150, availableQuota:0,
+   utilizationByProd:{"GL BORON": 150}, availableByProd:{},
    remarks:'SUBMIT MOT 09/12/25', spiRef:'SPI TERBIT 06/01/26 · Target re-apply Early-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GL BORON':6000}, submitType:'Submit MOI', submitDate:'28/10/2025', releaseType:'PERTEK', releaseDate:'13/11/2025', status:''},
@@ -1558,6 +1592,8 @@ let SPI = [
    revType:'active', revSubmitDate:'13/01/26', revStatus:'Menunggu Persetujuan Direktur',
    revNote:'Product change: GI BORON → SHEETPILE (250 MT)',
    revFrom:[{prod:'GI BORON',mt:250,label:'Original'}], revTo:[{prod:'SHEETPILE',mt:250,label:'Revised'}], revMT:250,
+   utilizationMT:0, availableQuota:250,
+   utilizationByProd:{}, availableByProd:{"GI BORON": 250},
    remarks:'SUBMIT MOI Perubahan 13/01/26', spiRef:'SPI TERBIT 16/12/25',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GI BORON':6000}, submitType:'Submit MOI', submitDate:'29/10/2025', releaseType:'PERTEK', releaseDate:'13/11/2025', status:''},
@@ -1567,6 +1603,8 @@ let SPI = [
    ]},
   {code:'LCP',  group:'CD', submit1:6000,  obtained:275,  products:['GL BORON'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:275, availableQuota:0,
+   utilizationByProd:{"GL BORON": 275}, availableByProd:{},
    remarks:'SUBMIT MOT 21/11/25', spiRef:'SPI TERBIT 16/12/25 · Target re-apply Mid-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GL BORON':6000}, submitType:'Submit MOI', submitDate:'23/10/2025', releaseType:'PERTEK', releaseDate:'18/11/2025', status:''},
@@ -1576,6 +1614,8 @@ let SPI = [
    revType:'active', revSubmitDate:'20/01/26', revStatus:'Menunggu Disposisi Kasi',
    revNote:'Product change: GI BORON → AS STEEL (80 MT)',
    revFrom:[{prod:'GI BORON',mt:80,label:'Original'}], revTo:[{prod:'AS STEEL',mt:80,label:'Revised'}], revMT:80,
+   utilizationMT:0, availableQuota:80,
+   utilizationByProd:{}, availableByProd:{"GI BORON": 80},
    remarks:'SUBMIT MOI Perubahan 20/01/26', spiRef:'SPI TERBIT 05/01/26',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GI BORON':6000}, submitType:'Submit MOI', submitDate:'23/10/2025', releaseType:'PERTEK', releaseDate:'18/11/2025', status:''},
@@ -1587,6 +1627,8 @@ let SPI = [
    revType:'active', revSubmitDate:'22/01/26', revStatus:'Menunggu Disposisi Kasubdit',
    revNote:'Product change: GI BORON → GL BORON (500 MT)',
    revFrom:[{prod:'GI BORON',mt:500,label:'Original'}], revTo:[{prod:'GL BORON',mt:500,label:'Revised'}], revMT:500,
+   utilizationMT:0, availableQuota:500,
+   utilizationByProd:{}, availableByProd:{"GI BORON": 500},
    remarks:'SUBMIT MOI Perubahan 22/01/26', spiRef:'SPI TERBIT 16/12/25',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GI BORON':6000}, submitType:'Submit MOI', submitDate:'16/10/2025', releaseType:'PERTEK', releaseDate:'18/11/2025', status:''},
@@ -1597,6 +1639,8 @@ let SPI = [
   {code:'DIOR', group:'CD', submit1:6000,  obtained:100,  products:['BORDES ALLOY'],
    revType:'complete', revSubmitDate:'05/11/25', revStatus:'PERTEK TERBIT 3/12/25',
    revNote:'PERTEK TERBIT 3/12/25 — SPI belum terbit', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:0, availableQuota:100,
+   utilizationByProd:{}, availableByProd:{"BORDES ALLOY": 100},
    remarks:'SUBMIT MOI 05/11/25', spiRef:'PERTEK TERBIT 3/12/25',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'BORDES ALLOY':6000}, submitType:'Submit MOI', submitDate:'05/11/2025', releaseType:'PERTEK', releaseDate:'03/12/2025', status:''},
@@ -1605,16 +1649,20 @@ let SPI = [
   {code:'MJU',  group:'AB', submit1:6000,  obtained:200,  products:['BORDES ALLOY'],
    revType:'complete', revSubmitDate:'12/01/26', revStatus:'PERTEK Perubahan Terbit 04/02/26 — SPI Perubahan belum terbit',
    revNote:'Product change: BORDES ALLOY → Hollow Pipe (200 MT) — PERTEK Perubahan terbit 04/02/26, SPI Perubahan belum terbit',
-   revFrom:[{prod:'BORDES ALLOY',mt:200,label:'Original'}], revTo:[{prod:'Hollow Pipe',mt:200,label:'Revised'}], revMT:200,
+   revFrom:[{prod:'BORDES ALLOY',mt:200,label:'Original'}], revTo:[{prod:'HOLLOW PIPE',mt:200,label:'Revised'}], revMT:200,
+   utilizationMT:0, availableQuota:200,
+   utilizationByProd:{}, availableByProd:{"BORDES ALLOY": 200},
    remarks:'SUBMIT MOI Perubahan 12/01/26', spiRef:'SPI TERBIT 05/01/26 (SPI Original) · SPI Perubahan belum terbit',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'BORDES ALLOY':6000}, submitType:'Submit MOI', submitDate:'17/11/2025', releaseType:'PERTEK', releaseDate:'03/12/2025', status:''},
      {type:'Obtained #1',mt:200,  products:{'BORDES ALLOY':200},  submitType:'Submit MOT', submitDate:'09/12/2025', releaseType:'SPI',    releaseDate:'05/01/2026', status:''},
      {type:'Revision #1',mt:-200, products:{'BORDES ALLOY':200},  submitType:'Submit MOI Perubahan (Revision #1)', submitDate:'12/01/2026', releaseType:'PERTEK Perubahan (Revision #1)', releaseDate:'04/02/2026', status:''},
-     {type:'Obtained (Revision #1)',mt:200,products:{'Hollow Pipe':200},submitType:'Submit MOT Perubahan (Revision #1)',submitDate:'TBA',releaseType:'SPI Perubahan (Revision #1)',releaseDate:'TBA',status:'(Hold submit MOT, waiting Sales confirmation)'},
+     {type:'Obtained (Revision #1)',mt:200,products:{'HOLLOW PIPE':200},submitType:'Submit MOT Perubahan (Revision #1)',submitDate:'TBA',releaseType:'SPI Perubahan (Revision #1)',releaseDate:'TBA',status:'(Hold submit MOT, waiting Sales confirmation)'},
    ]},
   {code:'SJH',  group:'AB', submit1:6000,  obtained:300,  products:['GL BORON'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:0, availableQuota:300,
+   utilizationByProd:{}, availableByProd:{"GL BORON": 300},
    remarks:'SUBMIT MOT 12/12/25', spiRef:'SPI TERBIT 06/01/26 · Target re-apply Early-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GL BORON':6000}, submitType:'Submit MOI', submitDate:'17/11/2025', releaseType:'PERTEK', releaseDate:'12/12/2025', status:''},
@@ -1625,6 +1673,8 @@ let SPI = [
    revNote:'Reallocation: 1,000 MT BORDES ALLOY → 350 MT BORDES ALLOY + 650 MT GL BORON',
    revFrom:[{prod:'BORDES ALLOY',mt:1000,label:'Original (total)'}],
    revTo:[{prod:'BORDES ALLOY',mt:350,label:'Retained'},{prod:'GL BORON',mt:650,label:'Reallocated'}], revMT:650,
+   utilizationMT:0, availableQuota:1000,
+   utilizationByProd:{}, availableByProd:{"BORDES ALLOY": 1000},
    remarks:'SUBMIT MOI Perubahan 04/02/26', spiRef:'SPI TERBIT 13/01/26',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'BORDES ALLOY':6000}, submitType:'Submit MOI', submitDate:'13/11/2025', releaseType:'PERTEK', releaseDate:'22/12/2025', status:''},
@@ -1634,23 +1684,29 @@ let SPI = [
    ]},
   {code:'SGD',  group:'AB', submit1:6000,  obtained:2000, products:['SHEETPILE'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:1508, availableQuota:492,
+   utilizationByProd:{"SHEETPILE": 1508}, availableByProd:{"SHEETPILE": 492},
    remarks:'SUBMIT MOT 20/01/26', spiRef:'SPI TERBIT 28/01/26 · Target re-apply Early-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{SHEETPILE:6000}, submitType:'Submit MOI', submitDate:'14/11/2025', releaseType:'PERTEK', releaseDate:'19/01/2026', status:''},
      {type:'Obtained #1',mt:2000, products:{SHEETPILE:2000}, submitType:'Submit MOT', submitDate:'20/01/2026', releaseType:'SPI',    releaseDate:'28/01/2026', status:'Target re-apply Early-March'},
    ]},
-  {code:'BTS',  group:'AB', submit1:16000, obtained:6000, products:['BORDES ALLOY','AS STEEL','SHEETPILE','SEAMLESS'],
+  {code:'BTS',  group:'AB', submit1:16000, obtained:6000, products:['BORDES ALLOY','AS STEEL','SHEETPILE','SEAMLESS PIPE'],
    revType:'complete', revSubmitDate:'07/11/25', revStatus:'PERTEK TERBIT 25/02/26',
    revNote:'Full Pertek issued 25/02/26 — 6,000 MT across 4 products (BORDES 900, AS STEEL 900, SHEETPILE 3,200, SEAMLESS 1,000)',
    revFrom:[], revTo:[], revMT:0,
+   utilizationMT:0, availableQuota:6000,
+   utilizationByProd:{}, availableByProd:{"BORDES ALLOY": 900, "AS STEEL": 900, "SHEETPILE": 3200, "SEAMLESS PIPE": 1000},
    remarks:'Penerimaan permohonan di Inatrade', spiRef:'PERTEK TERBIT 25/02/26',
    cycles:[
-     {type:'Submit #1',  mt:16000,products:{'BORDES ALLOY':3000,'AS STEEL':2000,SHEETPILE:8000,SEAMLESS:3000}, submitType:'Submit MOI', submitDate:'26/11/2025', releaseType:'PERTEK', releaseDate:'25/02/2026', status:''},
-     {type:'Obtained #1',mt:6000, products:{'BORDES ALLOY':900,'AS STEEL':900,SHEETPILE:3200,SEAMLESS:1000},  submitType:'Submit MOT', submitDate:'26/02/2026', releaseType:'SPI',    releaseDate:'TBA',        status:''},
+     {type:'Submit #1',  mt:16000,products:{'BORDES ALLOY':3000,'AS STEEL':2000,SHEETPILE:8000,'SEAMLESS PIPE':3000}, submitType:'Submit MOI', submitDate:'26/11/2025', releaseType:'PERTEK', releaseDate:'25/02/2026', status:''},
+     {type:'Obtained #1',mt:6000, products:{'BORDES ALLOY':900,'AS STEEL':900,SHEETPILE:3200,'SEAMLESS PIPE':1000},  submitType:'Submit MOT', submitDate:'26/02/2026', releaseType:'SPI',    releaseDate:'TBA',        status:''},
    ]},
   {code:'SMS',  group:'AB', submit1:6000,  obtained:150,  products:['SHEETPILE'],
    revType:'complete', revSubmitDate:'27/02/26', revStatus:'PERTEK TERBIT 26/02/26 — SPI belum terbit',
    revNote:'PERTEK TERBIT 26/02/26 — SPI belum terbit', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:0, availableQuota:150,
+   utilizationByProd:{}, availableByProd:{"SHEETPILE": 150},
    remarks:'SUBMIT MOT 27/02/26', spiRef:'PERTEK TERBIT 26/02/26',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{SHEETPILE:6000}, submitType:'Submit MOI', submitDate:'14/11/2025', releaseType:'PERTEK', releaseDate:'26/02/2026', status:''},
@@ -1660,6 +1716,8 @@ let SPI = [
    revType:'complete', revSubmitDate:'01/03/26',
    revStatus:'PERTEK TERBIT 01/03/26 — SPI belum terbit',
    revNote:'PERTEK TERBIT 01/03/26 — SPI belum terbit', revFrom:[], revTo:[], revMT:0,
+   utilizationMT:0, availableQuota:400,
+   utilizationByProd:{}, availableByProd:{"SHEETPILE": 400},
    remarks:'SUBMIT MOT TBA', spiRef:'PERTEK TERBIT 01/03/26',
    cycles:[
      {type:'Submit #1',         mt:6000, products:{SHEETPILE:6000}, submitType:'Submit MOI', submitDate:'27/10/2025', releaseType:'PERTEK', releaseDate:'01/03/2026', status:'PERTEK TERBIT 01/03/26'},
@@ -1669,7 +1727,7 @@ let SPI = [
 
 /* Pending companies */
 const PENDING = [
-  {code:'KARA', group:'CD',       products:['HRC/HRPO'], mt:6000, remarks:'SUBMIT MOI 05/11/25', status:'Permintaan kelengkapan data tambahan', date:'19/11/25',
+  {code:'KARA', group:'CD',       products:['HRC/HRPO ALLOY'], mt:6000, remarks:'SUBMIT MOI 05/11/25', status:'Permintaan kelengkapan data tambahan', date:'19/11/25',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'HRC/HRPO ALLOY':6000}, submitType:'Submit MOI', submitDate:'05/11/2025', releaseType:'PERTEK', releaseDate:'TBA', status:'Update 19/11/25 - Permintaan kelengkapan data tambahan'},
      {type:'Obtained #1',mt:'TBA',products:{},                       submitType:'Submit MOT', submitDate:'TBA',        releaseType:'SPI',    releaseDate:'TBA', status:''},
@@ -1742,7 +1800,7 @@ let RA = [
    reapplyPrevObtained:800, reapplyAdditional:2200,
    reapplySubmitDate:'26/02/26', reapplyStatus:'Update 02/03/26 - Menunggu Disposisi Kasi',
    target:500,  pertek:'1052/ILMATE/PERTEK-SPI-U/X/2025',  spi:'04.PI-05.25.3505', catatan:'KEWEI 63'},
-  {code:'MIN', product:'WEARPLATE', berat:246.7, obtained:600,
+  {code:'MIN', product:'BORDES ALLOY', berat:246.7, obtained:600,
    cargoArrived:true,  realPct:0.411, utilPct:null, arrivalDate:'2026-02-24',
    etaJKT:'Done (24 Feb ✓)',  reapplyEst:'',
    target:null, pertek:'1050/ILMATE/PERTEK-SPI-U/X/2025',  spi:'04.PI-05.25.3508', catatan:'ARSEN WP 01'},
@@ -1780,7 +1838,7 @@ let RA = [
    cargoArrived:false, realPct:0,     utilPct:1.000, arrivalDate:null,
    etaJKT:'10 Apr 26',  reapplyEst:'',
    target:150,  pertek:'1057/ILMATE/PERTEK-SPI-U/XI/2025', spi:'04.PI-05.25.3600', catatan:'SSSC 12'},
-  {code:'EMS', product:'SHEET PILE',berat:1599.2,obtained:1600,
+  {code:'EMS', product:'SHEETPILE',berat:1599.2,obtained:1600,
    cargoArrived:false, realPct:0,     utilPct:0.999, arrivalDate:null,
    etaJKT:'31 Mar 26',  reapplyEst:'',
    target:1200, pertek:'1046/ILMATE/PERTEK-SPI-U/X/2025',  spi:'04.PI-05.25.3512', catatan:'MLION #9'},
@@ -1792,15 +1850,15 @@ let RA = [
    cargoArrived:false, realPct:0,     utilPct:0.993, arrivalDate:null,
    etaJKT:'13 Mar 26',  reapplyEst:'',
    target:500,  pertek:'1083/ILMATE/PERTEK-SPI-U/XI/2025', spi:'04.PI-05.25.3895', catatan:'KEWEI 64A'},
-  {code:'SGD', product:'SHEET PILE',berat:1507.5,obtained:2000,
+  {code:'SGD', product:'SHEETPILE',berat:1507.5,obtained:2000,
    cargoArrived:false, realPct:0,     utilPct:0.754, arrivalDate:null,
    etaJKT:'31 Mar 26',  reapplyEst:'',
    target:1400, pertek:'1046/ILMATE/PERTEK-SPI-U/X/2025',  spi:'04.PI-05.25.3512', catatan:'MLION #9'},
-  {code:'GKL', product:'ERW + GI',  berat:1637.3,obtained:2400,
+  {code:'GKL', product:'GI BORON + ERW PIPE',  berat:1637.3,obtained:2400,
    cargoArrived:false, realPct:0,     utilPct:0.682, arrivalDate:null,
    etaJKT:'18 Apr 26',  reapplyEst:'',
    target:800,  pertek:'1073/ILMATE/PERTEK-SPI-U/XI/2025', spi:'04.PI-05.25.3797', catatan:'YOU FA #6,7,8 / ARSEN 54'},
-  {code:'SPA', product:'WEARPLATE', berat:114.5, obtained:515,
+  {code:'SPA', product:'BORDES ALLOY', berat:114.5, obtained:515,
    cargoArrived:false, realPct:0,     utilPct:0.222, arrivalDate:null,
    etaJKT:'07 Mar 26',  reapplyEst:'',
    target:null, pertek:'1079/ILMATE/PERTEK-SPI-U/XI/2025', spi:'04.PI-05.26.0407', catatan:'ARSEN WP 02'},
@@ -1813,12 +1871,12 @@ const PROD_COLORS = {
   'SHEETPILE':    {solid:'#b45309', light:'#fef9c3', text:'#92400e'},
   'BORDES ALLOY': {solid:'#dc2626', light:'#fee2e2', text:'#991b1b'},
   'PPGL CARBON':  {solid:'#7c3aed', light:'#ede9fe', text:'#5b21b6'},
-  'ERW PIPE≤140': {solid:'#9333ea', light:'#f3e8ff', text:'#6b21a8'},
-  'ERW PIPE>140': {solid:'#0891b2', light:'#e0f7fa', text:'#155e75'},
+  'ERW PIPE OD≤140mm': {solid:'#9333ea', light:'#f3e8ff', text:'#6b21a8'},
+  'ERW PIPE OD>140mm': {solid:'#0891b2', light:'#e0f7fa', text:'#155e75'},
   'AS STEEL':     {solid:'#64748b', light:'#f1f5f9', text:'#475569'},
-  'Hollow Pipe':  {solid:'#78716c', light:'#f5f5f4', text:'#57534e'},
-  'SEAMLESS':     {solid:'#0d6946', light:'#d1fae5', text:'#065f46'},
-  'HRC/HRPO':     {solid:'#ca8a04', light:'#fef3c7', text:'#92400e'},
+  'HOLLOW PIPE':  {solid:'#78716c', light:'#f5f5f4', text:'#57534e'},
+  'SEAMLESS PIPE':     {solid:'#0d6946', light:'#d1fae5', text:'#065f46'},
+  'HRC/HRPO ALLOY':     {solid:'#ca8a04', light:'#fef3c7', text:'#92400e'},
 };
 const pc = p => PROD_COLORS[p] || {solid:'#64748b',light:'#f1f5f9',text:'#475569'};
 
@@ -2612,65 +2670,120 @@ function makeStripePattern(baseColor, stripeColor) {
 
 /* ════════════════════════════════════════════════════════
    AVAILABLE QUOTA BAR CHART
-   Logic: co.availableQuota = co.obtained - co.utilizationMT
-   Only shows companies where utilizationMT has been entered.
-   Falls back to: obtained - berat (from RA) if no utilizationMT set.
+   Source: Excel "Utilization (MT)" and "Available (MT)" dedicated rows per company.
+   Rule:   Available = PERTEK Terbit MT (obtained) − Utilization MT
+   Case 1 — No revision:   obtained − utilization
+   Case 2 — Revision TBA:  original obtained #1 − utilization
+                            (revised MT excluded until PERTEK Perubahan issued)
+   Case 3 — Submit #2 TBA: obtained #1 − utilization (same rule)
+   All 29 companies with PERTEK Terbit shown, including util=0.
 ═══════════════════════════════════════════════════════ */
 function buildAvailableQuota() {
   const pc = p => {
     const MAP = {
       'GL BORON':'#0c7c84','GI BORON':'#1e56c6','BORDES ALLOY':'#d97706',
-      'AS STEEL':'#7c3aed','SHEETPILE':'#059669','SEAMLESS':'#dc2626',
-      'HRC/HRPO':'#6b7280','WEARPLATE':'#9d174d','Hollow Pipe':'#92400e',
-      'GL':'#0c7c84','GI':'#1e56c6',
+      'AS STEEL':'#7c3aed','SHEETPILE':'#059669','SEAMLESS PIPE':'#0d6946',
+      'HRC/HRPO ALLOY':'#ca8a04','HOLLOW PIPE':'#78716c',
+      'PPGL CARBON':'#7c3aed','ERW PIPE OD≤140mm':'#9333ea','ERW PIPE OD>140mm':'#0891b2',
     };
     for (const k in MAP) if (p && p.toUpperCase().includes(k.toUpperCase())) return MAP[k];
     return '#64748b';
   };
 
-  // Build rows for all SPI companies — either utilizationMT stored, or berat from RA
+  // Build per-product rows using availableByProd / utilizationByProd (exact Excel values).
+  // Multi-product companies (e.g. BTS: BORDES 900 + AS STEEL 900 + SHEETPILE 3200 + SEAMLESS 1000)
+  // get ONE ROW PER PRODUCT so that product-filter pills show correct per-product MT.
   const rows = [];
   filteredSPI().forEach(co => {
-    const ra = getRA(co.code);
     const obtained = typeof co.obtained === 'number' ? co.obtained : 0;
     if (obtained <= 0) return;
+    const totalUtil = co.utilizationMT != null ? co.utilizationMT : 0;
+    const totalAvq  = co.availableQuota != null ? co.availableQuota : (obtained - totalUtil);
 
-    let utilMT;
-    if (co.utilizationMT != null) {
-      utilMT = co.utilizationMT;
-    } else if (ra && ra.berat > 0) {
-      utilMT = ra.berat;       // fallback: berat as proxy for utilization
+    const aProd = co.availableByProd || {};
+    const uProd = co.utilizationByProd || {};
+
+    if (Object.keys(aProd).length > 0) {
+      // Use exact Excel per-product breakdown
+      // For each product in availableByProd, derive obtained portion from obtained cycles
+      const cycleProds = {};
+      (co.cycles || []).forEach(c => {
+        if (!/^obtained/i.test(c.type) || (typeof c.mt === 'number' && c.mt < 0)) return;
+        Object.entries(c.products || {}).forEach(([p, v]) => {
+          if (typeof v === 'number' && v > 0) cycleProds[p] = (cycleProds[p] || 0) + v;
+        });
+      });
+      Object.entries(aProd).forEach(([prod, avq]) => {
+        const utilForProd = uProd[prod] || 0;
+        const obtForProd  = cycleProds[prod] || (avq + utilForProd);
+        rows.push({
+          code:        co.code,
+          product:     prod,
+          obtained:    obtForProd,
+          utilMT:      utilForProd,
+          avq:         avq,
+          updatedBy:   co.updatedBy   || '',
+          updatedDate: co.updatedDate || '',
+        });
+      });
+      // Also add products that are fully utilized (avail=0) but had utilization
+      Object.entries(uProd).forEach(([prod, util]) => {
+        if (aProd[prod] != null) return; // already covered above
+        const obtForProd = cycleProds[prod] || util;
+        rows.push({
+          code: co.code, product: prod,
+          obtained: obtForProd, utilMT: util, avq: 0,
+          updatedBy: co.updatedBy || '', updatedDate: co.updatedDate || '',
+        });
+      });
     } else {
-      return;                   // no utilization data → skip
+      // No per-product data: company has full quota available (util=0)
+      // Use product list from obtained cycles
+      const cycleProds = {};
+      (co.cycles || []).forEach(c => {
+        if (!/^obtained/i.test(c.type) || (typeof c.mt === 'number' && c.mt < 0)) return;
+        Object.entries(c.products || {}).forEach(([p, v]) => {
+          if (typeof v === 'number' && v > 0) cycleProds[p] = (cycleProds[p] || 0) + v;
+        });
+      });
+      const prodEntries = Object.entries(cycleProds);
+      if (prodEntries.length > 0) {
+        const cycleTotal = prodEntries.reduce((s,[,v]) => s+v, 0);
+        prodEntries.forEach(([prod, mt]) => {
+          const share = cycleTotal > 0 ? Math.round(totalAvq * mt / cycleTotal) : 0;
+          const uShare = cycleTotal > 0 ? Math.round(totalUtil * mt / cycleTotal) : 0;
+          rows.push({
+            code: co.code, product: prod,
+            obtained: mt, utilMT: uShare, avq: share,
+            updatedBy: co.updatedBy || '', updatedDate: co.updatedDate || '',
+          });
+        });
+      } else {
+        rows.push({
+          code: co.code, product: (co.products || [])[0] || '—',
+          obtained, utilMT: totalUtil, avq: totalAvq,
+          updatedBy: co.updatedBy || '', updatedDate: co.updatedDate || '',
+        });
+      }
     }
-
-    const avq = obtained - utilMT;
-    rows.push({
-      code: co.code,
-      product: (co.products||[])[0] || '—',
-      obtained,
-      utilMT,
-      avq,
-      updatedBy: co.updatedBy || '',
-      updatedDate: co.updatedDate || '',
-    });
   });
 
   // Sort by available quota descending
   rows.sort((a, b) => b.avq - a.avq);
 
-  // Update KPI card
+  // KPI totals — sum avq across all product-rows; company count uses unique codes
   const totalAvq = rows.reduce((s, r) => s + r.avq, 0);
   const totalObt = rows.reduce((s, r) => s + r.obtained, 0);
+  const uniqueCos = new Set(rows.filter(r => r.avq > 0).map(r => r.code)).size;
   const kpiVal  = document.getElementById('kpiAvqVal');
   const kpiUnit = document.getElementById('kpiAvqUnit');
   const kpiTag  = document.getElementById('kpiAvqTag');
   const kpiFill = document.getElementById('kpiAvqFill');
   if (kpiVal)  kpiVal.textContent  = rows.length > 0 ? totalAvq.toLocaleString() : '—';
-  if (kpiUnit) kpiUnit.textContent = `MT · ${rows.length} compan${rows.length!==1?'ies':'y'} with utilization`;
+  if (kpiUnit) kpiUnit.textContent = `MT · ${uniqueCos} compan${uniqueCos!==1?'ies':'y'} with PERTEK Terbit`;
   if (kpiTag)  kpiTag.textContent  = rows.length > 0
     ? `${totalObt > 0 ? (totalAvq/totalObt*100).toFixed(1) : '—'}% remaining of obtained`
-    : 'Enter Utilization MT via Manual Update';
+    : 'No SPI data available';
   if (kpiFill && totalObt > 0) kpiFill.style.width = Math.max(0, Math.min(100, totalAvq/totalObt*100)).toFixed(1) + '%';
 
   // Render bar chart
@@ -2679,13 +2792,12 @@ function buildAvailableQuota() {
 
   if (rows.length === 0) {
     el.innerHTML = `<div style="padding:30px;text-align:center;color:var(--txt3);font-size:12px">
-      No utilization data yet.<br>
-      <span style="font-size:11px">Open <strong>⬆ Import → Manual Update</strong>, select a company, and fill in <strong>Utilization MT</strong>.</span>
+      No companies with PERTEK Terbit found in selected period.
     </div>`;
     return;
   }
 
-  // Product filter pills
+  // Product filter pills — built from unique products across all rows
   const products = [...new Set(rows.map(r => r.product))].sort();
   const fwEl = document.getElementById('avqFilterWrap');
   if (fwEl && !fwEl._built) {
@@ -2709,6 +2821,7 @@ function buildAvailableQuota() {
   }
 
   const activeFilter = fwEl ? fwEl._active : 'ALL';
+  // Filter rows by active product; for ALL show every row
   const filtered = activeFilter === 'ALL' ? rows : rows.filter(r => r.product === activeFilter);
 
   const maxObt = Math.max(...filtered.map(r => r.obtained), 1);
@@ -3521,7 +3634,7 @@ function openDrawer(code) {
     ${co.spiNo?`<div class="dl-r"><div class="dl-k">SPI No.</div><div class="dl-v" style="font-family:'DM Mono',monospace;color:var(--teal)">${co.spiNo}</div></div>`:''}
     ${co.statusUpdate?`<div class="dl-r"><div class="dl-k" style="color:var(--violet)">📝 Status Update</div><div class="dl-v" style="font-size:11.5px;white-space:pre-wrap;line-height:1.5;color:var(--txt2)">${co.statusUpdate}</div></div>`:''}
     ${co.utilizationMT!=null?`<div class="dl-r"><div class="dl-k">Utilization MT</div><div class="dl-v" style="font-family:'DM Mono',monospace">${co.utilizationMT.toLocaleString()} MT</div></div>`:''}
-    ${co.availableQuota!=null?`<div class="dl-r"><div class="dl-k">Available Quota</div><div class="dl-v" style="font-weight:700;color:${co.availableQuota>=0?'var(--teal)':'var(--red2)'};font-family:'DM Mono',monospace">${co.availableQuota.toLocaleString()} MT</div></div>`:''}
+    ${co.availableQuota!=null?`<div class="dl-r"><div class="dl-k">Available Quota</div><div class="dl-v" style="font-weight:700;color:${co.availableQuota>0?'var(--teal)':co.availableQuota===0?'var(--txt3)':'var(--red2)'};font-family:'DM Mono',monospace">${co.availableQuota.toLocaleString()} MT${co.revType==='active'?' <span style="font-size:9.5px;font-weight:400;color:var(--amber2)">(original PERTEK − revision TBA)</span>':''}</div></div>`:''}
     ${co.updatedBy?`<div class="dl-r"><div class="dl-k">Last Updated By</div><div class="dl-v"><span class="upd-tag upd-${co.updatedBy.toLowerCase()}">${co.updatedBy}</span>${co.updatedDate?' · '+co.updatedDate:''}</div></div>`:''}
     <div class="dl-r"><div class="dl-k">Submit Date</div><div class="dl-v">${co.remarks}</div></div>
   </div>`;
@@ -4012,7 +4125,7 @@ function loadEdit() {
   // ── Realization & status ──
   g('eStatus').value     = co ? (co.spiRef || '') : '';
   g('eStatusUpdate').value = co ? (co.statusUpdate || '') : '';
-  g('eUtilMT').value     = (co && co.utilizationMT != null) ? co.utilizationMT.toLocaleString() : (ra && ra.berat ? ra.berat.toLocaleString() : '');
+  g('eUtilMT').value     = (co && co.utilizationMT != null) ? co.utilizationMT.toLocaleString() : '';
   g('eBerat').value      = ra ? (ra.berat || '') : '';
   g('eETA').value        = ra ? (ra.etaJKT || '') : '';
   g('ePIBRelease').value = ra ? (ra.pibReleaseDate || '') : '';
@@ -4292,15 +4405,16 @@ function exportExecutivePDF() {
   const appRate     = s1_mt > 0 ? (s2_mt/s1_mt*100).toFixed(1) : '—';
   const periodLabel = PERIOD.active ? PERIOD.label : 'All Time';
 
-  // Available Quota — Obtained minus consumed volume (Berat Realized or Utilized)
-  // Priority: 1) manually saved availableQuota, 2) obtained - utilizationMT, 3) obtained - RA.berat
-  // Companies with NO consumption data at all are excluded to avoid inflating the total
+  // Available Quota KPI — source: Excel "Available (MT)" rows (pre-seeded in data)
+  // Rule: Available = PERTEK Terbit MT (obtained) − Utilization MT
+  // Revision TBA / Submit #2 TBA: use original obtained #1 only (already correct in data)
+  // All companies with obtained > 0 are included (util=0 means full quota available)
   const availQuotaTotal = filteredSPI().reduce((sum, co) => {
+    const obtained = typeof co.obtained === 'number' ? co.obtained : 0;
+    if (obtained <= 0) return sum;
     if (co.availableQuota != null) return sum + co.availableQuota;
-    if (co.utilizationMT != null && co.obtained != null) return sum + (co.obtained - co.utilizationMT);
-    const ra = RA.find(r => r.code === co.code);
-    if (ra && co.obtained) return sum + (co.obtained - (ra.berat || 0));
-    return sum; // skip — no consumption data, don't inflate with full obtained
+    const utilMT = co.utilizationMT != null ? co.utilizationMT : 0;
+    return sum + (obtained - utilMT);
   }, 0);
 
   // Top 5 Products by obtained MT (PERTEK Terbit filter)
@@ -4620,39 +4734,24 @@ function exportExecutivePDF() {
 
     ${(() => {
       // Build available quota breakdown by product
-      // For each SPI company, determine available quota and split by product type
+      // Source: co.availableByProd — exact per-product values from Excel "Available (MT)" row
       const prodAvail = {};
       filteredSPI().forEach(co => {
-        // Determine available quota for this company
-        let avq = null;
-        if (co.availableQuota != null) avq = co.availableQuota;
-        else if (co.utilizationMT != null && co.obtained != null) avq = co.obtained - co.utilizationMT;
-        else {
-          const ra = RA.find(r => r.code === co.code);
-          if (ra && co.obtained) avq = co.obtained - (ra.berat || 0);
-        }
-        if (avq == null || avq <= 0) return; // skip companies with nothing available
-        // Distribute avq proportionally across products from Obtained cycles
-        const ac = co.cycles || [];
-        let prodMT = {};
-        let cycleTotal = 0;
-        ac.forEach(c => {
-          if (!/^obtained #/i.test(c.type)) return;
-          Object.entries(c.products || {}).forEach(([p, v]) => {
+        const obtained = typeof co.obtained === 'number' ? co.obtained : 0;
+        if (obtained <= 0) return;
+        if (co.availableByProd && Object.keys(co.availableByProd).length > 0) {
+          // Use Excel exact per-product available values
+          Object.entries(co.availableByProd).forEach(([p, v]) => {
             const val = typeof v === 'number' ? v : 0;
-            if (val > 0) { prodMT[p] = (prodMT[p] || 0) + val; cycleTotal += val; }
+            if (val > 0) prodAvail[p] = (prodAvail[p] || 0) + val;
           });
-        });
-        if (cycleTotal > 0) {
-          // Distribute avq proportionally by product share
-          Object.entries(prodMT).forEach(([p, v]) => {
-            const share = (v / cycleTotal) * avq;
-            prodAvail[p] = (prodAvail[p] || 0) + share;
-          });
-        } else if (co.products && co.products.length > 0) {
-          // Fallback: split equally across products
-          const perProd = avq / co.products.length;
-          co.products.forEach(p => { prodAvail[p] = (prodAvail[p] || 0) + perProd; });
+        } else {
+          // Company has full quota available (util=0) — attribute to first product
+          const utilMT = co.utilizationMT != null ? co.utilizationMT : 0;
+          const avq = co.availableQuota != null ? co.availableQuota : (obtained - utilMT);
+          if (avq > 0 && co.products && co.products.length > 0) {
+            prodAvail[co.products[0]] = (prodAvail[co.products[0]] || 0) + avq;
+          }
         }
       });
 
