@@ -328,7 +328,7 @@ tr:hover td { background:#f9fafb }
 /* ── IMPORT MODAL ── */
 .modal-bg { display:none; position:fixed; inset:0; background:rgba(0,0,0,.44); z-index:600; align-items:center; justify-content:center }
 .modal-bg.open { display:flex }
-.modal { background:var(--surf); border-radius:var(--r3); width:560px; max-height:80vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,.2) }
+.modal { background:var(--surf); border-radius:var(--r3); width:640px; max-height:88vh; overflow-y:auto; box-shadow:0 20px 60px rgba(0,0,0,.2) }
 .m-head{ padding:16px 22px; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between }
 .m-title{ font-size:14px; font-weight:700 }
 .m-x   { width:27px; height:27px; border-radius:50%; border:1px solid var(--border); background:var(--bg); color:var(--txt2); font-size:13px; cursor:pointer; display:flex; align-items:center; justify-content:center }
@@ -439,9 +439,54 @@ tr:hover td { background:#f9fafb }
 .avq-hdr    { display:grid; grid-template-columns:72px 1fr 70px 58px; gap:8px; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; color:var(--txt3); margin-bottom:5px; }
 /* ── Updated By tag ───────────────────────────────────────── */
 .upd-tag  { display:inline-flex; align-items:center; gap:4px; font-size:10px; font-weight:700; padding:2px 8px; border-radius:3px; }
-.upd-sales   { background:#eff4ff; color:#1e56c6; border:1px solid #c3d3f9; }
-.upd-corpsec { background:#f0fdf4; color:#15803d; border:1px solid #86efac; }
-.upd-system  { background:var(--bg);  color:var(--txt3); border:1px solid var(--border); }
+.upd-sales      { background:#eff4ff; color:#1e56c6; border:1px solid #c3d3f9; }
+.upd-corpsec    { background:#f0fdf4; color:#15803d; border:1px solid #86efac; }
+.upd-ops        { background:#fff7ed; color:#c2410c; border:1px solid #fed7aa; }
+.upd-superadmin { background:#f5f3ff; color:#5b21b6; border:1px solid #ddd6fe; }
+.upd-system     { background:var(--bg);  color:var(--txt3); border:1px solid var(--border); }
+
+/* ── ROLE SELECTOR ── */
+.role-banner { padding:12px 14px 10px; background:linear-gradient(135deg,#f8fafc,#eef2ff); border:1px solid var(--blue-bd); border-radius:var(--r2); margin-bottom:14px }
+.role-banner-lbl { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1.2px; color:var(--blue); margin-bottom:8px; display:flex; align-items:center; gap:5px }
+.role-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:6px }
+.role-btn { border:1.5px solid var(--border2); border-radius:var(--r); background:var(--surf); padding:8px 6px; cursor:pointer; text-align:center; transition:all .14s; display:flex; flex-direction:column; align-items:center; gap:3px }
+.role-btn:hover { border-color:var(--blue); background:var(--blue-bg); transform:translateY(-1px) }
+.role-btn.active { border-color:currentColor; transform:translateY(-1px); box-shadow:0 2px 8px rgba(0,0,0,.1) }
+.role-btn .rb-ico  { font-size:18px; line-height:1 }
+.role-btn .rb-name { font-size:10.5px; font-weight:700; line-height:1.2 }
+.role-btn .rb-desc { font-size:8.5px; color:var(--txt3); line-height:1.3; font-weight:400 }
+.role-btn.rb-corpsec.active  { background:#f0fdf4; border-color:#15803d; color:#15803d }
+.role-btn.rb-sales.active    { background:#eff4ff; border-color:#1e56c6; color:#1e56c6 }
+.role-btn.rb-ops.active      { background:#fff7ed; border-color:#c2410c; color:#c2410c }
+.role-btn.rb-super.active    { background:#f5f3ff; border-color:#5b21b6; color:#5b21b6 }
+
+/* ── ROLE LOCK ── */
+.role-lock-msg { display:flex; align-items:center; gap:8px; padding:10px 13px; background:#fffbeb; border:1px solid var(--amber-bd); border-radius:var(--r); margin-bottom:12px; font-size:11.5px; color:var(--amber) }
+.role-lock-msg strong { font-size:13px }
+
+/* ── RESTRICTED FIELD ── */
+.fi:disabled, select.fi:disabled { background:#f1f5f9; color:#94a3b8; cursor:not-allowed; border-color:var(--border); opacity:.7 }
+.field-restricted { position:relative }
+.field-restricted::after { content:attr(data-tip); display:none; position:absolute; bottom:calc(100% + 4px); left:0; background:var(--navy); color:#fff; font-size:10px; padding:4px 8px; border-radius:var(--r); white-space:nowrap; z-index:100; pointer-events:none }
+.field-restricted:hover::after { display:block }
+.restricted-badge { font-size:9px; font-weight:700; padding:1px 5px; border-radius:3px; background:#f1f5f9; color:#94a3b8; border:1px solid var(--border); vertical-align:middle; margin-left:4px }
+
+/* ── SECTION CARD (role-gated) ── */
+.ef-section-card { border:1px solid var(--border); border-radius:var(--r2); margin-bottom:12px; overflow:hidden }
+.ef-section-card.locked { opacity:.55; pointer-events:none }
+.ef-sec-hd { display:flex; align-items:center; justify-content:space-between; padding:8px 13px; background:var(--bg); border-bottom:1px solid var(--border) }
+.ef-sec-title { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--txt3) }
+.ef-sec-role  { font-size:9px; font-weight:700; padding:1px 6px; border-radius:3px }
+.ef-sec-body  { padding:12px 13px }
+.ef-sec-unlocked .ef-sec-hd { background:var(--surf) }
+.ef-sec-unlocked .ef-sec-title { color:var(--txt) }
+
+/* ── ROLE ACCESS LABEL ── */
+.role-access-label { display:inline-flex; align-items:center; gap:3px; font-size:9px; font-weight:700; padding:1px 6px; border-radius:3px; margin-bottom:8px }
+.ral-corpsec  { background:#f0fdf4; color:#15803d; border:1px solid #86efac }
+.ral-sales    { background:#eff4ff; color:#1e56c6; border:1px solid #c3d3f9 }
+.ral-ops      { background:#fff7ed; color:#c2410c; border:1px solid #fed7aa }
+.ral-super    { background:#f5f3ff; color:#5b21b6; border:1px solid #ddd6fe }
 
 
 </style>
@@ -1113,103 +1158,200 @@ tr:hover td { background:#f9fafb }
         <div style="margin-top:13px;display:flex;justify-content:flex-end"><button class="btn btn-s" onclick="dlTemplate()">↓ Download Template</button></div>
       </div>
       <div id="mt-manual" class="m-sec">
-        <div class="form-row">
-          <div class="fl">Select Company</div>
-          <select class="fi" id="editCo" onchange="loadEdit()"><option value="">— Select company to edit —</option></select>
+
+        <!-- ══ STEP 1 — ROLE SELECTION (always visible, always first) ══ -->
+        <div class="role-banner">
+          <div class="role-banner-lbl">
+            <span>🔐</span> Step 1 — Select Your Role to Enable Editing
+          </div>
+          <div class="role-grid">
+            <button class="role-btn rb-corpsec" onclick="selectRole('CorpSec',this)" title="Manages Submission, PERTEK & SPI entries">
+              <span class="rb-ico">🏛</span>
+              <span class="rb-name">CorpSec</span>
+              <span class="rb-desc">Submission · PERTEK · SPI</span>
+            </button>
+            <button class="role-btn rb-sales" onclick="selectRole('Sales',this)" title="Updates Utilization, Target Re-Apply and ETA JKT">
+              <span class="rb-ico">💼</span>
+              <span class="rb-name">Sales</span>
+              <span class="rb-desc">Utilization · Target Re-Apply · ETA JKT</span>
+            </button>
+            <button class="role-btn rb-ops" onclick="selectRole('Operations',this)" title="Records Berat Realized and PIB Release Date">
+              <span class="rb-ico">🚢</span>
+              <span class="rb-name">Operations</span>
+              <span class="rb-desc">Berat Realized · PIB Release Date</span>
+            </button>
+            <button class="role-btn rb-super" onclick="selectRole('SuperAdmin',this)" title="Full access to all fields">
+              <span class="rb-ico">⚙️</span>
+              <span class="rb-name">Super Admin</span>
+              <span class="rb-desc">Full access — all fields</span>
+            </button>
+          </div>
         </div>
 
+        <!-- ══ STEP 2 — COMPANY SELECT (locked until role chosen) ══ -->
+        <div id="roleLockMsg" class="role-lock-msg">
+          <span style="font-size:18px">🔒</span>
+          <span><strong>Role not selected.</strong> Please choose your role above to enable company selection and editing.</span>
+        </div>
+
+        <div class="form-row">
+          <div class="fl">Step 2 — Select Company</div>
+          <select class="fi" id="editCo" onchange="loadEdit()" disabled style="cursor:not-allowed">
+            <option value="">— Select company to edit —</option>
+          </select>
+        </div>
+
+        <!-- ══ STEP 3 — EDIT FIELDS (shown after company selected) ══ -->
         <div id="editFields" style="display:none">
 
-          <!-- live preview strip -->
+          <!-- Active Role Badge + Live Preview -->
           <div id="editPreview" style="margin-bottom:14px;padding:10px 13px;background:var(--blue-bg);border:1px solid var(--blue-bd);border-radius:var(--r);font-size:11px;line-height:1.8;color:var(--txt2)">
             <span id="epContent">—</span>
           </div>
 
-          <!-- ── SECTION: Submission ─────────────────────────── -->
-          <div class="ef-sec">📋 Submission</div>
-          <div class="form-grid">
-            <div class="form-row">
-              <div class="fl">Submit MT <span class="ef-hint">Feeds KPI — Total Submitted</span></div>
-              <input class="fi" id="eSubmitMT" type="text" inputmode="numeric" placeholder="e.g. 6,000" oninput="fmtThousand(this);livePreview()">
+          <!-- ══ SECTION A — SUBMISSION (CorpSec · SuperAdmin) ══ -->
+          <div class="ef-section-card" id="sec-submission">
+            <div class="ef-sec-hd">
+              <span class="ef-sec-title">📋 Submission — Submit MT &amp; Date</span>
+              <span class="ef-sec-role ral-corpsec" id="secRole-submission">🏛 CorpSec · ⚙️ Super Admin</span>
             </div>
-            <div class="form-row">
-              <div class="fl">Submit Date <span class="ef-hint">DD/MM/YYYY · used by period filter</span></div>
-              <input class="fi" id="eSubmitDate" type="text" placeholder="e.g. 27/10/2025" oninput="livePreview()">
-            </div>
-          </div>
-
-          <!-- ── SECTION: PERTEK ─────────────────────────────── -->
-          <div class="ef-sec">📄 PERTEK — moves company to Obtained when date is set</div>
-          <div class="form-grid">
-            <div class="form-row">
-              <div class="fl">PERTEK No. <span class="ef-hint">Alphanumeric · linked to Terbit date</span></div>
-              <input class="fi" id="ePertekNo" type="text" placeholder="e.g. B-1234/ILMATE/2025" oninput="livePreview()">
-            </div>
-            <div class="form-row">
-              <div class="fl">PERTEK Terbit <span class="ef-hint">DD/MM/YYYY · triggers KPI2</span></div>
-              <input class="fi" id="ePertekDate" type="text" placeholder="e.g. 01/03/2026" oninput="livePreview()">
-            </div>
-            <div class="form-row">
-              <div class="fl">Obtained MT <span class="ef-hint">Feeds KPI — SPI/PERTEK Obtained</span></div>
-              <input class="fi" id="eObtainedMT" type="text" inputmode="numeric" placeholder="e.g. 400" oninput="fmtThousand(this);livePreview()">
+            <div class="ef-sec-body">
+              <div class="form-grid">
+                <div class="form-row field-restricted" id="wrap-eSubmitMT" data-tip="Restricted by role">
+                  <div class="fl">Submit MT <span class="ef-hint">Feeds KPI — Total Submitted</span></div>
+                  <input class="fi" id="eSubmitMT" type="text" inputmode="numeric" placeholder="e.g. 6,000" oninput="fmtThousand(this);livePreview()">
+                </div>
+                <div class="form-row field-restricted" id="wrap-eSubmitDate" data-tip="Restricted by role">
+                  <div class="fl">Submit Date <span class="ef-hint">DD/MM/YYYY · used by period filter</span></div>
+                  <input class="fi" id="eSubmitDate" type="text" placeholder="e.g. 27/10/2025" oninput="livePreview()">
+                </div>
+              </div>
+              <div class="form-row field-restricted" id="wrap-eStatusUpdate" data-tip="Restricted by role" style="margin-top:8px">
+                <div class="fl">Status Update <span class="ef-hint">Submission progress · Internal notes · Follow-up remarks (CorpSec only)</span></div>
+                <textarea class="fi" id="eStatusUpdate" rows="3" placeholder="e.g. Submitted to MoI on 27/10/2025 · Awaiting PERTEK release · Follow-up scheduled 05/11/2025…" style="resize:vertical;min-height:60px;font-family:inherit;font-size:12px;line-height:1.5" oninput="livePreview()"></textarea>
+              </div>
             </div>
           </div>
 
-          <!-- ── SECTION: SPI ────────────────────────────────── -->
-          <div class="ef-sec">✅ SPI — updates status to SPI Issued when date is set</div>
-          <div class="form-grid">
-            <div class="form-row">
-              <div class="fl">SPI No. <span class="ef-hint">Alphanumeric · linked to Terbit date</span></div>
-              <input class="fi" id="eSpiNo" type="text" placeholder="e.g. SPI-456/DAGLU/2026" oninput="livePreview()">
+          <!-- ══ SECTION B — PERTEK (CorpSec · SuperAdmin) ══ -->
+          <div class="ef-section-card" id="sec-pertek">
+            <div class="ef-sec-hd">
+              <span class="ef-sec-title">📄 PERTEK — Moves company to Obtained when date is set</span>
+              <span class="ef-sec-role ral-corpsec" id="secRole-pertek">🏛 CorpSec · ⚙️ Super Admin</span>
             </div>
-            <div class="form-row">
-              <div class="fl">SPI Terbit <span class="ef-hint">DD/MM/YYYY · updates spiRef</span></div>
-              <input class="fi" id="eSpiDate" type="text" placeholder="e.g. 15/03/2026" oninput="livePreview()">
-            </div>
-          </div>
-
-          <!-- ── SECTION: Realization & Status ─────────────── -->
-          <div class="ef-sec">🚢 Realization, Utilization &amp; Status</div>
-          <div class="form-grid">
-            <div class="form-row" style="grid-column:1/-1">
-              <div class="fl">Updated By <span class="ef-hint">Who is entering this update?</span></div>
-              <select class="fi" id="eUpdatedBy" oninput="livePreview()">
-                <option value="">— Select role —</option>
-                <option value="Sales">Sales</option>
-                <option value="CorpSec">CorpSec</option>
-                <option value="System">System</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <div class="fl">Status / SPI Reference <span class="ef-hint">Free-text override</span></div>
-              <input class="fi" id="eStatus" type="text" placeholder="e.g. SPI TERBIT 26/02/26">
-            </div>
-            <div class="form-row">
-              <div class="fl">Utilization MT <span class="ef-hint">Actual usage from obtained quota</span></div>
-              <input class="fi" id="eUtilMT" type="text" inputmode="numeric" placeholder="e.g. 1,200" oninput="fmtThousand(this);livePreview()">
-              <div style="font-size:10px;color:var(--txt3);margin-top:3px">Available Quota = Obtained − Utilization</div>
-            </div>
-            <div class="form-row">
-              <div class="fl">Berat Realized (MT)</div>
-              <input class="fi" id="eBerat" type="number" placeholder="0">
-            </div>
-            <div class="form-row">
-              <div class="fl">ETA Jakarta</div>
-              <input class="fi" id="eETA" type="text" placeholder="e.g. 07 Mar 26">
-            </div>
-            <div class="form-row">
-              <div class="fl">Target Re-Apply (MT)</div>
-              <input class="fi" id="eTarget" type="number" placeholder="0">
-            </div>
-            <div class="form-row" style="grid-column:1/-1">
-              <div class="fl">Remarks</div>
-              <input class="fi" id="eRem" type="text" placeholder="Free text">
+            <div class="ef-sec-body">
+              <div class="notice n-blue" style="margin-bottom:10px;font-size:11px">
+                <strong>Auto-action:</strong> When PERTEK Terbit Date is filled → company moves to <em>Obtained</em> category · KPIs &amp; charts recalculate.
+              </div>
+              <div class="form-grid">
+                <div class="form-row field-restricted" id="wrap-ePertekNo" data-tip="Restricted by role">
+                  <div class="fl">PERTEK No. <span class="ef-hint">Alphanumeric · linked to Terbit date</span></div>
+                  <input class="fi" id="ePertekNo" type="text" placeholder="e.g. B-1234/ILMATE/2025" oninput="livePreview()">
+                </div>
+                <div class="form-row field-restricted" id="wrap-ePertekDate" data-tip="Restricted by role">
+                  <div class="fl">PERTEK Terbit Date <span class="ef-hint">DD/MM/YYYY · triggers KPI2</span></div>
+                  <input class="fi" id="ePertekDate" type="text" placeholder="e.g. 01/03/2026" oninput="livePreview()">
+                </div>
+                <div class="form-row field-restricted" id="wrap-eObtainedMT" data-tip="Restricted by role">
+                  <div class="fl">Obtained MT <span class="ef-hint">Feeds KPI — SPI/PERTEK Obtained</span></div>
+                  <input class="fi" id="eObtainedMT" type="text" inputmode="numeric" placeholder="e.g. 400" oninput="fmtThousand(this);livePreview()">
+                </div>
+              </div>
             </div>
           </div>
 
-          <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px">
-            <button class="btn btn-s" onclick="cancelEdit()">Cancel</button>
-            <button class="btn btn-p" onclick="saveEdit()">💾 Save &amp; Refresh All</button>
+          <!-- ══ SECTION C — SPI (CorpSec · SuperAdmin) ══ -->
+          <div class="ef-section-card" id="sec-spi">
+            <div class="ef-sec-hd">
+              <span class="ef-sec-title">✅ SPI — Updates status to SPI Issued when date is set</span>
+              <span class="ef-sec-role ral-corpsec" id="secRole-spi">🏛 CorpSec · ⚙️ Super Admin</span>
+            </div>
+            <div class="ef-sec-body">
+              <div class="notice n-green" style="margin-bottom:10px;font-size:11px">
+                <strong>Auto-action:</strong> When SPI Terbit Date is filled → status becomes <em>SPI Issued</em> · dashboard recalculates.
+              </div>
+              <div class="form-grid">
+                <div class="form-row field-restricted" id="wrap-eSpiNo" data-tip="Restricted by role">
+                  <div class="fl">SPI No. <span class="ef-hint">Alphanumeric · linked to Terbit date</span></div>
+                  <input class="fi" id="eSpiNo" type="text" placeholder="e.g. SPI-456/DAGLU/2026" oninput="livePreview()">
+                </div>
+                <div class="form-row field-restricted" id="wrap-eSpiDate" data-tip="Restricted by role">
+                  <div class="fl">SPI Terbit Date <span class="ef-hint">DD/MM/YYYY · triggers SPI Issued status</span></div>
+                  <input class="fi" id="eSpiDate" type="text" placeholder="e.g. 15/03/2026" oninput="livePreview()">
+                </div>
+                <div class="form-row field-restricted" id="wrap-eStatus" data-tip="Restricted by role">
+                  <div class="fl">Status / SPI Reference <span class="ef-hint">Free-text override</span></div>
+                  <input class="fi" id="eStatus" type="text" placeholder="e.g. SPI TERBIT 26/02/26">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ SECTION D — OPERATIONS: Berat Realized & PIB Release Date (Operations · SuperAdmin) ══ -->
+          <div class="ef-section-card" id="sec-operations">
+            <div class="ef-sec-hd">
+              <span class="ef-sec-title">🚢 Operations — Berat Realized &amp; PIB Release Date</span>
+              <span class="ef-sec-role ral-ops" id="secRole-operations">🚢 Operations · ⚙️ Super Admin</span>
+            </div>
+            <div class="ef-sec-body">
+              <div class="form-grid">
+                <div class="form-row field-restricted" id="wrap-eBerat" data-tip="Restricted by role">
+                  <div class="fl">Berat Realized (MT) <span class="ef-hint">Import arrived in Jakarta &amp; Beacukai-registered</span></div>
+                  <input class="fi" id="eBerat" type="number" placeholder="e.g. 800" oninput="livePreview()">
+                </div>
+                <div class="form-row field-restricted" id="wrap-ePIBRelease" data-tip="Restricted by role">
+                  <div class="fl">PIB Release Date <span class="ef-hint">DD/MM/YYYY · Beacukai PIB release date (Operations only)</span></div>
+                  <input class="fi" id="ePIBRelease" type="text" placeholder="e.g. 24 Feb 26">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ SECTION E — SALES: Utilization, Target Re-Apply & ETA JKT (Sales · SuperAdmin) ══ -->
+          <div class="ef-section-card" id="sec-sales">
+            <div class="ef-sec-hd">
+              <span class="ef-sec-title">💼 Sales — Utilization, Target Re-Apply &amp; ETA JKT</span>
+              <span class="ef-sec-role ral-sales" id="secRole-sales">💼 Sales · ⚙️ Super Admin</span>
+            </div>
+            <div class="ef-sec-body">
+              <div class="form-grid">
+                <div class="form-row field-restricted" id="wrap-eUtilMT" data-tip="Restricted by role">
+                  <div class="fl">Utilization MT <span class="ef-hint">Sold to customers from obtained quota</span></div>
+                  <input class="fi" id="eUtilMT" type="text" inputmode="numeric" placeholder="e.g. 1,200" oninput="fmtThousand(this);livePreview()">
+                  <div id="availQuotaHint" style="font-size:10px;color:var(--txt3);margin-top:3px">Available Quota = Obtained − Utilization</div>
+                </div>
+                <div class="form-row field-restricted" id="wrap-eTarget" data-tip="Restricted by role">
+                  <div class="fl">Target Re-Apply (MT) <span class="ef-hint">Planned additional quota to apply</span></div>
+                  <input class="fi" id="eTarget" type="number" placeholder="e.g. 500">
+                </div>
+                <div class="form-row field-restricted" id="wrap-eETA" data-tip="Restricted by role">
+                  <div class="fl">ETA JKT <span class="ef-hint">Estimated cargo arrival at Jakarta (Sales updates only)</span></div>
+                  <input class="fi" id="eETA" type="text" placeholder="e.g. 07 Mar 26">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══ SECTION F — REMARKS (SuperAdmin only) ══ -->
+          <div class="ef-section-card" id="sec-remarks">
+            <div class="ef-sec-hd">
+              <span class="ef-sec-title">📝 Remarks &amp; Notes</span>
+              <span class="ef-sec-role ral-super" id="secRole-remarks">⚙️ Super Admin only</span>
+            </div>
+            <div class="ef-sec-body">
+              <div class="form-row field-restricted" id="wrap-eRem" data-tip="Restricted by role">
+                <div class="fl">Remarks <span class="ef-hint">Free text · internal notes only</span></div>
+                <input class="fi" id="eRem" type="text" placeholder="Internal notes…">
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:16px;padding-top:12px;border-top:1px solid var(--border)">
+            <div id="activeRoleBadge" style="font-size:11px;color:var(--txt3)">No role selected</div>
+            <div style="display:flex;gap:8px">
+              <button class="btn btn-s" onclick="cancelEdit()">Cancel</button>
+              <button class="btn btn-p" id="saveBtn" onclick="saveEdit()" disabled style="opacity:.45;cursor:not-allowed">💾 Save &amp; Refresh All</button>
+            </div>
           </div>
         </div>
       </div>
@@ -3377,6 +3519,7 @@ function openDrawer(code) {
     <div class="dl-r"><div class="dl-k">SPI / Pertek</div><div class="dl-v" style="font-size:11.5px;font-family:'DM Mono',monospace;line-height:1.5">${co.spiRef}</div></div>
     ${co.pertekNo?`<div class="dl-r"><div class="dl-k">PERTEK No.</div><div class="dl-v" style="font-family:'DM Mono',monospace;color:var(--blue)">${co.pertekNo}</div></div>`:''}
     ${co.spiNo?`<div class="dl-r"><div class="dl-k">SPI No.</div><div class="dl-v" style="font-family:'DM Mono',monospace;color:var(--teal)">${co.spiNo}</div></div>`:''}
+    ${co.statusUpdate?`<div class="dl-r"><div class="dl-k" style="color:var(--violet)">📝 Status Update</div><div class="dl-v" style="font-size:11.5px;white-space:pre-wrap;line-height:1.5;color:var(--txt2)">${co.statusUpdate}</div></div>`:''}
     ${co.utilizationMT!=null?`<div class="dl-r"><div class="dl-k">Utilization MT</div><div class="dl-v" style="font-family:'DM Mono',monospace">${co.utilizationMT.toLocaleString()} MT</div></div>`:''}
     ${co.availableQuota!=null?`<div class="dl-r"><div class="dl-k">Available Quota</div><div class="dl-v" style="font-weight:700;color:${co.availableQuota>=0?'var(--teal)':'var(--red2)'};font-family:'DM Mono',monospace">${co.availableQuota.toLocaleString()} MT</div></div>`:''}
     ${co.updatedBy?`<div class="dl-r"><div class="dl-k">Last Updated By</div><div class="dl-v"><span class="upd-tag upd-${co.updatedBy.toLowerCase()}">${co.updatedBy}</span>${co.updatedDate?' · '+co.updatedDate:''}</div></div>`:''}
@@ -3648,7 +3791,22 @@ function navFilter(f) {
 /* ══════════════════════════════════════════════════
    IMPORT / EXPORT
 ══════════════════════════════════════════════════ */
-function openImport()  { document.getElementById('importModal').classList.add('open'); }
+function openImport()  {
+  document.getElementById('importModal').classList.add('open');
+  // Reset role state each time modal is opened (security — fresh session per open)
+  currentRole = null;
+  document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+  const lm = g('roleLockMsg');
+  if (lm) lm.style.display = '';
+  const ec = g('editCo');
+  if (ec) { ec.disabled = true; ec.style.cursor = 'not-allowed'; ec.value = ''; }
+  const ef = g('editFields');
+  if (ef) ef.style.display = 'none';
+  const ab = g('activeRoleBadge');
+  if (ab) ab.innerHTML = 'No role selected';
+  const sb = g('saveBtn');
+  if (sb) { sb.disabled = true; sb.style.opacity = '.45'; sb.style.cursor = 'not-allowed'; }
+}
 function closeImport() { document.getElementById('importModal').classList.remove('open'); }
 function setMTab(id,el){ document.querySelectorAll('.mtab').forEach(t=>t.classList.remove('active')); el.classList.add('active'); document.querySelectorAll('.m-sec').forEach(s=>s.classList.remove('active')); document.getElementById('mt-'+id).classList.add('active'); }
 function handleDrop(e) { e.preventDefault(); document.getElementById('dropZ').classList.remove('over'); processFile(e.dataTransfer.files[0]); }
@@ -3680,10 +3838,9 @@ function livePreview() {
   const sd   = gv('eSpiDate');
   const pn   = gv('ePertekNo');
   const sn   = gv('eSpiNo');
-  const who  = gv('eUpdatedBy');
-  const whoTag = who === 'Sales'   ? `<span class="upd-tag upd-sales">👤 Sales</span>`
-               : who === 'CorpSec' ? `<span class="upd-tag upd-corpsec">🏛 CorpSec</span>`
-               : who               ? `<span class="upd-tag upd-system">⚙ ${who}</span>` : '';
+  const who  = currentRole;
+  const roleColors = { CorpSec:'upd-corpsec', Sales:'upd-sales', Operations:'upd-ops', SuperAdmin:'upd-superadmin' };
+  const whoTag = who ? `<span class="upd-tag ${roleColors[who]||'upd-system'}">${who}</span>` : '';
   const hasPERTEK = pd && pd !== 'TBA';
   const hasSPI    = sd && sd !== 'TBA';
   const cat = hasSPI    ? '<span style="color:var(--teal);font-weight:700">✅ SPI Issued</span>'
@@ -3705,6 +3862,117 @@ function livePreview() {
 function cancelEdit() {
   g('editFields').style.display = 'none';
   g('epContent').innerHTML = '—';
+}
+
+/* ══════════════════════════════════════════════════
+   ROLE-BASED ACCESS CONTROL
+══════════════════════════════════════════════════ */
+let currentRole = null; // null = no role selected
+
+/* Role → which field IDs are EDITABLE (all others locked) */
+const ROLE_PERMISSIONS = {
+  CorpSec:    ['eSubmitMT','eSubmitDate','ePertekNo','ePertekDate','eObtainedMT','eSpiNo','eSpiDate','eStatus','eStatusUpdate'],
+  Sales:      ['eUtilMT','eTarget','eETA'],
+  Operations: ['eBerat','ePIBRelease'],
+  SuperAdmin: ['eSubmitMT','eSubmitDate','ePertekNo','ePertekDate','eObtainedMT','eSpiNo','eSpiDate','eStatus','eStatusUpdate','eBerat','ePIBRelease','eETA','eUtilMT','eTarget','eRem'],
+};
+
+/* Sections locked per role */
+const SECTION_ACCESS = {
+  CorpSec:    ['sec-submission','sec-pertek','sec-spi'],
+  Sales:      ['sec-sales'],
+  Operations: ['sec-operations'],
+  SuperAdmin: ['sec-submission','sec-pertek','sec-spi','sec-operations','sec-sales','sec-remarks'],
+};
+
+function selectRole(role, btn) {
+  currentRole = role;
+
+  // Update button visual state
+  document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Hide the lock message, enable company select
+  g('roleLockMsg').style.display = 'none';
+  g('editCo').disabled = false;
+  g('editCo').style.cursor = '';
+
+  // Update active role badge in footer
+  const roleLabels = {
+    CorpSec:    '🏛 CorpSec — can edit: Submission · PERTEK · SPI · Status Update',
+    Sales:      '💼 Sales — can edit: Utilization · Target Re-Apply · ETA JKT',
+    Operations: '🚢 Operations — can edit: Berat Realized · PIB Release Date',
+    SuperAdmin: '⚙️ Super Admin — full access to all fields',
+  };
+  const el = g('activeRoleBadge');
+  if (el) {
+    const roleColors = { CorpSec:'ral-corpsec', Sales:'ral-sales', Operations:'ral-ops', SuperAdmin:'ral-super' };
+    el.innerHTML = `<span class="role-access-label ${roleColors[role]||''}">${roleLabels[role]||role}</span>`;
+  }
+
+  // Apply permissions if fields are already visible
+  if (g('editFields').style.display !== 'none') {
+    applyRolePermissions();
+    livePreview();
+  }
+}
+
+function applyRolePermissions() {
+  if (!currentRole) return;
+
+  const allowed    = ROLE_PERMISSIONS[currentRole] || [];
+  const secAllowed = SECTION_ACCESS[currentRole]   || [];
+
+  // All known field IDs
+  const ALL_FIELDS = ['eSubmitMT','eSubmitDate','ePertekNo','ePertekDate','eObtainedMT',
+                      'eSpiNo','eSpiDate','eStatus','eStatusUpdate','eBerat','ePIBRelease','eETA','eUtilMT','eTarget','eRem'];
+  const ALL_SECTIONS = ['sec-submission','sec-pertek','sec-spi','sec-operations','sec-sales','sec-remarks'];
+
+  // Enable/disable individual fields
+  ALL_FIELDS.forEach(id => {
+    const el = g(id);
+    if (!el) return;
+    const isAllowed = allowed.includes(id);
+    el.disabled = !isAllowed;
+    const wrap = g('wrap-' + id);
+    if (wrap) {
+      wrap.style.opacity   = isAllowed ? '1' : '0.55';
+      wrap.style.cursor    = isAllowed ? '' : 'not-allowed';
+      wrap.title           = isAllowed ? '' : 'Restricted by role';
+    }
+  });
+
+  // Lock/unlock section cards visually
+  ALL_SECTIONS.forEach(secId => {
+    const el = g(secId);
+    if (!el) return;
+    const isOpen = secAllowed.includes(secId);
+    el.classList.toggle('locked', !isOpen);
+    // Add/remove lock indicator in section header
+    const hd = el.querySelector('.ef-sec-hd');
+    if (hd) {
+      let lockIco = hd.querySelector('.sec-lock-ico');
+      if (!isOpen) {
+        if (!lockIco) {
+          lockIco = document.createElement('span');
+          lockIco.className = 'sec-lock-ico';
+          lockIco.style.cssText = 'font-size:11px;margin-left:6px;opacity:.6';
+          lockIco.textContent = '🔒';
+          el.querySelector('.ef-sec-title').appendChild(lockIco);
+        }
+      } else if (lockIco) {
+        lockIco.remove();
+      }
+    }
+  });
+
+  // Enable save button once role is selected and company is selected
+  const saveBtn = g('saveBtn');
+  if (saveBtn) {
+    saveBtn.disabled = false;
+    saveBtn.style.opacity = '1';
+    saveBtn.style.cursor  = '';
+  }
 }
 
 /* ── Load current values into all fields ──────────────── */
@@ -3743,14 +4011,18 @@ function loadEdit() {
 
   // ── Realization & status ──
   g('eStatus').value     = co ? (co.spiRef || '') : '';
+  g('eStatusUpdate').value = co ? (co.statusUpdate || '') : '';
   g('eUtilMT').value     = (co && co.utilizationMT != null) ? co.utilizationMT.toLocaleString() : (ra && ra.berat ? ra.berat.toLocaleString() : '');
   g('eBerat').value      = ra ? (ra.berat || '') : '';
   g('eETA').value        = ra ? (ra.etaJKT || '') : '';
+  g('ePIBRelease').value = ra ? (ra.pibReleaseDate || '') : '';
   g('eTarget').value     = ra && ra.target ? ra.target : '';
   g('eRem').value        = co ? (co.remarks || '') : '';
-  g('eUpdatedBy').value  = co ? (co.updatedBy || '') : '';
 
   ef.style.display = 'block';
+
+  // Apply role-based field permissions
+  applyRolePermissions();
   livePreview();
 }
 
@@ -3759,19 +4031,30 @@ function saveEdit() {
   const c = gv('editCo');
   if (!c) return;
 
-  // Read all fields
-  const newSubmitMT   = parseMTField('eSubmitMT');
-  const newSubmitDate = gv('eSubmitDate');
-  const newPertekNo   = gv('ePertekNo');
-  const newPertekDate = gv('ePertekDate');
-  const newObtainedMT = parseMTField('eObtainedMT');
-  const newSpiNo      = gv('eSpiNo');
-  const newSpiDate    = gv('eSpiDate');
-  const newStatus     = gv('eStatus');
-  const newBerat      = parseFloat(g('eBerat').value);
-  const newETA        = gv('eETA');
-  const newTarget     = parseFloat(g('eTarget').value);
-  const newRem        = gv('eRem');
+  // ── Role guard: must have a role selected ──
+  if (!currentRole) {
+    alert('Please select your role before saving.');
+    return;
+  }
+
+  const allowed = ROLE_PERMISSIONS[currentRole] || [];
+  const can = id => allowed.includes(id);
+
+  // Read only allowed fields (others return null/NaN — ignored in mutation logic)
+  const newSubmitMT   = can('eSubmitMT')   ? parseMTField('eSubmitMT')  : null;
+  const newSubmitDate = can('eSubmitDate')  ? gv('eSubmitDate')          : null;
+  const newPertekNo   = can('ePertekNo')   ? gv('ePertekNo')             : null;
+  const newPertekDate = can('ePertekDate') ? gv('ePertekDate')           : null;
+  const newObtainedMT = can('eObtainedMT') ? parseMTField('eObtainedMT'): null;
+  const newSpiNo      = can('eSpiNo')      ? gv('eSpiNo')                : null;
+  const newSpiDate    = can('eSpiDate')    ? gv('eSpiDate')              : null;
+  const newStatus     = can('eStatus')     ? gv('eStatus')               : null;
+  const newStatusUpdate = can('eStatusUpdate') ? g('eStatusUpdate').value.trim() : null;
+  const newBerat      = can('eBerat')      ? parseFloat(g('eBerat').value): NaN;
+  const newETA        = can('eETA')        ? gv('eETA')                  : null;
+  const newPIBRelease = can('ePIBRelease') ? gv('ePIBRelease')           : null;
+  const newTarget     = can('eTarget')     ? parseFloat(g('eTarget').value): NaN;
+  const newRem        = can('eRem')        ? gv('eRem')                  : null;
 
   const hasPERTEK = newPertekDate !== '';
   const hasSPI    = newSpiDate    !== '';
@@ -3894,9 +4177,10 @@ function saveEdit() {
     }
 
     if (newRem) co.remarks = newRem;
+    if (newStatusUpdate !== null) co.statusUpdate = newStatusUpdate;
 
     // Utilization MT + Available Quota
-    const newUtilMT = parseMTField('eUtilMT');
+    const newUtilMT = can('eUtilMT') ? parseMTField('eUtilMT') : null;
     if (newUtilMT != null) {
       co.utilizationMT  = newUtilMT;
       co.availableQuota = co.obtained - newUtilMT;
@@ -3906,7 +4190,7 @@ function saveEdit() {
     }
 
     // Updated By
-    const newUpdatedBy = gv('eUpdatedBy');
+    const newUpdatedBy = currentRole;
     if (newUpdatedBy) {
       co.updatedBy   = newUpdatedBy;
       co.updatedDate = new Date().toLocaleDateString('id-ID',{day:'2-digit',month:'short',year:'numeric'});
@@ -3923,6 +4207,7 @@ function saveEdit() {
       else                 ra.utilPct = newBerat / obtMT;
     }
     if (newETA)            ra.etaJKT  = newETA;
+    if (newPIBRelease)     ra.pibReleaseDate = newPIBRelease;
     if (!isNaN(newTarget)) ra.target  = newTarget;
     if (newPertekNo)       ra.pertekNo = newPertekNo;
     if (newSpiNo)          ra.spiNo    = newSpiNo;
@@ -4006,6 +4291,17 @@ function exportExecutivePDF() {
 
   const appRate     = s1_mt > 0 ? (s2_mt/s1_mt*100).toFixed(1) : '—';
   const periodLabel = PERIOD.active ? PERIOD.label : 'All Time';
+
+  // Available Quota — Obtained minus consumed volume (Berat Realized or Utilized)
+  // Priority: 1) manually saved availableQuota, 2) obtained - utilizationMT, 3) obtained - RA.berat
+  // Companies with NO consumption data at all are excluded to avoid inflating the total
+  const availQuotaTotal = filteredSPI().reduce((sum, co) => {
+    if (co.availableQuota != null) return sum + co.availableQuota;
+    if (co.utilizationMT != null && co.obtained != null) return sum + (co.obtained - co.utilizationMT);
+    const ra = RA.find(r => r.code === co.code);
+    if (ra && co.obtained) return sum + (co.obtained - (ra.berat || 0));
+    return sum; // skip — no consumption data, don't inflate with full obtained
+  }, 0);
 
   // Top 5 Products by obtained MT (PERTEK Terbit filter)
   const prodMap = {};
@@ -4265,7 +4561,7 @@ function exportExecutivePDF() {
       <div class="sb">${PERIOD.active ? periodLabel : 'All Submissions'}</div>
     </div>
 
-    <div class="kg">
+    <div class="kg" style="grid-template-columns:repeat(5,1fr)">
       <div class="kc" style="border-top-color:#0c7c84">
         <div class="kl">Total Submitted</div>
         <div class="kv" style="color:#0c7c84">${N(s1_mt)}</div>
@@ -4277,6 +4573,12 @@ function exportExecutivePDF() {
         <div class="kv" style="color:#1e4ea6">${N(s2_mt)}</div>
         <div class="ku">MT &nbsp;·&nbsp; ${s2_co.size} companies</div>
         <div class="kn">Approval rate: ${appRate}%</div>
+      </div>
+      <div class="kc" style="border-top-color:#0f766e">
+        <div class="kl">Available Quota</div>
+        <div class="kv" style="color:#0f766e">${N(availQuotaTotal)}</div>
+        <div class="ku">MT remaining across companies</div>
+        <div class="kn">Obtained − Utilization</div>
       </div>
       <div class="kc" style="border-top-color:#15803d">
         <div class="kl">Cargo Realized</div>
@@ -4316,6 +4618,97 @@ function exportExecutivePDF() {
       </ul>
     </div>
 
+    ${(() => {
+      // Build available quota breakdown by product
+      // For each SPI company, determine available quota and split by product type
+      const prodAvail = {};
+      filteredSPI().forEach(co => {
+        // Determine available quota for this company
+        let avq = null;
+        if (co.availableQuota != null) avq = co.availableQuota;
+        else if (co.utilizationMT != null && co.obtained != null) avq = co.obtained - co.utilizationMT;
+        else {
+          const ra = RA.find(r => r.code === co.code);
+          if (ra && co.obtained) avq = co.obtained - (ra.berat || 0);
+        }
+        if (avq == null || avq <= 0) return; // skip companies with nothing available
+        // Distribute avq proportionally across products from Obtained cycles
+        const ac = co.cycles || [];
+        let prodMT = {};
+        let cycleTotal = 0;
+        ac.forEach(c => {
+          if (!/^obtained #/i.test(c.type)) return;
+          Object.entries(c.products || {}).forEach(([p, v]) => {
+            const val = typeof v === 'number' ? v : 0;
+            if (val > 0) { prodMT[p] = (prodMT[p] || 0) + val; cycleTotal += val; }
+          });
+        });
+        if (cycleTotal > 0) {
+          // Distribute avq proportionally by product share
+          Object.entries(prodMT).forEach(([p, v]) => {
+            const share = (v / cycleTotal) * avq;
+            prodAvail[p] = (prodAvail[p] || 0) + share;
+          });
+        } else if (co.products && co.products.length > 0) {
+          // Fallback: split equally across products
+          const perProd = avq / co.products.length;
+          co.products.forEach(p => { prodAvail[p] = (prodAvail[p] || 0) + perProd; });
+        }
+      });
+
+      const prodEntries = Object.entries(prodAvail)
+        .map(([p, v]) => [p, Math.round(v)])
+        .filter(([, v]) => v > 0)
+        .sort((a, b) => b[1] - a[1]);
+
+      if (!prodEntries.length) return '';
+
+      const totalAvail = prodEntries.reduce((s, [, v]) => s + v, 0);
+      const maxAvail = prodEntries[0][1];
+      const cols = ['#0f766e','#1e4ea6','#6d28d9','#0c7c84','#b45309','#dc2626','#0891b2','#ca8a04'];
+
+      const bars = prodEntries.map(([p, v], i) => {
+        const pct = totalAvail > 0 ? (v / totalAvail * 100).toFixed(0) : 0;
+        const barW = maxAvail > 0 ? Math.round((v / maxAvail) * 110) : 0;
+        const c = cols[i % cols.length];
+        const lbl = p.length > 16 ? p.slice(0, 15) + '…' : p;
+        return `<tr>
+          <td style="padding:3px 6px;font-size:7pt;font-weight:600;color:#1e293b;white-space:nowrap;width:110px">${lbl}</td>
+          <td style="padding:3px 4px">
+            <svg width="110" height="8" style="display:block;border-radius:2px;overflow:hidden">
+              <rect width="110" height="8" fill="#eef2f7"/>
+              <rect width="${barW}" height="8" fill="${c}"/>
+            </svg>
+          </td>
+          <td style="padding:3px 6px;font-size:7.5pt;font-weight:700;color:${c};text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap">${N(v)} MT</td>
+          <td style="padding:3px 4px;font-size:6.5pt;font-weight:700;color:#94a3b8;text-align:right;white-space:nowrap">${pct}%</td>
+        </tr>`;
+      }).join('');
+
+      const topProd = prodEntries[0];
+      const top2 = prodEntries.slice(0, 2).map(([p, v]) => `<strong>${p}</strong> (${N(v)} MT)`).join(' and ');
+
+      return `<div class="mkov" style="margin-top:8px;border-left-color:#0f766e">
+        <div class="mkov-ttl" style="color:#0f766e">Available Quota — Remaining Capacity by Product</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start">
+          <div>
+            <table style="width:100%;border-collapse:collapse">${bars}</table>
+            <div style="font-size:5.5pt;color:#94a3b8;margin-top:5px;font-style:italic">Available = Obtained − Consumed (Berat Realized / Utilized) · Proportional split per product</div>
+          </div>
+          <div>
+            <ul class="mkov-ul">
+              <li>Total available quota across all products: <strong style="color:#0f766e">${N(totalAvail)} MT</strong> across <strong>${prodEntries.length} product type${prodEntries.length > 1 ? 's' : ''}</strong>.</li>
+              <li>Largest available pool: ${top2}${prodEntries.length > 2 ? ` — leading the remaining ${prodEntries.length - 2} product type${prodEntries.length - 2 > 1 ? 's' : ''}` : ''}.</li>
+              <li>${topProd[1] / totalAvail >= 0.5
+                ? `<strong>${topProd[0]}</strong> dominates available capacity at <strong>${(topProd[1]/totalAvail*100).toFixed(0)}%</strong> of total remaining quota — priority deployment recommended.`
+                : `Available quota is distributed across multiple products — balanced realization pace expected across the portfolio.`}</li>
+              <li>Companies with no remaining quota (fully consumed or not yet entered) are excluded from this breakdown.</li>
+            </ul>
+          </div>
+        </div>
+      </div>`;
+    })()}
+
     <div class="sec">
       <div class="sn">2</div>
       <div class="st">Quota Distribution Analysis</div>
@@ -4338,6 +4731,44 @@ function exportExecutivePDF() {
               `</tr>`;
           }).join('')}
         </table>
+        ${(() => {
+          // Build SVG donut chart for products
+          const total = top5.reduce((s,[,v]) => s+v, 0);
+          const cols = ['#0c7c84','#1e4ea6','#6d28d9','#0e9c9c','#b45309'];
+          const r = 36, cx2 = 46, cy2 = 46, sw = 14;
+          let startAngle = -Math.PI/2;
+          const slices = top5.map(([nm,v],i) => {
+            const frac = v/total;
+            const angle = frac * 2 * Math.PI;
+            const x1 = cx2 + (r-sw/2)*Math.cos(startAngle);
+            const y1 = cy2 + (r-sw/2)*Math.sin(startAngle);
+            const x2 = cx2 + (r-sw/2)*Math.cos(startAngle+angle);
+            const y2 = cy2 + (r-sw/2)*Math.sin(startAngle+angle);
+            const large = angle > Math.PI ? 1 : 0;
+            const path = `M ${x1} ${y1} A ${r-sw/2} ${r-sw/2} 0 ${large} 1 ${x2} ${y2}`;
+            const slice = `<path d="${path}" fill="none" stroke="${cols[i]}" stroke-width="${sw}" stroke-linecap="round"/>`;
+            startAngle += angle;
+            return slice;
+          }).join('');
+          const legend = top5.map(([nm,v],i) => {
+            const pct = (v/total*100).toFixed(0);
+            const lbl = nm.length>13 ? nm.slice(0,12)+'…' : nm;
+            return `<div style="display:flex;align-items:center;gap:4px;margin-bottom:3px">
+              <span style="width:8px;height:8px;border-radius:2px;background:${cols[i]};flex-shrink:0;display:inline-block"></span>
+              <span style="font-size:6pt;color:#334155;flex:1">${lbl}</span>
+              <span style="font-size:6pt;font-weight:700;color:${cols[i]}">${pct}%</span>
+            </div>`;
+          }).join('');
+          return `<div style="display:flex;align-items:center;gap:10px;margin-top:8px;padding:6px;background:#fafcff;border-radius:5px;border:1px solid #f0f4f8">
+            <svg width="92" height="92" viewBox="0 0 92 92">
+              <circle cx="${cx2}" cy="${cy2}" r="${r-sw/2}" fill="none" stroke="#f1f5f9" stroke-width="${sw}"/>
+              ${slices}
+              <text x="${cx2}" y="${cy2-4}" text-anchor="middle" font-size="7" font-weight="700" fill="#182644" font-family="Helvetica,Arial">${N(total)}</text>
+              <text x="${cx2}" y="${cy2+6}" text-anchor="middle" font-size="5.5" fill="#64748b" font-family="Helvetica,Arial">MT Total</text>
+            </svg>
+            <div style="flex:1">${legend}</div>
+          </div>`;
+        })()}
         <div class="pnote">Volumes based on PERTEK-approved quota.${PERIOD.active?' Filtered to '+periodLabel+'.':''}</div>`
         : `<div style="font-size:7.5pt;color:#94a3b8;padding:20px 0;text-align:center;background:#fafcff;border-radius:5px;border:1px dashed #e2e8f0">No product data for selected period</div>`}
       </div>
@@ -4662,7 +5093,8 @@ function doExportXLSX() {
     'Re-Apply Eligible','Re-Apply Stage',
     'Target Re-Apply (MT)','Re-Apply Product',
     'PERTEK No.','SPI No.','Shipment Ref.','Utilization MT','Available Quota MT','Updated By','Updated Date',
-    'ETA Jakarta','Re-Apply Est.',
+    'ETA Jakarta','PIB Release Date','Re-Apply Est.',
+    'Status Update (CorpSec)',
     'Rev. Type','Rev. Note','Rev. Status','Rev. Submit Date',
     'SPI / Pertek Ref.',
   ];
@@ -4693,7 +5125,9 @@ function doExportXLSX() {
       co.spiNo    || (ra ? (ra.spiNo||ra.spi||'')       : '') || '',
       ra ? ra.catatan : '',
       ra ? ra.etaJKT  : '',
+      ra ? (ra.pibReleaseDate || '') : '',
       ra && ra.reapplyEst ? ra.reapplyEst : '',
+      co.statusUpdate || '',
       co.revType || '',
       co.revNote || '',
       co.revStatus || '',
@@ -5251,8 +5685,8 @@ const LS_KEY = 'quotaDashboard_v1';
 
 /** Fields that can change at runtime and should be persisted */
 const RA_MUTABLE  = ['berat','realPct','utilPct','cargoArrived','arrivalDate',
-                     'etaJKT','reapplyEst','reapplySubmitted','target'];
-const SPI_MUTABLE = ['spiRef','remarks','revType','revStatus','revNote'];
+                     'etaJKT','pibReleaseDate','reapplyEst','reapplySubmitted','target'];
+const SPI_MUTABLE = ['spiRef','remarks','revType','revStatus','revNote','statusUpdate'];
 
 /** Serialize current state → localStorage */
 function saveToStorage() {
@@ -5375,9 +5809,10 @@ window.onload = () => {
   }
   updateStorageStatus();
 
-  // Populate edit dropdown
+  // Populate edit dropdown — sorted alphabetically A→Z
   const sel = document.getElementById('editCo');
-  [...SPI,...PENDING].forEach(d => { const o=document.createElement('option'); o.value=d.code; o.textContent=`${d.code} — ${(d.products||[]).join(', ')}`; sel.appendChild(o); });
+  const allCos = [...SPI,...PENDING].sort((a,b) => a.code.localeCompare(b.code));
+  allCos.forEach(d => { const o=document.createElement('option'); o.value=d.code; o.textContent=`${d.code} — ${(d.products||[]).join(', ')}`; sel.appendChild(o); });
 
   // Charts
   buildPipeline(); buildProductDonut(); buildTopCo(); buildCmpChart(); buildGauge(); buildUtilChart(); buildAvailableQuota();
