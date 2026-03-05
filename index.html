@@ -489,6 +489,290 @@ tr:hover td { background:#f9fafb }
 .ral-super    { background:#f5f3ff; color:#5b21b6; border:1px solid #ddd6fe }
 
 
+
+/* ══ PRODUCT-MT TABLE (CorpSec multi-product form) ══════════════════ */
+.pmt-section   { margin-top:0 }
+.pmt-note      { font-size:10.5px; color:var(--txt3); margin-bottom:8px; padding:6px 10px;
+                 background:var(--bg); border-radius:var(--r); border-left:3px solid var(--border2); line-height:1.5 }
+.pmt-note strong { color:var(--txt2) }
+.pmt-table     { width:100%; border-collapse:collapse; border:1px solid var(--border2);
+                 border-radius:var(--r); overflow:hidden }
+.pmt-table thead th { padding:6px 10px; background:var(--navy); color:rgba(255,255,255,.62);
+                       font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.9px;
+                       text-align:left; white-space:nowrap }
+.pmt-table thead th.t-r { text-align:right }
+.pmt-table tbody td { padding:5px 8px; border-bottom:1px solid var(--border); vertical-align:middle }
+.pmt-table tbody tr:last-child td { border-bottom:none }
+.pmt-prod-chip { display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:600 }
+.pmt-prod-dot  { width:8px; height:8px; border-radius:2px; flex-shrink:0 }
+.pmt-mt-inp    { width:100%; padding:4px 8px; border:1px solid var(--border2); border-radius:var(--r);
+                 font-family:'DM Mono',monospace; font-size:12px; color:var(--txt); text-align:right;
+                 outline:none; transition:border-color .14s; background:var(--surf) }
+.pmt-mt-inp:focus { border-color:var(--blue) }
+.pmt-mt-inp:disabled { background:var(--bg); color:var(--txt3); cursor:not-allowed; border-color:var(--border) }
+.pmt-ref-mt    { font-family:'DM Mono',monospace; font-size:11px; color:var(--txt3); text-align:right }
+.pmt-total-row { background:#f8fafc }
+.pmt-total-row td { font-size:11px; font-weight:700; color:var(--navy); padding:6px 10px; border-top:2px solid var(--border2) }
+.pmt-total-val { font-family:'DM Mono',monospace; font-size:12px; color:var(--teal); text-align:right }
+.status-scope-badge { display:inline-flex; align-items:center; gap:5px; font-size:9.5px; font-weight:700;
+                       padding:2px 8px; border-radius:3px; margin-bottom:6px;
+                       background:var(--amber-bg); color:var(--amber); border:1px solid var(--amber-bd) }
+/* ══ END PRODUCT-MT TABLE ══════════════════════════════════════════ */
+
+/* ══ SHIPMENT-BASED UTILIZATION & REALIZATION TABLES ══════════════════════ */
+
+/* Product block wrapper */
+.sprod-block {
+  border: 1px solid var(--border2);
+  border-radius: var(--r2);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.sprod-block:last-child { margin-bottom: 0 }
+
+/* Product header bar */
+.sprod-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 12px;
+  background: var(--navy);
+  gap: 10px;
+}
+.sprod-hdr-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sprod-hdr-dot {
+  width: 9px; height: 9px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.sprod-hdr-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .2px;
+}
+.sprod-quota-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: rgba(255,255,255,.12);
+  color: rgba(255,255,255,.8);
+  font-family: 'DM Mono', monospace;
+  white-space: nowrap;
+}
+.sprod-avail-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: rgba(16,185,129,.18);
+  color: #6ee7b7;
+  font-family: 'DM Mono', monospace;
+  white-space: nowrap;
+}
+.sprod-avail-badge.warn {
+  background: rgba(239,68,68,.18);
+  color: #fca5a5;
+}
+
+/* Shipment table */
+.sship-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+.sship-table thead th {
+  padding: 5px 9px;
+  background: #f8fafc;
+  color: var(--txt3);
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+  text-align: left;
+}
+.sship-table thead th.t-r { text-align: right }
+.sship-table thead th.t-c { text-align: center }
+.sship-table tbody td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.sship-table tbody tr:last-child td { border-bottom: none }
+.sship-table tbody tr:hover { background: #f8fafc }
+
+/* Lot badge */
+.lot-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--blue-bg);
+  color: var(--blue);
+  font-size: 9.5px;
+  font-weight: 700;
+  flex-shrink: 0;
+  border: 1px solid var(--blue-bd);
+}
+
+/* Shipment input */
+.ship-inp {
+  width: 100%;
+  padding: 4px 7px;
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  font-family: 'DM Mono', monospace;
+  font-size: 11.5px;
+  color: var(--txt);
+  text-align: right;
+  outline: none;
+  transition: border-color .14s;
+  background: var(--surf);
+  min-width: 80px;
+}
+.ship-inp:focus { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(30,86,198,.12) }
+.ship-inp:disabled { background: #f1f5f9; color: var(--txt3); cursor: not-allowed; border-color: var(--border) }
+.ship-inp.err { border-color: var(--red-lt); background: var(--red-bg) }
+
+/* Text inputs (ETA, PIB date, note) */
+.ship-txt-inp {
+  width: 100%;
+  padding: 4px 7px;
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  color: var(--txt);
+  outline: none;
+  transition: border-color .14s;
+  background: var(--surf);
+}
+.ship-txt-inp:focus { border-color: var(--blue) }
+.ship-txt-inp:disabled { background: #f1f5f9; color: var(--txt3); cursor: not-allowed; border-color: var(--border) }
+
+/* PIB status pill */
+.pib-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.pib-done   { background: var(--green-bg);  color: var(--green);  border: 1px solid var(--green-bd) }
+.pib-pend   { background: var(--amber-bg);  color: var(--amber);  border: 1px solid var(--amber-bd) }
+.pib-none   { background: var(--bg);        color: var(--txt3);   border: 1px solid var(--border) }
+
+/* Realization bar inside table */
+.real-bar-wrap { display: flex; align-items: center; gap: 6px; min-width: 80px }
+.real-bar-bg   { flex: 1; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; min-width: 40px }
+.real-bar-fill { height: 100%; border-radius: 3px; transition: width .3s }
+.real-pct-lbl  { font-size: 10px; font-family: 'DM Mono', monospace; font-weight: 700; white-space: nowrap; min-width: 32px; text-align: right }
+
+/* Add-shipment button row */
+.add-ship-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: #f8fafc;
+  border-top: 1px solid var(--border);
+}
+.add-ship-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: var(--r);
+  border: 1.5px dashed var(--blue-bd);
+  background: var(--blue-bg);
+  color: var(--blue);
+  cursor: pointer;
+  transition: all .13s;
+  letter-spacing: .2px;
+}
+.add-ship-btn:hover { background: var(--blue); color: #fff; border-style: solid }
+.add-ship-btn:disabled { opacity: .4; cursor: not-allowed }
+
+/* Delete-row button */
+.del-ship-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px; height: 20px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--txt3);
+  cursor: pointer;
+  font-size: 12px;
+  transition: all .13s;
+  flex-shrink: 0;
+}
+.del-ship-btn:hover { background: var(--red-bg); color: var(--red2) }
+.del-ship-btn:disabled { opacity: .3; cursor: not-allowed }
+
+/* Product subtotal row */
+.sprod-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background: #f0f4f8;
+  border-top: 2px solid var(--border2);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.sprod-total-val {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  color: var(--teal);
+}
+
+/* Validation error message */
+.val-err {
+  display: none;
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--red2);
+  padding: 2px 0 0 2px;
+}
+.val-err.show { display: block }
+
+/* Section grand total */
+.grand-total-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: var(--navy);
+  border-radius: var(--r);
+  margin-top: 12px;
+  color: rgba(255,255,255,.7);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+.grand-total-val {
+  font-family: 'DM Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* ══ END SHIPMENT TABLES ══════════════════════════════════════════════════ */
 </style>
 </head>
 <body>
@@ -666,8 +950,8 @@ tr:hover td { background:#f9fafb }
     <div class="kpi">
       <div class="kpi-accent" style="background:var(--red-lt)"></div>
       <div class="kpi-lbl">Pertek Pending</div>
-      <div class="kpi-val">21,000</div>
-      <div class="kpi-unit">MT · 5 companies</div>
+      <div class="kpi-val" id="kpiPendVal">15,000</div>
+      <div class="kpi-unit" id="kpiPendUnit">MT · 4 companies</div>
       <div class="kpi-bar"><div class="kpi-fill" style="width:100%;background:var(--red-lt)"></div></div>
       <div class="kpi-tag" style="background:var(--red-bg);color:var(--red)">Awaiting MoI</div>
     </div>
@@ -736,16 +1020,16 @@ tr:hover td { background:#f9fafb }
         </div>
         <div style="display:flex;flex-direction:column;gap:5px;margin-top:10px">
           <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;border-radius:var(--r);background:var(--green-bg);cursor:pointer;border:1px solid var(--green-bd)" onclick="navFilter('SPI')">
-            <span style="font-size:11px;font-weight:600;color:var(--green)">✅ SPI Issued</span>
-            <span style="font-size:12px;font-weight:700;color:var(--green);font-family:'DM Mono',monospace">21,970 MT · 28 co.</span>
+            <span style="font-size:11px;font-weight:600;color:var(--green)">✅ SPI / PERTEK Obtained</span>
+            <span style="font-size:12px;font-weight:700;color:var(--green);font-family:'DM Mono',monospace" id="pipelineSpiStat">22,370 MT · 29 co.</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;border-radius:var(--r);background:#f5f3ff;cursor:pointer;border:1px solid #c4b5fd" onclick="goPage('utilization',document.querySelectorAll('.nav-tab')[2])">
-            <span style="font-size:11px;font-weight:600;color:#5b21b6">🔵 Re-Apply Submitted</span>
-            <span style="font-size:12px;font-weight:700;color:#5b21b6;font-family:'DM Mono',monospace">9,200 MT req. · 3 co.</span>
+            <span style="font-size:11px;font-weight:600;color:#5b21b6">🔵 Re-Apply Eligible</span>
+            <span style="font-size:12px;font-weight:700;color:#5b21b6;font-family:'DM Mono',monospace" id="pipelineReapplyStat">22,370 MT · 29 co.</span>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;border-radius:var(--r);background:var(--red-bg);cursor:pointer;border:1px solid var(--red-bd)" onclick="navFilter('PENDING')">
             <span style="font-size:11px;font-weight:600;color:var(--red)">⏳ Pertek Pending</span>
-            <span style="font-size:12px;font-weight:700;color:var(--red);font-family:'DM Mono',monospace">21,000 MT · 5 co.</span>
+            <span style="font-size:12px;font-weight:700;color:var(--red);font-family:'DM Mono',monospace" id="pipelinePendStat">15,000 MT · 4 co.</span>
           </div>
         </div>
       </div>
@@ -782,8 +1066,8 @@ tr:hover td { background:#f9fafb }
     </div>
     <div class="card">
       <div class="ch">
-        <div><div class="ct">Pertek Pending</div><div class="cs">5 companies awaiting MoI</div></div>
-        <span class="badge b-pending" style="font-size:11px;padding:3px 10px">5 Pending</span>
+        <div><div class="ct">Pertek Pending</div><div class="cs" id="pendingCardSubtitle">4 companies awaiting MoI</div></div>
+        <span class="badge b-pending" style="font-size:11px;padding:3px 10px" id="pendingCardBadge">4 Pending</span>
       </div>
       <div id="pendingQuick" class="cb-0"></div>
     </div>
@@ -887,9 +1171,10 @@ tr:hover td { background:#f9fafb }
           <th class="no-sort">Products</th>
           <th onclick="sortS('submit1')" class="t-r">Submit #1 (MT)</th>
           <th onclick="sortS('obtained')" class="t-r">Obtained (MT)</th>
+          <th class="no-sort t-r" style="color:#3b82f6">Util (MT)</th>
           <th class="no-sort">Status</th>
           <th class="no-sort">Revision — Current Status Only</th>
-          <th class="no-sort">SPI / Pertek Reference</th>
+          <th class="no-sort">Status Update</th>
           <th class="no-sort">PERTEK No.</th>
           <th class="no-sort">SPI No.</th>
         </tr></thead>
@@ -1066,7 +1351,7 @@ tr:hover td { background:#f9fafb }
     </div>
   </div>
   <div class="card">
-    <div class="ch"><div><div class="ct">Pertek Pending — Process Status</div><div class="cs">5 companies · awaiting MoI approval</div></div></div>
+    <div class="ch"><div><div class="ct">Pertek Pending — Process Status</div><div class="cs" id="pendingTableSubtitle">4 companies · awaiting MoI approval</div></div></div>
     <div class="tbl-wrap">
       <table>
         <thead><tr>
@@ -1087,9 +1372,9 @@ tr:hover td { background:#f9fafb }
 <div class="wrap">
   <div class="card">
     <div class="f-bar">
-      <div class="fpill on" onclick="setMF('ALL',this)">All <span class="fn">33</span></div>
-      <div class="fpill" onclick="setMF('SPI',this)">✅ SPI Issued <span class="fn">28</span></div>
-      <div class="fpill" onclick="setMF('PENDING',this)">⏳ Pending <span class="fn">4</span></div>
+      <div class="fpill on" onclick="setMF('ALL',this)">All <span class="fn" id="pillMAll">33</span></div>
+      <div class="fpill" onclick="setMF('SPI',this)">✅ SPI Issued <span class="fn" id="pillMSPI">29</span></div>
+      <div class="fpill" onclick="setMF('PENDING',this)">⏳ Pending <span class="fn" id="pillMPending">4</span></div>
       <div class="fpill" onclick="setMF('REV',this)">🔄 Revision <span class="fn">10</span></div>
       <div class="fpill" onclick="setMF('ELIGIBLE',this)">✓ Re-Apply Eligible <span class="fn">3</span></div>
       <div class="f-sep"></div>
@@ -1173,12 +1458,12 @@ tr:hover td { background:#f9fafb }
             <button class="role-btn rb-sales" onclick="selectRole('Sales',this)" title="Updates Utilization, Target Re-Apply and ETA JKT">
               <span class="rb-ico">💼</span>
               <span class="rb-name">Sales</span>
-              <span class="rb-desc">Utilization · Target Re-Apply · ETA JKT</span>
+              <span class="rb-desc">Util/ETA per Product · Per Shipment</span>
             </button>
             <button class="role-btn rb-ops" onclick="selectRole('Operations',this)" title="Records Berat Realized and PIB Release Date">
               <span class="rb-ico">🚢</span>
               <span class="rb-name">Operations</span>
-              <span class="rb-desc">Berat Realized · PIB Release Date</span>
+              <span class="rb-desc">Realization · PIB Date per Shipment</span>
             </button>
             <button class="role-btn rb-super" onclick="selectRole('SuperAdmin',this)" title="Full access to all fields">
               <span class="rb-ico">⚙️</span>
@@ -1212,51 +1497,76 @@ tr:hover td { background:#f9fafb }
           <!-- ══ SECTION A — SUBMISSION (CorpSec · SuperAdmin) ══ -->
           <div class="ef-section-card" id="sec-submission">
             <div class="ef-sec-hd">
-              <span class="ef-sec-title">📋 Submission — Submit MT &amp; Date</span>
+              <span class="ef-sec-title">📋 Submission — Submit Date · Status Update · Submit MT per Product</span>
               <span class="ef-sec-role ral-corpsec" id="secRole-submission">🏛 CorpSec · ⚙️ Super Admin</span>
             </div>
-            <div class="ef-sec-body">
-              <div class="form-grid">
-                <div class="form-row field-restricted" id="wrap-eSubmitMT" data-tip="Restricted by role">
-                  <div class="fl">Submit MT <span class="ef-hint">Feeds KPI — Total Submitted</span></div>
-                  <input class="fi" id="eSubmitMT" type="text" inputmode="numeric" placeholder="e.g. 6,000" oninput="fmtThousand(this);livePreview()">
+            <div class="ef-sec-body pmt-section">
+
+              <!-- Submit Date (single field — one submission date) -->
+              <div class="form-row field-restricted" id="wrap-eSubmitDate" data-tip="Restricted by role" style="margin-bottom:10px">
+                <div class="fl">Submit Date <span class="ef-hint">DD/MM/YYYY · one date per submission · used by period filter</span></div>
+                <input class="fi" id="eSubmitDate" type="text" placeholder="e.g. 16/10/2025" oninput="livePreview()" style="max-width:200px">
+              </div>
+
+              <!-- Status Update — ONE per submission, shared across ALL products -->
+              <div class="form-row field-restricted" id="wrap-eStatusUpdate" data-tip="Restricted by role" style="margin-bottom:12px">
+                <div class="fl">
+                  Status Update
+                  <span class="ef-hint">Submission-level — ONE note covers all products under this submission</span>
                 </div>
-                <div class="form-row field-restricted" id="wrap-eSubmitDate" data-tip="Restricted by role">
-                  <div class="fl">Submit Date <span class="ef-hint">DD/MM/YYYY · used by period filter</span></div>
-                  <input class="fi" id="eSubmitDate" type="text" placeholder="e.g. 27/10/2025" oninput="livePreview()">
+                <div class="status-scope-badge">📋 Submission-Level · Applies to all products below</div>
+                <textarea class="fi" id="eStatusUpdate" rows="3"
+                  placeholder="e.g. Submitted to MoI on 16/10/2025 · Awaiting PERTEK release · Follow-up scheduled 05/11/2025…"
+                  style="resize:vertical;min-height:60px;font-family:inherit;font-size:12px;line-height:1.5"
+                  oninput="livePreview()"></textarea>
+              </div>
+
+              <!-- Submit MT — per product table (dynamic, populated by buildProductMTTables) -->
+              <div class="form-row field-restricted" id="wrap-submitProdTable" data-tip="Restricted by role">
+                <div class="fl">Submit MT <span class="ef-hint">Enter MT per product · one row per product under this submission · feeds KPI Total Submitted</span></div>
+                <div id="submitProdTableWrap">
+                  <div class="pmt-note" style="margin-top:4px">Select a company above to see its products.</div>
                 </div>
               </div>
-              <div class="form-row field-restricted" id="wrap-eStatusUpdate" data-tip="Restricted by role" style="margin-top:8px">
-                <div class="fl">Status Update <span class="ef-hint">Submission progress · Internal notes · Follow-up remarks (CorpSec only)</span></div>
-                <textarea class="fi" id="eStatusUpdate" rows="3" placeholder="e.g. Submitted to MoI on 27/10/2025 · Awaiting PERTEK release · Follow-up scheduled 05/11/2025…" style="resize:vertical;min-height:60px;font-family:inherit;font-size:12px;line-height:1.5" oninput="livePreview()"></textarea>
-              </div>
+
             </div>
           </div>
 
           <!-- ══ SECTION B — PERTEK (CorpSec · SuperAdmin) ══ -->
           <div class="ef-section-card" id="sec-pertek">
             <div class="ef-sec-hd">
-              <span class="ef-sec-title">📄 PERTEK — Moves company to Obtained when date is set</span>
+              <span class="ef-sec-title">📄 PERTEK — One Number per Submission · Obtained MT per Product</span>
               <span class="ef-sec-role ral-corpsec" id="secRole-pertek">🏛 CorpSec · ⚙️ Super Admin</span>
             </div>
-            <div class="ef-sec-body">
+            <div class="ef-sec-body pmt-section">
               <div class="notice n-blue" style="margin-bottom:10px;font-size:11px">
-                <strong>Auto-action:</strong> When PERTEK Terbit Date is filled → company moves to <em>Obtained</em> category · KPIs &amp; charts recalculate.
+                <strong>Auto-action:</strong> When PERTEK Terbit Date is filled → company moves to <em>Obtained</em> · KPIs recalculate.
+                One PERTEK number covers all products under this submission — enter Obtained MT per product individually.
               </div>
-              <div class="form-grid">
+
+              <!-- PERTEK No. + Terbit Date (ONE per submission — not per product) -->
+              <div class="form-grid" style="margin-bottom:12px">
                 <div class="form-row field-restricted" id="wrap-ePertekNo" data-tip="Restricted by role">
-                  <div class="fl">PERTEK No. <span class="ef-hint">Alphanumeric · linked to Terbit date</span></div>
-                  <input class="fi" id="ePertekNo" type="text" placeholder="e.g. B-1234/ILMATE/2025" oninput="livePreview()">
+                  <div class="fl">PERTEK No. <span class="ef-hint">One number · covers all products in this submission</span></div>
+                  <input class="fi" id="ePertekNo" type="text" placeholder="e.g. 1040/ILMATE/PERTEK-SPI-U/X/2025" oninput="livePreview()">
                 </div>
                 <div class="form-row field-restricted" id="wrap-ePertekDate" data-tip="Restricted by role">
-                  <div class="fl">PERTEK Terbit Date <span class="ef-hint">DD/MM/YYYY · triggers KPI2</span></div>
-                  <input class="fi" id="ePertekDate" type="text" placeholder="e.g. 01/03/2026" oninput="livePreview()">
-                </div>
-                <div class="form-row field-restricted" id="wrap-eObtainedMT" data-tip="Restricted by role">
-                  <div class="fl">Obtained MT <span class="ef-hint">Feeds KPI — SPI/PERTEK Obtained</span></div>
-                  <input class="fi" id="eObtainedMT" type="text" inputmode="numeric" placeholder="e.g. 400" oninput="fmtThousand(this);livePreview()">
+                  <div class="fl">PERTEK Terbit Date <span class="ef-hint">DD/MM/YYYY · triggers Obtained status · KPI2</span></div>
+                  <input class="fi" id="ePertekDate" type="text" placeholder="e.g. 29/10/2025" oninput="livePreview()">
                 </div>
               </div>
+
+              <!-- Obtained MT — per product (dynamic, populated by buildProductMTTables) -->
+              <div class="form-row field-restricted" id="wrap-obtainedProdTable" data-tip="Restricted by role">
+                <div class="fl">
+                  Obtained MT — per Product
+                  <span class="ef-hint">Even if one PERTEK covers all products, assign MT individually · feeds KPI Obtained · total auto-sums</span>
+                </div>
+                <div id="obtainedProdTableWrap">
+                  <div class="pmt-note" style="margin-top:4px">Select a company above to see its products.</div>
+                </div>
+              </div>
+
             </div>
           </div>
 
@@ -1287,50 +1597,67 @@ tr:hover td { background:#f9fafb }
             </div>
           </div>
 
-          <!-- ══ SECTION D — OPERATIONS: Berat Realized & PIB Release Date (Operations · SuperAdmin) ══ -->
-          <div class="ef-section-card" id="sec-operations">
+          <!-- ══ SECTION D — SALES: Utilization per Product · Multi-Shipment (Sales · SuperAdmin) ══ -->
+          <div class="ef-section-card" id="sec-sales">
             <div class="ef-sec-hd">
-              <span class="ef-sec-title">🚢 Operations — Berat Realized &amp; PIB Release Date</span>
-              <span class="ef-sec-role ral-ops" id="secRole-operations">🚢 Operations · ⚙️ Super Admin</span>
+              <span class="ef-sec-title">💼 Sales — Utilization &amp; ETA per Product / Shipment Lot</span>
+              <span class="ef-sec-role ral-sales" id="secRole-sales">💼 Sales · ⚙️ Super Admin</span>
             </div>
-            <div class="ef-sec-body">
-              <div class="form-grid">
-                <div class="form-row field-restricted" id="wrap-eBerat" data-tip="Restricted by role">
-                  <div class="fl">Berat Realized (MT) <span class="ef-hint">Import arrived in Jakarta &amp; Beacukai-registered</span></div>
-                  <input class="fi" id="eBerat" type="number" placeholder="e.g. 800" oninput="livePreview()">
+            <div class="ef-sec-body" id="salesBody">
+
+              <div class="pmt-note" style="margin-bottom:10px">
+                <strong>Product-level utilization.</strong> Each PERTEK product has its own quota limit.
+                Add <strong>+</strong> to record multiple shipment lots per product — each lot tracks its own ETA and utilization.
+                Utilization cannot exceed PERTEK Obtained MT per product.
+              </div>
+
+              <!-- Dynamic per-product + per-shipment Sales form (rendered by buildSalesOpsForm) -->
+              <div id="salesFormWrap">
+                <div class="pmt-note" style="color:var(--txt3)">Select a company above to see its products.</div>
+              </div>
+
+              <!-- Target Re-Apply — per Product (same product list as Utilization) -->
+              <div class="form-row field-restricted" id="wrap-eTarget" data-tip="Restricted by role" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--border)">
+                <div class="fl">Target Re-Apply — Per Product
+                  <span class="ef-hint">Planned additional quota to apply for the next cycle · one value per product</span>
                 </div>
-                <div class="form-row field-restricted" id="wrap-ePIBRelease" data-tip="Restricted by role">
-                  <div class="fl">PIB Release Date <span class="ef-hint">DD/MM/YYYY · Beacukai PIB release date (Operations only)</span></div>
-                  <input class="fi" id="ePIBRelease" type="text" placeholder="e.g. 24 Feb 26">
+                <div id="reapplyProdTableWrap">
+                  <div class="pmt-note" style="color:var(--txt3)">Select a company above to see its products.</div>
                 </div>
               </div>
+              <!-- Legacy hidden input (backward compat) -->
+              <input type="hidden" id="eTarget">
+
             </div>
           </div>
 
-          <!-- ══ SECTION E — SALES: Utilization, Target Re-Apply & ETA JKT (Sales · SuperAdmin) ══ -->
-          <div class="ef-section-card" id="sec-sales">
+          <!-- ══ SECTION E — OPERATIONS: Realization per Shipment · PIB Date (Operations · SuperAdmin) ══ -->
+          <div class="ef-section-card" id="sec-operations">
             <div class="ef-sec-hd">
-              <span class="ef-sec-title">💼 Sales — Utilization, Target Re-Apply &amp; ETA JKT</span>
-              <span class="ef-sec-role ral-sales" id="secRole-sales">💼 Sales · ⚙️ Super Admin</span>
+              <span class="ef-sec-title">🚢 Operations — Realization per Product &amp; Shipment Lot</span>
+              <span class="ef-sec-role ral-ops" id="secRole-operations">🚢 Operations · ⚙️ Super Admin</span>
             </div>
-            <div class="ef-sec-body">
-              <div class="form-grid">
-                <div class="form-row field-restricted" id="wrap-eUtilMT" data-tip="Restricted by role">
-                  <div class="fl">Utilization MT <span class="ef-hint">Sold to customers from obtained quota</span></div>
-                  <input class="fi" id="eUtilMT" type="text" inputmode="numeric" placeholder="e.g. 1,200" oninput="fmtThousand(this);livePreview()">
-                  <div id="availQuotaHint" style="font-size:10px;color:var(--txt3);margin-top:3px">Available Quota = Obtained − Utilization</div>
-                </div>
-                <div class="form-row field-restricted" id="wrap-eTarget" data-tip="Restricted by role">
-                  <div class="fl">Target Re-Apply (MT) <span class="ef-hint">Planned additional quota to apply</span></div>
-                  <input class="fi" id="eTarget" type="number" placeholder="e.g. 500">
-                </div>
-                <div class="form-row field-restricted" id="wrap-eETA" data-tip="Restricted by role">
-                  <div class="fl">ETA JKT <span class="ef-hint">Estimated cargo arrival at Jakarta (Sales updates only)</span></div>
-                  <input class="fi" id="eETA" type="text" placeholder="e.g. 07 Mar 26">
-                </div>
+            <div class="ef-sec-body" id="opsBody">
+
+              <div class="pmt-note" style="margin-bottom:10px">
+                <strong>Shipment-based realization.</strong> Each shipment lot from Sales appears here.
+                Operations confirms actual arrival quantity and PIB Release Date per shipment.
+                Realization cannot exceed utilization per shipment lot.
               </div>
+
+              <!-- Dynamic per-product + per-shipment Ops form (rendered by buildSalesOpsForm) -->
+              <div id="opsFormWrap">
+                <div class="pmt-note" style="color:var(--txt3)">Select a company above to see its shipments.</div>
+              </div>
+
             </div>
           </div>
+
+          <!-- hidden legacy inputs (kept for backward compat with save/load that still reads them) -->
+          <input type="hidden" id="eBerat">
+          <input type="hidden" id="ePIBRelease">
+          <input type="hidden" id="eUtilMT">
+          <input type="hidden" id="eETA">
 
           <!-- ══ SECTION F — REMARKS (SuperAdmin only) ══ -->
           <div class="ef-section-card" id="sec-remarks">
@@ -2336,6 +2663,36 @@ function updateOverviewKPIs() {
     kpis[4].querySelector('.kpi-val').textContent  = pendMT.toLocaleString();
     kpis[4].querySelector('.kpi-unit').textContent = `MT · ${pendCoSet.size} companies`;
   }
+
+  // ── Also update pipeline sidebar labels ──────────────────────────────
+  const pPendStat = document.getElementById('pipelinePendStat');
+  if (pPendStat) pPendStat.textContent = `${pendMT.toLocaleString()} MT · ${pendCoSet.size} co.`;
+
+  // SPI sidebar stat — recompute from live SPI data
+  const spiTotal   = filteredSPI().reduce((s,d)=>s+d.obtained,0);
+  const spiCount   = filteredSPI().length;
+  const pSpiStat   = document.getElementById('pipelineSpiStat');
+  if (pSpiStat) pSpiStat.textContent = `${spiTotal.toLocaleString()} MT · ${spiCount} co.`;
+
+  // Re-Apply sidebar = same as SPI (every SPI holder is re-apply eligible)
+  const pRaStat = document.getElementById('pipelineReapplyStat');
+  if (pRaStat) pRaStat.textContent = `${spiTotal.toLocaleString()} MT · ${spiCount} co.`;
+
+  // Pending card header labels
+  const pSubt = document.getElementById('pendingCardSubtitle');
+  if (pSubt) pSubt.textContent = `${pendCoSet.size} companies awaiting MoI`;
+
+  const pBadge = document.getElementById('pendingCardBadge');
+  if (pBadge) pBadge.textContent = `${pendCoSet.size} Pending`;
+
+  const pTblSubt = document.getElementById('pendingTableSubtitle');
+  if (pTblSubt) pTblSubt.textContent = `${pendCoSet.size} companies · awaiting MoI approval`;
+
+  // All Companies page filter pills — update by stable IDs
+  const s = (id,v) => { const el=document.getElementById(id); if(el) el.textContent=v; };
+  s('pillMAll',     SPI.length + PENDING.length);
+  s('pillMSPI',     SPI.length);
+  s('pillMPending', PENDING.length);
 }
 
 
@@ -2552,18 +2909,28 @@ function mkChart(id, cfg) { if(CH[id]) CH[id].destroy(); CH[id] = new Chart(docu
 
 /* PIPELINE — hover shows company list */
 function buildPipeline() {
-  const reapplySub = RA.filter(isReapplySubmitted);
-  const reapplyMT  = reapplySub.reduce((s,d) => s + (d.reapplyNewTotal||0), 0);
+  // Re-Apply Submitted = ALL SPI companies (every SPI holder is eligible to re-apply)
+  // MT = sum of all obtained MTs across all SPI companies (matches 22,370 MT · 29 co.)
+  const spiPool   = filteredSPI();
+  const reapplyMT = spiPool.reduce((s,d) => s + (d.obtained||0), 0);
+  const reapplyN  = spiPool.length;
+
+  // Update pipeline sidebar stat dynamically
+  const ps = document.getElementById('pipelineSpiStat');
+  if (ps) ps.textContent = `${spiPool.reduce((s,d)=>s+d.obtained,0).toLocaleString()} MT · ${spiPool.length} co.`;
+  const pr = document.getElementById('pipelineReapplyStat');
+  if (pr) pr.textContent = `${reapplyMT.toLocaleString()} MT · ${reapplyN} co.`;
+
   mkChart('pipelineChart', {
     type: 'doughnut',
     data: {
       labels: [
-        `SPI Issued (${filteredSPI().length})`,
-        `Re-Apply Submitted (${reapplySub.length})`,
+        `SPI / PERTEK Obtained (${spiPool.length})`,
+        `Re-Apply Eligible (${reapplyN})`,
         `Pertek Pending (${filteredPending().length})`
       ],
       datasets: [{ data: [
-        filteredSPI().reduce((s,d)=>s+d.obtained,0),
+        spiPool.reduce((s,d)=>s+d.obtained,0),
         reapplyMT,
         filteredPending().reduce((s,d)=>s+d.mt,0)
       ], backgroundColor: ['#0c7c84','#8b5cf6','#dc2626'], borderColor:'#fff', borderWidth:3, hoverOffset:6 }]
@@ -2595,12 +2962,18 @@ function buildPipelineHover(idx) {
   const h = document.getElementById('pipelineHover');
   if (idx === 0) {
     const sorted = [...filteredSPI()].sort((a,b) => b.obtained - a.obtained);
-    h.innerHTML = `<div class="ph-title">✅ SPI Issued — ${sorted.length} companies</div>` +
+    h.innerHTML = `<div class="ph-title">✅ SPI / PERTEK Obtained — ${sorted.length} companies</div>` +
       sorted.map(d => `<div class="ph-row"><span class="ph-code">${d.code}</span><span class="ph-mt">${d.obtained.toLocaleString()} MT</span></div>`).join('');
   } else if (idx === 1) {
-    const sub = RA.filter(isReapplySubmitted);
-    h.innerHTML = `<div class="ph-title">🔵 Re-Apply Submitted — ${sub.length} companies</div>` +
-      sub.map(d => `<div class="ph-row"><span class="ph-code">${d.code}</span><span class="ph-mt">${(d.reapplyNewTotal||0).toLocaleString()} MT requested</span></div>`).join('');
+    // Re-Apply = all SPI companies, sorted by obtained descending
+    const sorted = [...filteredSPI()].sort((a,b) => b.obtained - a.obtained);
+    const raMap  = {}; RA.forEach(r => { raMap[r.code] = r; });
+    h.innerHTML = `<div class="ph-title">🔵 Re-Apply Eligible — ${sorted.length} companies</div>` +
+      sorted.map(d => {
+        const ra    = raMap[d.code];
+        const stage = ra && isReapplySubmitted(ra) ? ' 🔵' : ra && isEligible(ra) ? ' ✅' : '';
+        return `<div class="ph-row"><span class="ph-code">${d.code}${stage}</span><span class="ph-mt">${d.obtained.toLocaleString()} MT</span></div>`;
+      }).join('');
   } else {
     h.innerHTML = `<div class="ph-title">⏳ Pertek Pending — ${filteredPending().length} companies</div>` +
       filteredPending().map(d => `<div class="ph-row"><span class="ph-code">${d.code}</span><span class="ph-mt">${d.mt.toLocaleString()} MT</span></div>`).join('');
@@ -3316,17 +3689,29 @@ function renderSPI() {
     const rs = revisionStatus(d);
     const rc = rs==='active'?'tr-rev':rs==='revpending'?'tr-rev':rs==='completed'?'tr-revdone':'';
     const tr = document.createElement('tr'); tr.className = rc;
+    // Compute live utilization for this company
+    const spiUtil = (() => {
+      if (d.shipments && Object.keys(d.shipments).length) {
+        const tots = Object.values(d.shipments).flat().reduce((s,l)=>s+(l.utilMT||0),0);
+        return tots > 0 ? tots : (d.utilizationMT || 0);
+      }
+      return d.utilizationMT || 0;
+    })();
+    const utilPct    = d.obtained > 0 ? Math.min(100,(spiUtil/d.obtained*100)).toFixed(0)+'%' : '—';
+    const utilColor  = spiUtil > 0 ? 'var(--blue)' : 'var(--txt3)';
+    const statusNote = d.statusUpdate || d.spiRef || '—';
     tr.innerHTML = `
       <td><div class="t-code" onclick="openDrawer('${d.code}')">${d.code}</div></td>
       <td style="font-size:11.5px;font-weight:600">${d.group}</td>
       <td>${chips(d.products)}</td>
       <td class="t-r t-mono">${d.submit1.toLocaleString()}</td>
       <td class="t-r t-mono" style="color:var(--teal)">${d.obtained.toLocaleString()}</td>
+      <td class="t-r t-mono" style="color:${utilColor}">${spiUtil > 0 ? spiUtil.toLocaleString()+' MT' : '<span style="color:var(--txt3);font-size:10px">—</span>'}</td>
       <td>${statusBadge(d)}</td>
       <td style="font-size:11px;color:${revisionStatus(d)==='active'?'var(--amber)':revisionStatus(d)==='revpending'?'var(--orange)':revisionStatus(d)==='completed'?'var(--violet)':'var(--txt3)'}">
         ${d.revType!=='none' ? buildRevNoteHtml(d) : '—'}
       </td>
-      <td style="font-size:10.5px;color:var(--txt3);max-width:180px;line-height:1.4">${d.spiRef}</td>
+      <td style="font-size:10.5px;color:var(--txt3);max-width:180px;line-height:1.4">${statusNote}</td>
       <td style="font-size:10.5px;font-family:'DM Mono',monospace;color:var(--blue)">${d.pertekNo||'<span style="color:var(--txt3)">—</span>'}</td>
       <td style="font-size:10.5px;font-family:'DM Mono',monospace;color:var(--teal)">${d.spiNo||'<span style="color:var(--txt3)">—</span>'}</td>`;
     tbody.appendChild(tr);
@@ -3335,9 +3720,40 @@ function renderSPI() {
 }
 
 /* Utilization table — 4-group sort: 🔵 Re-Apply Submitted → ✅ Eligible → 🚢 In Shipment → ❌ <60% */
+/* Includes ALL SPI companies with utilization/realization data (not just legacy RA records) */
 function renderUtilTable() {
+  // Merge RA records with SPI companies that have shipment data
+  const raMap = {};
+  filteredRA().forEach(r => { raMap[r.code] = r; });
+
+  // Build synthetic RA-like records for SPI companies that have shipments but no RA record
+  const pool = [...filteredRA()]; // start with real RA records
+  filteredSPI().forEach(co => {
+    if (raMap[co.code]) return; // already in RA
+    if (!co.shipments || !Object.keys(co.shipments).length) return; // no shipment data
+    const allLots = Object.values(co.shipments).flat();
+    const totalUtil = allLots.reduce((s,l) => s+(l.utilMT||0), 0);
+    if (totalUtil <= 0) return; // nothing entered yet
+    const totalReal  = allLots.filter(l=>l.arrived).reduce((s,l)=>s+(l.realMT||0),0);
+    const anyArrived = allLots.some(l=>l.arrived && l.realMT>0);
+    const obtMT      = co.obtained || 1;
+    pool.push({
+      code: co.code,
+      product: (co.products||[]).join(' + '),
+      berat: anyArrived ? totalReal : totalUtil,
+      obtained: co.obtained || 0,
+      cargoArrived: anyArrived,
+      realPct:  anyArrived ? Math.min(1,totalReal/obtMT) : 0,
+      utilPct: !anyArrived ? Math.min(1,totalUtil/obtMT) : null,
+      arrivalDate: null, etaJKT: allLots.filter(l=>l.etaJKT).map(l=>l.etaJKT)[0] || '',
+      reapplyEst:'', target: co.target || null,
+      reapplyStage: null,
+      _fromShipment: true, _co: co,
+    });
+  });
+
   const group = d => isReapplySubmitted(d) ? 0 : isEligible(d) ? 1 : (!d.cargoArrived ? 2 : 3);
-  const sorted = [...filteredRA()].sort((a,b) => {
+  const sorted = [...pool].sort((a,b) => {
     const gd = group(a) - group(b);
     if (gd !== 0) return gd;
     return group(a)===2 ? (b.utilPct||0)-(a.utilPct||0) : b.realPct-a.realPct;
@@ -3516,7 +3932,18 @@ function sortM(col) { if(mSort.col===col)mSort.dir*=-1; else{mSort.col=col;mSort
 function renderMain() {
   const q = (document.getElementById('mainQ')||{}).value||'';
   const all = [
-    ...filteredSPI().map(d => { const ra=getRA(d.code); const _rs=revisionStatus(d); return {...d, berat:ra?ra.berat:0, realPct:ra?ra.realPct:null, rowType:_rs==='clean'?'SPI':_rs==='active'?'REV':_rs==='revpending'?'REV':'DONE'}; }),
+    ...filteredSPI().map(d => {
+      const ra=getRA(d.code);
+      const _rs=revisionStatus(d);
+      // Live util from shipments (if Sales has entered data)
+      const shipLots = d.shipments ? Object.values(d.shipments).flat() : [];
+      const shipUtil = shipLots.reduce((s,l)=>s+(l.utilMT||0),0);
+      const shipReal = shipLots.filter(l=>l.arrived).reduce((s,l)=>s+(l.realMT||0),0);
+      const berat    = shipUtil>0 ? (shipReal>0?shipReal:shipUtil) : (ra?ra.berat:0);
+      const realPct  = ra ? ra.realPct : null;
+      return {...d, berat, realPct, utilizationMT: shipUtil||d.utilizationMT||0,
+              rowType:_rs==='clean'?'SPI':_rs==='active'?'REV':_rs==='revpending'?'REV':'DONE'};
+    }),
     ...filteredPending().map(d => ({code:d.code,group:d.group,products:d.products,submit1:d.mt,obtained:0,berat:0,realPct:null,revType:'none',revNote:'',spiRef:d.status,remarks:d.remarks,rowType:'PENDING'}))
   ];
   let rows = all.filter(d => {
@@ -3580,8 +4007,24 @@ function buildCycleTimeline(co) {
   };
   const rows = co.cycles.map(c => {
     const col = typeColor(c.type);
+    // Per-product MT chips — color-coded by product type
+    const PDOT = {
+      'GL BORON':'#0369a1','GI BORON':'#0f766e','BORDES ALLOY':'#dc2626',
+      'AS STEEL':'#64748b','SHEETPILE':'#b45309','SEAMLESS PIPE':'#0d6946',
+      'HOLLOW PIPE':'#78716c','PPGL CARBON':'#7c3aed',
+      'ERW PIPE OD≤140mm':'#9333ea','ERW PIPE OD>140mm':'#0891b2','HRC/HRPO ALLOY':'#ca8a04',
+    };
     const prodStr = c.products && Object.keys(c.products).length
-      ? Object.entries(c.products).map(([k,v])=>`<span style="font-size:10px;padding:1px 5px;border-radius:3px;background:#f1f5f9;color:#475569">${k}${v!=='TBA'?' '+Number(v).toLocaleString()+' MT':' TBA'}</span>`).join(' ')
+      ? Object.entries(c.products).map(([k,v]) => {
+          const col = PDOT[k] || '#64748b';
+          const bg  = col + '18'; // 10% opacity hex approximation
+          const mtTxt = v !== 'TBA' && typeof v === 'number' ? v.toLocaleString() + ' MT' : (v || 'TBA');
+          return `<span style="display:inline-flex;align-items:center;gap:4px;font-size:10px;padding:2px 6px;border-radius:3px;background:${bg};border:1px solid ${col}33;color:${col}">
+            <span style="display:inline-block;width:6px;height:6px;border-radius:1px;background:${col};flex-shrink:0"></span>
+            <span style="font-weight:600">${k}</span>
+            <span style="font-family:'DM Mono',monospace;opacity:.8">${mtTxt}</span>
+          </span>`;
+        }).join(' ')
       : '';
     return `<div style="display:flex;gap:0;margin-bottom:6px">
       <div style="display:flex;flex-direction:column;align-items:center;width:24px;flex-shrink:0">
@@ -3632,7 +4075,7 @@ function openDrawer(code) {
     <div class="dl-r"><div class="dl-k">SPI / Pertek</div><div class="dl-v" style="font-size:11.5px;font-family:'DM Mono',monospace;line-height:1.5">${co.spiRef}</div></div>
     ${co.pertekNo?`<div class="dl-r"><div class="dl-k">PERTEK No.</div><div class="dl-v" style="font-family:'DM Mono',monospace;color:var(--blue)">${co.pertekNo}</div></div>`:''}
     ${co.spiNo?`<div class="dl-r"><div class="dl-k">SPI No.</div><div class="dl-v" style="font-family:'DM Mono',monospace;color:var(--teal)">${co.spiNo}</div></div>`:''}
-    ${co.statusUpdate?`<div class="dl-r"><div class="dl-k" style="color:var(--violet)">📝 Status Update</div><div class="dl-v" style="font-size:11.5px;white-space:pre-wrap;line-height:1.5;color:var(--txt2)">${co.statusUpdate}</div></div>`:''}
+    ${co.statusUpdate?`<div class="dl-r"><div class="dl-k" style="color:var(--violet)">📋 Status Update<br><span style="font-size:9px;font-weight:400;color:var(--txt3);font-style:italic">Submission-level</span></div><div class="dl-v" style="font-size:11.5px;white-space:pre-wrap;line-height:1.5;color:var(--txt2)">${co.statusUpdate}</div></div>`:''}
     ${co.utilizationMT!=null?`<div class="dl-r"><div class="dl-k">Utilization MT</div><div class="dl-v" style="font-family:'DM Mono',monospace">${co.utilizationMT.toLocaleString()} MT</div></div>`:''}
     ${co.availableQuota!=null?`<div class="dl-r"><div class="dl-k">Available Quota</div><div class="dl-v" style="font-weight:700;color:${co.availableQuota>0?'var(--teal)':co.availableQuota===0?'var(--txt3)':'var(--red2)'};font-family:'DM Mono',monospace">${co.availableQuota.toLocaleString()} MT${co.revType==='active'?' <span style="font-size:9.5px;font-weight:400;color:var(--amber2)">(original PERTEK − revision TBA)</span>':''}</div></div>`:''}
     ${co.updatedBy?`<div class="dl-r"><div class="dl-k">Last Updated By</div><div class="dl-v"><span class="upd-tag upd-${co.updatedBy.toLowerCase()}">${co.updatedBy}</span>${co.updatedDate?' · '+co.updatedDate:''}</div></div>`:''}
@@ -3878,7 +4321,11 @@ function hdAnswer(q) {
     const top=[...RA].sort((a,b)=>b.realPct-a.realPct).slice(0,5);
     return `<strong>Top realization:</strong><br>${top.map(r=>`${r.code}: ${(r.realPct*100).toFixed(0)}% (${r.berat.toLocaleString()} MT)`).join('<br>')}`;
   }
-  if (ql.includes('total')||ql.includes('summary')) return `<strong>Summary:</strong><br>Submitted: 204,150 MT · 33 co. (Submit #1+#2, excl. 4 pending-only)<br>Pending (Process): 21,000 MT · 5 co.<br>Obtained: 21,970 MT · 28 co.<br>Realized: 4 companies arrived at JKT (CGK, GNG, HDP, MIN)<br>Re-Apply Submitted: 3 companies (CGK, GNG, HDP — PERTEK Pending)<br><br>Eligibility rule: Realization ≥ 60% AND cargo arrived at JKT`;
+  if (ql.includes('total')||ql.includes('summary')) {
+    const spiT = SPI.reduce((s,d)=>s+d.obtained,0);
+    const pendT = PENDING.reduce((s,d)=>s+d.mt,0);
+    return `<strong>Summary:</strong><br>Obtained: ${spiT.toLocaleString()} MT · ${SPI.length} co.<br>Pending: ${pendT.toLocaleString()} MT · ${PENDING.length} co.<br>Re-Apply Eligible: ${SPI.length} co. · ${spiT.toLocaleString()} MT quota<br>Re-Apply Submitted (Stage 2): ${RA.filter(isReapplySubmitted).length} co.<br>Realized (cargo arrived): ${RA.filter(r=>r.cargoArrived).length} co.<br><br>Eligibility rule: Realization ≥ 60% AND cargo arrived at JKT`;
+  }
   return `Try: company name (e.g. "BTS"), "who is eligible", "active revisions", "pending companies", "top realization", or "total summary".`;
 }
 
@@ -3943,8 +4390,18 @@ function gv(id) { return g(id) ? g(id).value.trim() : ''; }
 function livePreview() {
   const c = gv('editCo');
   if (!c) return;
-  const sMT  = parseMTField('eSubmitMT');
-  const oMT  = parseMTField('eObtainedMT');
+  // Sum per-product submit inputs (replaces single eSubmitMT)
+  let sMT = 0;
+  document.querySelectorAll('.pmt-submit-inp').forEach(i => {
+    const n = parseInt((i.value||'').replace(/,/g,''),10); if (!isNaN(n)) sMT += n;
+  });
+  if (sMT === 0) sMT = null; // null = "—" in preview
+  // Sum per-product obtained inputs (replaces single eObtainedMT)
+  let oMT = 0;
+  document.querySelectorAll('.pmt-obtained-inp').forEach(i => {
+    const n = parseInt((i.value||'').replace(/,/g,''),10); if (!isNaN(n)) oMT += n;
+  });
+  if (oMT === 0) oMT = null;
   const uMT  = parseMTField('eUtilMT');
   const avq  = (oMT != null && uMT != null) ? oMT - uMT : null;
   const pd   = gv('ePertekDate');
@@ -3984,10 +4441,15 @@ let currentRole = null; // null = no role selected
 
 /* Role → which field IDs are EDITABLE (all others locked) */
 const ROLE_PERMISSIONS = {
-  CorpSec:    ['eSubmitMT','eSubmitDate','ePertekNo','ePertekDate','eObtainedMT','eSpiNo','eSpiDate','eStatus','eStatusUpdate'],
-  Sales:      ['eUtilMT','eTarget','eETA'],
-  Operations: ['eBerat','ePIBRelease'],
-  SuperAdmin: ['eSubmitMT','eSubmitDate','ePertekNo','ePertekDate','eObtainedMT','eSpiNo','eSpiDate','eStatus','eStatusUpdate','eBerat','ePIBRelease','eETA','eUtilMT','eTarget','eRem'],
+  // submitProdTable / obtainedProdTable = the dynamic per-product MT inputs (no single eSubmitMT/eObtainedMT anymore)
+  // salesShipTable / opsShipTable = the new multi-product multi-shipment tables (Sections D & E)
+  CorpSec:    ['eSubmitDate','ePertekNo','ePertekDate','eSpiNo','eSpiDate','eStatus','eStatusUpdate',
+               'submitProdTable','obtainedProdTable'],
+  Sales:      ['salesShipTable','eTarget'],
+  Operations: ['opsShipTable'],
+  SuperAdmin: ['eSubmitDate','ePertekNo','ePertekDate','eSpiNo','eSpiDate','eStatus','eStatusUpdate',
+               'submitProdTable','obtainedProdTable',
+               'salesShipTable','opsShipTable','eTarget','eRem'],
 };
 
 /* Sections locked per role */
@@ -3995,7 +4457,7 @@ const SECTION_ACCESS = {
   CorpSec:    ['sec-submission','sec-pertek','sec-spi'],
   Sales:      ['sec-sales'],
   Operations: ['sec-operations'],
-  SuperAdmin: ['sec-submission','sec-pertek','sec-spi','sec-operations','sec-sales','sec-remarks'],
+  SuperAdmin: ['sec-submission','sec-pertek','sec-spi','sec-sales','sec-operations','sec-remarks'],
 };
 
 function selectRole(role, btn) {
@@ -4013,8 +4475,8 @@ function selectRole(role, btn) {
   // Update active role badge in footer
   const roleLabels = {
     CorpSec:    '🏛 CorpSec — can edit: Submission · PERTEK · SPI · Status Update',
-    Sales:      '💼 Sales — can edit: Utilization · Target Re-Apply · ETA JKT',
-    Operations: '🚢 Operations — can edit: Berat Realized · PIB Release Date',
+    Sales:      '💼 Sales — can edit: Utilization per Product · ETA per Shipment · Target Re-Apply',
+    Operations: '🚢 Operations — can edit: Realized MT per Shipment · PIB Release Date',
     SuperAdmin: '⚙️ Super Admin — full access to all fields',
   };
   const el = g('activeRoleBadge');
@@ -4036,9 +4498,40 @@ function applyRolePermissions() {
   const allowed    = ROLE_PERMISSIONS[currentRole] || [];
   const secAllowed = SECTION_ACCESS[currentRole]   || [];
 
-  // All known field IDs
-  const ALL_FIELDS = ['eSubmitMT','eSubmitDate','ePertekNo','ePertekDate','eObtainedMT',
-                      'eSpiNo','eSpiDate','eStatus','eStatusUpdate','eBerat','ePIBRelease','eETA','eUtilMT','eTarget','eRem'];
+  // All known static field IDs (dynamic product-MT inputs handled separately below)
+  // Note: eBerat, ePIBRelease, eETA, eUtilMT are now hidden (legacy compat) — handled via shipment tables
+  const ALL_FIELDS = ['eSubmitDate','ePertekNo','ePertekDate',
+                      'eSpiNo','eSpiDate','eStatus','eStatusUpdate','eTarget','eRem'];
+
+  // Apply shipment table locks
+  applyShipmentRoleLock();
+
+  // ── Dynamic per-product MT inputs ────────────────────────────────
+  // These are <input class="pmt-submit-inp"> and <input class="pmt-obtained-inp">
+  // generated at runtime by buildProductMTTables(). Enable/disable by class + wrap opacity.
+  const canSubmitProds   = allowed.includes('submitProdTable');
+  const canObtainedProds = allowed.includes('obtainedProdTable');
+
+  document.querySelectorAll('.pmt-submit-inp').forEach(inp => {
+    inp.disabled = !canSubmitProds;
+  });
+  document.querySelectorAll('.pmt-obtained-inp').forEach(inp => {
+    inp.disabled = !canObtainedProds;
+  });
+
+  const wSub = g('wrap-submitProdTable');
+  if (wSub) {
+    wSub.style.opacity = canSubmitProds ? '1' : '0.55';
+    wSub.style.cursor  = canSubmitProds ? '' : 'not-allowed';
+    wSub.title         = canSubmitProds ? '' : 'Restricted by role';
+  }
+  const wObt = g('wrap-obtainedProdTable');
+  if (wObt) {
+    wObt.style.opacity = canObtainedProds ? '1' : '0.55';
+    wObt.style.cursor  = canObtainedProds ? '' : 'not-allowed';
+    wObt.title         = canObtainedProds ? '' : 'Restricted by role';
+  }
+  // ─────────────────────────────────────────────────────────────────
   const ALL_SECTIONS = ['sec-submission','sec-pertek','sec-spi','sec-operations','sec-sales','sec-remarks'];
 
   // Enable/disable individual fields
@@ -4088,6 +4581,894 @@ function applyRolePermissions() {
   }
 }
 
+/* ══════════════════════════════════════════════════════════════════════════
+   SALES & OPERATIONS — SHIPMENT-BASED FORM ENGINE
+   ──────────────────────────────────────────────────────────────────────────
+
+   DATA MODEL (per company, stored in co.shipments):
+   co.shipments = {
+     "GL BORON": [
+       { lot: 1, utilMT: 200, etaJKT: "07 Mar 26", note: "KEWEI 65G",
+         realMT: 200, pibDate: "14 Mar 26", arrived: true },
+       { lot: 2, utilMT: 150, etaJKT: "10 Apr 26", note: "", realMT: null, pibDate: "", arrived: false }
+     ],
+     "SHEETPILE": [ ... ]
+   }
+
+   VALIDATION RULES:
+   - utilMT per lot ≤ remaining PERTEK quota per product
+   - realMT per lot ≤ utilMT of same lot
+   - Total utilMT per product ≤ obtainedMT per product (from Obtained #1 cycle)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Get obtained MT per product for a company ── */
+function getObtainedByProd(co) {
+  const result = {};
+  if (!co) return result;
+  // First: use availableByProd if set (respects manual overrides)
+  if (co.availableByProd && Object.keys(co.availableByProd).length) {
+    // availableByProd is what's left; we need total obtained per prod
+  }
+  // Primary: Obtained #1 cycle products
+  const cycles = co.cycles || [];
+  const obtCy = cycles.find(cy => /^obtained\s*#?1/i.test(cy.type))
+             || cycles.find(cy => /^obtained/i.test(cy.type));
+  if (obtCy && obtCy.products) {
+    Object.entries(obtCy.products).forEach(([p, v]) => {
+      if (typeof v === 'number' && v > 0) result[p] = v;
+    });
+  }
+  // Fallback: use co products list with co.obtained total split evenly
+  if (!Object.keys(result).length && co.products && co.obtained) {
+    const n = co.products.length;
+    co.products.forEach(p => { result[p] = Math.round(co.obtained / n); });
+  }
+  return result;
+}
+
+/* ── Ensure co.shipments exists and has arrays for each product ── */
+function ensureShipments(co) {
+  if (!co.shipments) co.shipments = {};
+  const obtByProd = getObtainedByProd(co);
+  Object.keys(obtByProd).forEach(p => {
+    if (!co.shipments[p]) co.shipments[p] = [];
+    // Ensure at least one lot exists
+    if (co.shipments[p].length === 0) {
+      co.shipments[p].push({ lot: 1, utilMT: null, etaJKT: '', note: '', realMT: null, pibDate: '', arrived: false });
+    }
+  });
+  return co.shipments;
+}
+
+/* ── Total util MT used for a product across all lots ── */
+function totalUtilForProd(shipments, prod) {
+  return (shipments[prod] || []).reduce((s, lot) => s + (lot.utilMT || 0), 0);
+}
+
+/* ── Remaining quota for a product (obtained - all lots utilMT) ── */
+function remainingQuota(co, prod) {
+  const obtained = (getObtainedByProd(co))[prod] || 0;
+  const used     = totalUtilForProd(co.shipments || {}, prod);
+  return obtained - used;
+}
+
+/* ════════════════════════════════════════════════════════════════════
+   buildSalesOpsForm(co)
+   Renders both the Sales form (#salesFormWrap) and the Ops form
+   (#opsFormWrap) dynamically for the selected company.
+════════════════════════════════════════════════════════════════════ */
+function buildSalesOpsForm(co) {
+  if (!co) return;
+
+  const shipments = ensureShipments(co);
+  const obtByProd = getObtainedByProd(co);
+  const products  = Object.keys(obtByProd);
+
+  if (!products.length) {
+    g('salesFormWrap').innerHTML = '<div class="pmt-note">No products with obtained quota found.</div>';
+    g('opsFormWrap').innerHTML   = '<div class="pmt-note">No products with obtained quota found.</div>';
+    return;
+  }
+
+  /* ── Build Sales form ── */
+  let salesHTML = '';
+  products.forEach(prod => {
+    const obtMT   = obtByProd[prod] || 0;
+    const lots    = shipments[prod] || [];
+    const usedMT  = lots.reduce((s, l) => s + (l.utilMT || 0), 0);
+    const availMT = obtMT - usedMT;
+    const dot     = prodDot(prod);
+
+    salesHTML += `
+    <div class="sprod-block" data-prod="${prod}">
+      <div class="sprod-hdr">
+        <div class="sprod-hdr-left">
+          <div class="sprod-hdr-dot" style="background:${dot}"></div>
+          <span class="sprod-hdr-name">${prod}</span>
+          <span class="sprod-quota-badge">PERTEK: ${obtMT.toLocaleString()} MT</span>
+        </div>
+        <span class="sprod-avail-badge${availMT < 0 ? ' warn' : ''}" id="sales-avail-${prod.replace(/[^a-zA-Z0-9]/g,'_')}">
+          Available: ${availMT.toLocaleString()} MT
+        </span>
+      </div>
+
+      <table class="sship-table">
+        <thead>
+          <tr>
+            <th style="width:32px" class="t-c">Lot</th>
+            <th style="width:110px" class="t-r">Util MT</th>
+            <th style="width:105px">ETA JKT</th>
+            <th>Note / Vessel</th>
+            <th style="width:24px"></th>
+          </tr>
+        </thead>
+        <tbody id="sales-tbody-${prod.replace(/[^a-zA-Z0-9]/g,'_')}">
+          ${lots.map((lot, idx) => buildSalesRow(prod, idx, lot, obtMT)).join('')}
+        </tbody>
+      </table>
+
+      <div class="add-ship-row">
+        <button class="add-ship-btn" onclick="addSalesLot('${prod}')" id="sales-addbtn-${prod.replace(/[^a-zA-Z0-9]/g,'_')}">
+          + Add Shipment Lot
+        </button>
+        <div class="sprod-total-val" id="sales-total-${prod.replace(/[^a-zA-Z0-9]/g,'_')}">
+          ${usedMT.toLocaleString()} / ${obtMT.toLocaleString()} MT used
+        </div>
+      </div>
+    </div>`;
+  });
+
+  // Grand total bar
+  const grandUtil = products.reduce((s, p) => s + totalUtilForProd(shipments, p), 0);
+  const grandObt  = products.reduce((s, p) => s + (obtByProd[p] || 0), 0);
+  salesHTML += `
+  <div class="grand-total-bar">
+    <span>Total Utilization — All Products</span>
+    <span class="grand-total-val" id="sales-grand-total">${grandUtil.toLocaleString()} / ${grandObt.toLocaleString()} MT</span>
+  </div>`;
+
+  g('salesFormWrap').innerHTML = salesHTML;
+
+  // Build Re-Apply per-product table
+  buildReapplyTable(co);
+
+  /* ── Build Ops form ── */
+  let opsHTML = '';
+  products.forEach(prod => {
+    const obtMT  = obtByProd[prod] || 0;
+    const lots   = shipments[prod] || [];
+    const dot    = prodDot(prod);
+    const totalReal = lots.reduce((s, l) => s + (l.realMT || 0), 0);
+
+    opsHTML += `
+    <div class="sprod-block" data-prod="${prod}">
+      <div class="sprod-hdr">
+        <div class="sprod-hdr-left">
+          <div class="sprod-hdr-dot" style="background:${dot}"></div>
+          <span class="sprod-hdr-name">${prod}</span>
+          <span class="sprod-quota-badge">PERTEK: ${obtMT.toLocaleString()} MT</span>
+        </div>
+        <span class="sprod-avail-badge" id="ops-real-${prod.replace(/[^a-zA-Z0-9]/g,'_')}">
+          Realized: ${totalReal.toLocaleString()} MT
+        </span>
+      </div>
+
+      <table class="sship-table">
+        <thead>
+          <tr>
+            <th style="width:32px" class="t-c">Lot</th>
+            <th style="width:100px" class="t-r">Util MT</th>
+            <th style="width:100px" class="t-r">Real MT</th>
+            <th style="width:105px">PIB Date</th>
+            <th style="min-width:100px">Realization %</th>
+            <th style="width:24px"></th>
+          </tr>
+        </thead>
+        <tbody id="ops-tbody-${prod.replace(/[^a-zA-Z0-9]/g,'_')}">
+          ${lots.map((lot, idx) => buildOpsRow(prod, idx, lot)).join('')}
+        </tbody>
+      </table>
+
+      <div class="add-ship-row">
+        <div style="font-size:9.5px;color:var(--txt3);font-style:italic">
+          Realization synced from Sales shipment lots. PIB Date and Actual MT updated by Operations.
+        </div>
+        <div class="sprod-total-val" id="ops-total-${prod.replace(/[^a-zA-Z0-9]/g,'_')}">
+          ${totalReal.toLocaleString()} / ${obtMT.toLocaleString()} MT realized
+        </div>
+      </div>
+    </div>`;
+  });
+
+  // Grand total bar for ops
+  const grandReal = products.reduce((s, p) =>
+    s + (shipments[p] || []).reduce((ss, l) => ss + (l.realMT || 0), 0), 0);
+  opsHTML += `
+  <div class="grand-total-bar" style="background:#065f46">
+    <span>Total Realization — All Products</span>
+    <span class="grand-total-val" id="ops-grand-total">${grandReal.toLocaleString()} / ${grandObt.toLocaleString()} MT</span>
+  </div>`;
+
+  g('opsFormWrap').innerHTML = opsHTML;
+
+  // Apply role locking to new inputs
+  applyShipmentRoleLock();
+}
+
+/* ── Build a Sales shipment row ── */
+function buildSalesRow(prod, idx, lot, obtMT) {
+  const pid   = prod.replace(/[^a-zA-Z0-9]/g,'_');
+  const lotNo = idx + 1;
+  const util  = lot.utilMT != null ? lot.utilMT : '';
+  const eta   = lot.etaJKT || '';
+  const note  = lot.note   || '';
+  return `
+  <tr id="sales-row-${pid}-${idx}" data-prod="${prod}" data-idx="${idx}">
+    <td class="t-c"><span class="lot-badge">${lotNo}</span></td>
+    <td>
+      <input type="text" inputmode="numeric"
+        class="ship-inp sales-util-inp"
+        data-prod="${prod}" data-idx="${idx}"
+        value="${util !== '' ? Number(util).toLocaleString() : ''}"
+        placeholder="0"
+        oninput="onSalesUtilChange(this)"
+        title="Utilization MT for Lot ${lotNo} · Cannot exceed PERTEK obtained per product">
+      <div class="val-err" id="util-err-${pid}-${idx}"></div>
+    </td>
+    <td>
+      <input type="text"
+        class="ship-txt-inp sales-eta-inp"
+        data-prod="${prod}" data-idx="${idx}"
+        value="${eta}"
+        placeholder="e.g. 07 Mar 26">
+    </td>
+    <td>
+      <input type="text"
+        class="ship-txt-inp sales-note-inp"
+        data-prod="${prod}" data-idx="${idx}"
+        value="${note}"
+        placeholder="Vessel / note…">
+    </td>
+    <td>
+      <button class="del-ship-btn" onclick="deleteSalesLot('${prod}', ${idx})"
+        title="Remove this lot" ${idx === 0 ? 'disabled' : ''}>✕</button>
+    </td>
+  </tr>`;
+}
+
+/* ── Build an Ops shipment row ── */
+function buildOpsRow(prod, idx, lot) {
+  const pid    = prod.replace(/[^a-zA-Z0-9]/g,'_');
+  const lotNo  = idx + 1;
+  const util   = lot.utilMT  != null ? lot.utilMT  : null;
+  const real   = lot.realMT  != null ? lot.realMT  : '';
+  const pib    = lot.pibDate || '';
+  const realPct = (util && util > 0 && lot.realMT != null)
+    ? Math.min(100, Math.round(lot.realMT / util * 100))
+    : 0;
+  const barColor = realPct >= 60 ? '#16a34a' : realPct >= 30 ? '#d97706' : '#94a3b8';
+  const pibStatus = pib
+    ? `<span class="pib-pill pib-done">✓ ${pib}</span>`
+    : `<span class="pib-pill pib-none">—</span>`;
+
+  return `
+  <tr id="ops-row-${pid}-${idx}" data-prod="${prod}" data-idx="${idx}">
+    <td class="t-c"><span class="lot-badge">${lotNo}</span></td>
+    <td class="t-r" style="font-family:'DM Mono',monospace;font-size:11px;color:var(--txt2)">
+      ${util != null ? Number(util).toLocaleString() + ' MT' : '<span style="color:var(--txt3)">—</span>'}
+    </td>
+    <td>
+      <input type="text" inputmode="numeric"
+        class="ship-inp ops-real-inp"
+        data-prod="${prod}" data-idx="${idx}"
+        value="${real !== '' ? Number(real).toLocaleString() : ''}"
+        placeholder="0"
+        oninput="onOpsRealChange(this)"
+        title="Actual arrived MT for Lot ${lotNo} · Cannot exceed Util MT">
+      <div class="val-err" id="real-err-${pid}-${idx}"></div>
+    </td>
+    <td>
+      <input type="text"
+        class="ship-txt-inp ops-pib-inp"
+        data-prod="${prod}" data-idx="${idx}"
+        value="${pib}"
+        placeholder="DD/MM/YYYY"
+        oninput="onOpsPibChange(this)">
+    </td>
+    <td>
+      <div class="real-bar-wrap">
+        <div class="real-bar-bg">
+          <div class="real-bar-fill" id="real-bar-${pid}-${idx}"
+            style="width:${realPct}%;background:${barColor}"></div>
+        </div>
+        <span class="real-pct-lbl" id="real-pct-${pid}-${idx}"
+          style="color:${barColor}">${realPct > 0 ? realPct + '%' : '—'}</span>
+      </div>
+    </td>
+    <td>
+      <button class="del-ship-btn" title="Cannot delete — synced from Sales" disabled>✕</button>
+    </td>
+  </tr>`;
+}
+
+/* ── Add a new Sales lot for a product ── */
+function addSalesLot(prod) {
+  const co = getCurrentEditCo();
+  if (!co) return;
+  if (!co.shipments) co.shipments = {};
+  if (!co.shipments[prod]) co.shipments[prod] = [];
+
+  const lotNum = co.shipments[prod].length + 1;
+  co.shipments[prod].push({ lot: lotNum, utilMT: null, etaJKT: '', note: '', realMT: null, pibDate: '', arrived: false });
+
+  buildSalesOpsForm(co);   // rebuild both forms
+  applyShipmentRoleLock();
+  livePreview();
+}
+
+/* ── Delete a Sales lot (and its paired Ops row) ── */
+function deleteSalesLot(prod, idx) {
+  const co = getCurrentEditCo();
+  if (!co || !co.shipments || !co.shipments[prod]) return;
+  if (co.shipments[prod].length <= 1) return;  // always keep at least 1
+
+  co.shipments[prod].splice(idx, 1);
+  // Re-number lots
+  co.shipments[prod].forEach((l, i) => { l.lot = i + 1; });
+
+  buildSalesOpsForm(co);
+  applyShipmentRoleLock();
+  livePreview();
+}
+
+/* ── Helper: get the company object currently being edited ── */
+function getCurrentEditCo() {
+  const c = gv('editCo');
+  return c ? (getSPI(c) || PENDING.find(p => p.code === c)) : null;
+}
+
+/* ── Sales: Util MT changed → validate + update available badge + totals ── */
+function onSalesUtilChange(inp) {
+  fmtThousandInline(inp);
+  const prod = inp.dataset.prod;
+  const idx  = parseInt(inp.dataset.idx);
+  const co   = getCurrentEditCo();
+  if (!co) return;
+
+  ensureShipments(co);
+  const rawVal = inp.value.replace(/,/g,'');
+  const newVal = rawVal === '' ? null : parseFloat(rawVal);
+
+  // Write to model
+  if (co.shipments[prod] && co.shipments[prod][idx] !== undefined) {
+    co.shipments[prod][idx].utilMT = newVal;
+  }
+
+  // Validate: total util ≤ obtained per product
+  const obtMT   = (getObtainedByProd(co))[prod] || 0;
+  const usedMT  = totalUtilForProd(co.shipments, prod);
+  const availMT = obtMT - usedMT;
+  const pid     = prod.replace(/[^a-zA-Z0-9]/g,'_');
+  const errEl   = g(`util-err-${pid}-${idx}`);
+  const allInps = document.querySelectorAll(`.sales-util-inp[data-prod="${prod}"]`);
+
+  if (availMT < 0) {
+    inp.classList.add('err');
+    if (errEl) { errEl.textContent = `Exceeds PERTEK quota by ${Math.abs(availMT).toLocaleString()} MT`; errEl.classList.add('show'); }
+  } else {
+    allInps.forEach(i => i.classList.remove('err'));
+    document.querySelectorAll(`[id^="util-err-${pid}-"]`).forEach(e => e.classList.remove('show'));
+  }
+
+  // Update available badge
+  const badge = g(`sales-avail-${pid}`);
+  if (badge) {
+    badge.textContent = `Available: ${availMT.toLocaleString()} MT`;
+    badge.className   = `sprod-avail-badge${availMT < 0 ? ' warn' : ''}`;
+  }
+
+  // Update product total
+  const totalEl = g(`sales-total-${pid}`);
+  if (totalEl) totalEl.textContent = `${usedMT.toLocaleString()} / ${obtMT.toLocaleString()} MT used`;
+
+  // Update grand total
+  const grandEl = g('sales-grand-total');
+  if (grandEl && co.shipments) {
+    const obtByProd = getObtainedByProd(co);
+    const gt = Object.keys(co.shipments).reduce((s, p) => s + totalUtilForProd(co.shipments, p), 0);
+    const go = Object.values(obtByProd).reduce((s, v) => s + v, 0);
+    grandEl.textContent = `${gt.toLocaleString()} / ${go.toLocaleString()} MT`;
+  }
+
+  // Sync Ops form for this product (util MT shown in read-only Ops column)
+  syncOpsUtilDisplay(co, prod);
+  livePreview();
+}
+
+/* ── Sync Ops read-only Util MT column when Sales changes ── */
+function syncOpsUtilDisplay(co, prod) {
+  const pid  = prod.replace(/[^a-zA-Z0-9]/g,'_');
+  const lots = (co.shipments || {})[prod] || [];
+  lots.forEach((lot, idx) => {
+    const row = g(`ops-row-${pid}-${idx}`);
+    if (!row) return;
+    const utilCell = row.querySelectorAll('td')[1];
+    if (utilCell) {
+      utilCell.innerHTML = lot.utilMT != null
+        ? `<span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--txt2)">${Number(lot.utilMT).toLocaleString()} MT</span>`
+        : `<span style="color:var(--txt3)">—</span>`;
+    }
+    // Re-validate real MT against new util
+    const realInp = row.querySelector(`.ops-real-inp[data-idx="${idx}"]`);
+    if (realInp && realInp.value) onOpsRealChange(realInp);
+  });
+}
+
+/* ── Ops: Real MT changed → validate ≤ util + update bar ── */
+function onOpsRealChange(inp) {
+  fmtThousandInline(inp);
+  const prod = inp.dataset.prod;
+  const idx  = parseInt(inp.dataset.idx);
+  const co   = getCurrentEditCo();
+  if (!co) return;
+
+  ensureShipments(co);
+  const rawVal = inp.value.replace(/,/g,'');
+  const newVal = rawVal === '' ? null : parseFloat(rawVal);
+
+  if (co.shipments[prod] && co.shipments[prod][idx] !== undefined) {
+    co.shipments[prod][idx].realMT   = newVal;
+    co.shipments[prod][idx].arrived  = newVal != null && newVal > 0;
+  }
+
+  const utilMT  = co.shipments[prod][idx].utilMT || 0;
+  const pid     = prod.replace(/[^a-zA-Z0-9]/g,'_');
+  const errEl   = g(`real-err-${pid}-${idx}`);
+
+  if (newVal != null && utilMT > 0 && newVal > utilMT) {
+    inp.classList.add('err');
+    if (errEl) { errEl.textContent = `Cannot exceed Util MT (${utilMT.toLocaleString()} MT)`; errEl.classList.add('show'); }
+  } else {
+    inp.classList.remove('err');
+    if (errEl) errEl.classList.remove('show');
+  }
+
+  // Update realization bar
+  const realPct  = (utilMT > 0 && newVal != null) ? Math.min(100, Math.round(newVal / utilMT * 100)) : 0;
+  const barColor = realPct >= 60 ? '#16a34a' : realPct >= 30 ? '#d97706' : '#94a3b8';
+  const barEl    = g(`real-bar-${pid}-${idx}`);
+  const pctEl    = g(`real-pct-${pid}-${idx}`);
+  if (barEl) { barEl.style.width = realPct + '%'; barEl.style.background = barColor; }
+  if (pctEl) { pctEl.textContent = realPct > 0 ? realPct + '%' : '—'; pctEl.style.color = barColor; }
+
+  // Update product total
+  const lots     = co.shipments[prod] || [];
+  const totalReal = lots.reduce((s, l) => s + (l.realMT || 0), 0);
+  const obtMT    = (getObtainedByProd(co))[prod] || 0;
+  const totalEl  = g(`ops-total-${pid}`);
+  if (totalEl) totalEl.textContent = `${totalReal.toLocaleString()} / ${obtMT.toLocaleString()} MT realized`;
+
+  // Update ops badge
+  const badge = g(`ops-real-${pid}`);
+  if (badge) badge.textContent = `Realized: ${totalReal.toLocaleString()} MT`;
+
+  // Update grand total
+  const grandEl = g('ops-grand-total');
+  if (grandEl && co.shipments) {
+    const obtByProd = getObtainedByProd(co);
+    const gr = Object.keys(co.shipments).reduce((s, p) =>
+      s + (co.shipments[p] || []).reduce((ss, l) => ss + (l.realMT || 0), 0), 0);
+    const go = Object.values(obtByProd).reduce((s, v) => s + v, 0);
+    grandEl.textContent = `${gr.toLocaleString()} / ${go.toLocaleString()} MT`;
+  }
+
+  livePreview();
+}
+
+/* ── Ops: PIB date changed ── */
+function onOpsPibChange(inp) {
+  const prod = inp.dataset.prod;
+  const idx  = parseInt(inp.dataset.idx);
+  const co   = getCurrentEditCo();
+  if (!co) return;
+  ensureShipments(co);
+  if (co.shipments[prod] && co.shipments[prod][idx] !== undefined) {
+    co.shipments[prod][idx].pibDate = inp.value.trim();
+    co.shipments[prod][idx].arrived = inp.value.trim() !== '';
+  }
+  livePreview();
+}
+
+/* ── Apply role lock to new shipment inputs ── */
+function applyShipmentRoleLock() {
+  if (!currentRole) return;
+  const allowed = ROLE_PERMISSIONS[currentRole] || [];
+
+  const canSales = allowed.includes('salesShipTable');
+  const canOps   = allowed.includes('opsShipTable');
+
+  document.querySelectorAll('.sales-util-inp,.sales-eta-inp,.sales-note-inp,.add-ship-btn').forEach(el => {
+    el.disabled = !canSales;
+  });
+  document.querySelectorAll('.del-ship-btn').forEach(btn => {
+    // del buttons: only enable if canSales AND not the first lot
+    const idx = parseInt(btn.closest('tr')?.dataset?.idx ?? '0');
+    btn.disabled = !canSales || idx === 0;
+  });
+  document.querySelectorAll('.ops-real-inp,.ops-pib-inp').forEach(el => {
+    el.disabled = !canOps;
+  });
+  // Re-apply table inputs follow Sales permissions
+  document.querySelectorAll('.reapply-prod-inp').forEach(el => {
+    el.disabled = !canSales;
+  });
+}
+
+/* ── Collect all shipment data from the form → write back to co.shipments ── */
+function collectShipmentData(co) {
+  if (!co) return;
+  const obtByProd = getObtainedByProd(co);
+
+  // Collect Sales inputs
+  document.querySelectorAll('.sales-util-inp').forEach(inp => {
+    const prod = inp.dataset.prod;
+    const idx  = parseInt(inp.dataset.idx);
+    if (!co.shipments) co.shipments = {};
+    if (!co.shipments[prod]) co.shipments[prod] = [];
+    while (co.shipments[prod].length <= idx) co.shipments[prod].push({ lot: co.shipments[prod].length+1 });
+    const raw = inp.value.replace(/,/g,'');
+    co.shipments[prod][idx].utilMT = raw ? parseFloat(raw) : null;
+  });
+  document.querySelectorAll('.sales-eta-inp').forEach(inp => {
+    const prod = inp.dataset.prod;
+    const idx  = parseInt(inp.dataset.idx);
+    if (co.shipments[prod] && co.shipments[prod][idx]) co.shipments[prod][idx].etaJKT = inp.value.trim();
+  });
+  document.querySelectorAll('.sales-note-inp').forEach(inp => {
+    const prod = inp.dataset.prod;
+    const idx  = parseInt(inp.dataset.idx);
+    if (co.shipments[prod] && co.shipments[prod][idx]) co.shipments[prod][idx].note = inp.value.trim();
+  });
+
+  // Collect Ops inputs
+  document.querySelectorAll('.ops-real-inp').forEach(inp => {
+    const prod = inp.dataset.prod;
+    const idx  = parseInt(inp.dataset.idx);
+    if (co.shipments && co.shipments[prod] && co.shipments[prod][idx]) {
+      const raw = inp.value.replace(/,/g,'');
+      co.shipments[prod][idx].realMT  = raw ? parseFloat(raw) : null;
+      co.shipments[prod][idx].arrived = raw && parseFloat(raw) > 0;
+    }
+  });
+  document.querySelectorAll('.ops-pib-inp').forEach(inp => {
+    const prod = inp.dataset.prod;
+    const idx  = parseInt(inp.dataset.idx);
+    if (co.shipments && co.shipments[prod] && co.shipments[prod][idx]) {
+      co.shipments[prod][idx].pibDate = inp.value.trim();
+    }
+  });
+
+  // Collect re-apply per-product targets
+  collectReapplyData(co);
+
+  // Recompute aggregate utilizationMT, availableQuota, utilizationByProd, availableByProd
+  const obtByProd2 = getObtainedByProd(co);
+  co.utilizationByProd = {};
+  co.availableByProd   = {};
+  let totalUtil = 0;
+  Object.entries(obtByProd2).forEach(([prod, obtMT]) => {
+    const used = totalUtilForProd(co.shipments, prod);
+    co.utilizationByProd[prod] = used;
+    co.availableByProd[prod]   = Math.max(0, obtMT - used);
+    totalUtil += used;
+  });
+  co.utilizationMT  = totalUtil;
+  co.availableQuota = Math.max(0, (co.obtained || 0) - totalUtil);
+}
+
+/* ── Build per-product Re-Apply Target table ── */
+function buildReapplyTable(co) {
+  const wrap = document.getElementById('reapplyProdTableWrap');
+  if (!wrap) return;
+
+  const obtByProd = getObtainedByProd(co);
+  const products  = Object.keys(obtByProd);
+
+  if (!products.length) {
+    wrap.innerHTML = '<div class="pmt-note" style="color:var(--txt3)">No products found.</div>';
+    return;
+  }
+
+  // Load existing per-product re-apply targets from co.reapplyByProd
+  const existing = co.reapplyByProd || {};
+
+  let rows = products.map(p => {
+    const dot    = prodDot(p);
+    const obtMT  = obtByProd[p] || 0;
+    const val    = existing[p] != null ? existing[p] : '';
+    const pid    = p.replace(/[^a-zA-Z0-9]/g,'_');
+    return `<tr>
+      <td>
+        <div class="pmt-prod-chip">
+          <div class="pmt-prod-dot" style="background:${dot}"></div>
+          <span>${p}</span>
+        </div>
+      </td>
+      <td class="pmt-ref-mt">${obtMT.toLocaleString()} MT</td>
+      <td style="width:140px">
+        <input type="text" inputmode="numeric"
+          class="pmt-mt-inp reapply-prod-inp"
+          data-prod="${p}"
+          value="${val !== '' ? Number(val).toLocaleString() : ''}"
+          placeholder="0"
+          oninput="fmtThousandInline(this)"
+          title="Re-Apply target MT for ${p} in next cycle">
+      </td>
+    </tr>`;
+  }).join('');
+
+  const grandTotal = products.reduce((s, p) => s + (existing[p] || 0), 0);
+
+  wrap.innerHTML = `
+    <div class="pmt-note" style="margin-bottom:8px">
+      <strong>One row per product.</strong> Enter the planned re-apply MT for the next quota cycle.
+      This is the target quantity to request — independent of current utilization.
+    </div>
+    <table class="pmt-table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th class="t-r" style="width:120px">Current Obtained</th>
+          <th class="t-r" style="width:140px">Re-Apply Target (MT) ↓</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+      <tfoot>
+        <tr class="pmt-total-row">
+          <td colspan="2">Total Re-Apply Target</td>
+          <td class="pmt-total-val" id="reapplyTotal">${grandTotal.toLocaleString()} MT</td>
+        </tr>
+      </tfoot>
+    </table>`;
+
+  // Apply role lock
+  const canSales = currentRole && (ROLE_PERMISSIONS[currentRole]||[]).includes('salesShipTable');
+  wrap.querySelectorAll('.reapply-prod-inp').forEach(inp => { inp.disabled = !canSales; });
+}
+
+/* ── Collect re-apply data from form → co.reapplyByProd ── */
+function collectReapplyData(co) {
+  if (!co) return;
+  co.reapplyByProd = co.reapplyByProd || {};
+  let total = 0;
+  document.querySelectorAll('.reapply-prod-inp').forEach(inp => {
+    const prod = inp.dataset.prod;
+    const raw  = inp.value.replace(/,/g,'');
+    const val  = raw ? parseFloat(raw) : 0;
+    co.reapplyByProd[prod] = val;
+    total += val;
+  });
+  // Keep legacy co.target as the grand total for backward compat
+  co.target = total || null;
+}
+
+/* ══ END SALES & OPERATIONS SHIPMENT ENGINE ══════════════════════════════ */
+
+/* ══════════════════════════════════════════════════════════════
+   buildProductMTTables(co)
+   ─────────────────────────────────────────────────────────────
+   Renders two dynamic per-product MT tables for the CorpSec form:
+     A) Submit MT table   → #submitProdTableWrap
+     B) Obtained MT table → #obtainedProdTableWrap
+
+   Data source: co.cycles[0].products (Submit #1 MT per product)
+                co.cycles[1].products (Obtained #1 MT per product)
+   Falls back to co.products list when cycles are missing.
+
+   Each product row gets:
+     .pmt-submit-inp   (class) with data-prod="PRODUCT_NAME"
+     .pmt-obtained-inp (class) with data-prod="PRODUCT_NAME"
+   so saveEdit() can collect them without fixed IDs.
+══════════════════════════════════════════════════════════════ */
+
+const PROD_DOT_COLORS = {
+  'GL BORON':          '#0369a1',
+  'GI BORON':          '#0f766e',
+  'BORDES ALLOY':      '#dc2626',
+  'AS STEEL':          '#64748b',
+  'SHEETPILE':         '#b45309',
+  'SEAMLESS PIPE':     '#0d6946',
+  'HOLLOW PIPE':       '#78716c',
+  'PPGL CARBON':       '#7c3aed',
+  'ERW PIPE OD≤140mm': '#9333ea',
+  'ERW PIPE OD>140mm': '#0891b2',
+  'HRC/HRPO ALLOY':    '#ca8a04',
+};
+const prodDot = p => PROD_DOT_COLORS[p] || '#94a3b8';
+
+function buildProductMTTables(co) {
+  const products = co.products || [];
+  const cycles   = co.cycles   || [];
+
+  // Find the primary Submit and Obtained cycles
+  const subCy = cycles.find(cy => /^submit\s*#?1/i.test(cy.type))
+             || cycles.find(cy => /^submit/i.test(cy.type) && !/obtained/i.test(cy.type));
+  const obtCy = cycles.find(cy => /^obtained\s*#?1/i.test(cy.type))
+             || cycles.find(cy => /^obtained/i.test(cy.type));
+
+  const subProds = (subCy && subCy.products) ? subCy.products : {};
+  const obtProds = (obtCy && obtCy.products) ? obtCy.products : {};
+
+  // Use union of products from both cycles + co.products
+  const allProds = [...new Set([
+    ...products,
+    ...Object.keys(subProds),
+    ...Object.keys(obtProds),
+  ])].filter(Boolean);
+
+  // ── A. Submit MT table ──────────────────────────────────────────
+  const subWrap = g('submitProdTableWrap');
+  if (subWrap) {
+    if (!allProds.length) {
+      subWrap.innerHTML = '<div class="pmt-note">No products found for this company.</div>';
+    } else {
+      let rows = allProds.map(p => {
+        const v = typeof subProds[p] === 'number' ? subProds[p].toLocaleString() : '';
+        return `<tr>
+          <td>
+            <div class="pmt-prod-chip">
+              <div class="pmt-prod-dot" style="background:${prodDot(p)}"></div>
+              <span>${p}</span>
+            </div>
+          </td>
+          <td style="width:140px">
+            <input type="text" inputmode="numeric"
+              class="pmt-mt-inp pmt-submit-inp"
+              data-prod="${p}"
+              value="${v}"
+              placeholder="0"
+              oninput="fmtThousandInline(this);livePreview()">
+          </td>
+        </tr>`;
+      }).join('');
+
+      const totalSubmit = allProds.reduce((s, p) => {
+        const v = typeof subProds[p] === 'number' ? subProds[p] : 0;
+        return s + v;
+      }, 0);
+
+      subWrap.innerHTML = `
+        <div class="pmt-note">
+          <strong>One row per product.</strong> Submit MT is the MT applied for under this submission.
+          Each product within the same submission shares the same PERTEK number and submit date.
+        </div>
+        <table class="pmt-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th class="t-r" style="width:140px">Submit MT</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+          <tfoot>
+            <tr class="pmt-total-row">
+              <td>Total Submitted</td>
+              <td class="pmt-total-val" id="submitMTTotal">${totalSubmit.toLocaleString()} MT</td>
+            </tr>
+          </tfoot>
+        </table>`;
+    }
+  }
+
+  // ── B. Obtained MT table ────────────────────────────────────────
+  const obtWrap = g('obtainedProdTableWrap');
+  if (obtWrap) {
+    if (!allProds.length) {
+      obtWrap.innerHTML = '<div class="pmt-note">No products found for this company.</div>';
+    } else {
+      let rows = allProds.map(p => {
+        const sv = typeof subProds[p] === 'number' ? subProds[p].toLocaleString() + ' MT' : '—';
+        const ov = typeof obtProds[p] === 'number' ? obtProds[p].toLocaleString() : '';
+        return `<tr>
+          <td>
+            <div class="pmt-prod-chip">
+              <div class="pmt-prod-dot" style="background:${prodDot(p)}"></div>
+              <span>${p}</span>
+            </div>
+          </td>
+          <td class="pmt-ref-mt">${sv}</td>
+          <td style="width:140px">
+            <input type="text" inputmode="numeric"
+              class="pmt-mt-inp pmt-obtained-inp"
+              data-prod="${p}"
+              value="${ov}"
+              placeholder="0"
+              oninput="fmtThousandInline(this);updateObtainedTotal();livePreview()">
+          </td>
+        </tr>`;
+      }).join('');
+
+      const totalObtained = allProds.reduce((s, p) => {
+        const v = typeof obtProds[p] === 'number' ? obtProds[p] : 0;
+        return s + v;
+      }, 0);
+
+      obtWrap.innerHTML = `
+        <div class="pmt-note">
+          <strong>One PERTEK number covers all products in this submission.</strong>
+          Assign Obtained MT per product individually — even if the PERTEK document is one document.
+          The totals feed KPI 2 (SPI/PERTEK Obtained).
+        </div>
+        <table class="pmt-table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th class="t-r" style="width:120px">Submitted</th>
+              <th class="t-r" style="width:140px">Obtained MT ↓</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+          <tfoot>
+            <tr class="pmt-total-row">
+              <td colspan="2">Total Obtained</td>
+              <td class="pmt-total-val" id="obtainedMTTotal">${totalObtained.toLocaleString()} MT</td>
+            </tr>
+          </tfoot>
+        </table>`;
+    }
+  }
+
+  // Re-apply role-based lock state to the freshly rendered inputs
+  if (currentRole) {
+    const allowed = ROLE_PERMISSIONS[currentRole] || [];
+    document.querySelectorAll('.pmt-submit-inp').forEach(inp => {
+      inp.disabled = !allowed.includes('submitProdTable');
+    });
+    document.querySelectorAll('.pmt-obtained-inp').forEach(inp => {
+      inp.disabled = !allowed.includes('obtainedProdTable');
+    });
+  }
+}
+
+/* Thousand-separator for inline pmt inputs (no fixed ID) */
+function fmtThousandInline(el) {
+  const raw = el.value.replace(/[^0-9]/g, '');
+  el.value = raw ? Number(raw).toLocaleString() : '';
+  // Update submit total live
+  let st = 0;
+  document.querySelectorAll('.pmt-submit-inp').forEach(i => {
+    const n = parseInt((i.value || '').replace(/,/g,''), 10);
+    if (!isNaN(n)) st += n;
+  });
+  const stEl = g('submitMTTotal');
+  if (stEl) stEl.textContent = st.toLocaleString() + ' MT';
+}
+
+function updateObtainedTotal() {
+  let tot = 0;
+  document.querySelectorAll('.pmt-obtained-inp').forEach(i => {
+    const n = parseInt((i.value || '').replace(/,/g,''), 10);
+    if (!isNaN(n)) tot += n;
+  });
+  const el = g('obtainedMTTotal');
+  if (el) el.textContent = tot.toLocaleString() + ' MT';
+}
+
+/* Read all per-product MT inputs → { PRODUCT: mt, ... } and total */
+function collectProductMTs(cls) {
+  const result = {};
+  let total = 0;
+  document.querySelectorAll('.' + cls).forEach(inp => {
+    const prod = inp.dataset.prod;
+    const n    = parseInt((inp.value || '').replace(/,/g,''), 10);
+    if (prod && !isNaN(n)) {
+      result[prod] = n;
+      total += n;
+    }
+  });
+  return { byProd: result, total };
+}
+
 /* ── Load current values into all fields ──────────────── */
 function loadEdit() {
   const c  = gv('editCo');
@@ -4100,31 +5481,32 @@ function loadEdit() {
   const ac  = co ? (co.cycles || []) : [];
 
   // Relevant cycles
-  const subCy  = ac.find(cy => /^submit #1/i.test(cy.type));
-  const obtCy  = ac.find(cy => /^obtained #1/i.test(cy.type));
+  const subCy = ac.find(cy => /^submit\s*#?1/i.test(cy.type))
+             || ac.find(cy => /^submit/i.test(cy.type) && !/obtained/i.test(cy.type));
+  const obtCy = ac.find(cy => /^obtained\s*#?1/i.test(cy.type))
+             || ac.find(cy => /^obtained/i.test(cy.type));
 
   // ── Submission ──
-  const rawSubmitMT = subCy && typeof subCy.mt === 'number' ? subCy.mt
-    : co && typeof co.submit1 === 'number' ? co.submit1 : null;
-  g('eSubmitMT').value   = rawSubmitMT != null ? rawSubmitMT.toLocaleString() : '';
+  // eSubmitMT removed — now per-product table.  submitDate stays single.
   g('eSubmitDate').value = subCy ? (subCy.submitDate || '') : '';
 
   // ── PERTEK ──
   const pertekDateRaw = subCy ? subCy.releaseDate : '';
   g('ePertekNo').value   = co ? (co.pertekNo || '') : '';
   g('ePertekDate').value = pertekDateRaw && pertekDateRaw !== 'TBA' ? pertekDateRaw : '';
-  const rawObtMT = obtCy && typeof obtCy.mt === 'number' ? obtCy.mt
-    : co && typeof co.obtained === 'number' ? co.obtained : null;
-  g('eObtainedMT').value = rawObtMT != null ? rawObtMT.toLocaleString() : '';
+  // eObtainedMT removed — now per-product table.
 
   // ── SPI ──
   g('eSpiNo').value   = co ? (co.spiNo || '') : '';
   const spiDateRaw = obtCy ? obtCy.releaseDate : '';
   g('eSpiDate').value = spiDateRaw && spiDateRaw !== 'TBA' ? spiDateRaw : '';
 
-  // ── Realization & status ──
-  g('eStatus').value     = co ? (co.spiRef || '') : '';
+  // ── Status & notes ──
+  g('eStatus').value       = co ? (co.spiRef || '') : '';
+  // statusUpdate is SUBMISSION-LEVEL — one note per submission, shared across all products
   g('eStatusUpdate').value = co ? (co.statusUpdate || '') : '';
+
+  // ── Other roles ──
   g('eUtilMT').value     = (co && co.utilizationMT != null) ? co.utilizationMT.toLocaleString() : '';
   g('eBerat').value      = ra ? (ra.berat || '') : '';
   g('eETA').value        = ra ? (ra.etaJKT || '') : '';
@@ -4132,10 +5514,24 @@ function loadEdit() {
   g('eTarget').value     = ra && ra.target ? ra.target : '';
   g('eRem').value        = co ? (co.remarks || '') : '';
 
+  // ── Build per-product MT tables (Sections A & B: CorpSec) ──
+  if (co) buildProductMTTables(co);
+
+  // ── Build Sales & Ops shipment forms (Sections D & E) ──
+  if (co) {
+    ensureShipments(co);
+    buildSalesOpsForm(co);
+    buildReapplyTable(co);
+  } else {
+    g('salesFormWrap').innerHTML = '<div class="pmt-note" style="color:var(--txt3)">No product data available.</div>';
+    g('opsFormWrap').innerHTML   = '<div class="pmt-note" style="color:var(--txt3)">No product data available.</div>';
+  }
+
   ef.style.display = 'block';
 
-  // Apply role-based field permissions
+  // Apply role-based field permissions (also locks/unlocks product table inputs)
   applyRolePermissions();
+  applyShipmentRoleLock();
   livePreview();
 }
 
@@ -4153,15 +5549,33 @@ function saveEdit() {
   const allowed = ROLE_PERMISSIONS[currentRole] || [];
   const can = id => allowed.includes(id);
 
-  // Read only allowed fields (others return null/NaN — ignored in mutation logic)
-  const newSubmitMT   = can('eSubmitMT')   ? parseMTField('eSubmitMT')  : null;
+  // ── Collect shipment data from Sales & Ops forms ─────────────────
+  const co_live = getSPI(c) || PENDING.find(p => p.code === c);
+  if (co_live && (can('salesShipTable') || can('opsShipTable'))) {
+    collectShipmentData(co_live);
+  }
+
+  // ── Per-product MT tables (CorpSec / SuperAdmin) ──────────────────
+  const canSubmit   = can('submitProdTable');
+  const canObtained = can('obtainedProdTable');
+
+  // Collect per-product submit MTs → {byProd:{PROD:mt,...}, total:n}
+  const submitMTData   = canSubmit   ? collectProductMTs('pmt-submit-inp')   : { byProd:{}, total:null };
+  const obtainedMTData = canObtained ? collectProductMTs('pmt-obtained-inp') : { byProd:{}, total:null };
+
+  const newSubmitMT   = submitMTData.total;     // total across all products, or null if no access
+  const newObtainedMT = obtainedMTData.total;   // total across all products, or null if no access
+  const newSubmitProds   = submitMTData.byProd;   // { 'GL BORON': 4000, 'PPGL CARBON': 2000, … }
+  const newObtainedProds = obtainedMTData.byProd; // { 'GL BORON': 400,  'PPGL CARBON': 400,  … }
+
+  // ── Other single-field reads ──────────────────────────────────────
   const newSubmitDate = can('eSubmitDate')  ? gv('eSubmitDate')          : null;
   const newPertekNo   = can('ePertekNo')   ? gv('ePertekNo')             : null;
   const newPertekDate = can('ePertekDate') ? gv('ePertekDate')           : null;
-  const newObtainedMT = can('eObtainedMT') ? parseMTField('eObtainedMT'): null;
   const newSpiNo      = can('eSpiNo')      ? gv('eSpiNo')                : null;
   const newSpiDate    = can('eSpiDate')    ? gv('eSpiDate')              : null;
   const newStatus     = can('eStatus')     ? gv('eStatus')               : null;
+  // statusUpdate is SUBMISSION-LEVEL — one note for entire submission
   const newStatusUpdate = can('eStatusUpdate') ? g('eStatusUpdate').value.trim() : null;
   const newBerat      = can('eBerat')      ? parseFloat(g('eBerat').value): NaN;
   const newETA        = can('eETA')        ? gv('eETA')                  : null;
@@ -4169,8 +5583,8 @@ function saveEdit() {
   const newTarget     = can('eTarget')     ? parseFloat(g('eTarget').value): NaN;
   const newRem        = can('eRem')        ? gv('eRem')                  : null;
 
-  const hasPERTEK = newPertekDate !== '';
-  const hasSPI    = newSpiDate    !== '';
+  const hasPERTEK = newPertekDate !== '' && newPertekDate != null;
+  const hasSPI    = newSpiDate    !== '' && newSpiDate    != null;
 
   /* ── 1. Locate or promote company ── */
   let co = getSPI(c);
@@ -4180,12 +5594,20 @@ function saveEdit() {
     // In PENDING — if PERTEK date now filled, promote to SPI array
     const pi = PENDING.findIndex(p => p.code === c);
     if (pi >= 0) {
-      if (hasPERTEK) {
+      if (hasPERTEK && newPertekDate) {
         const pr = PENDING.splice(pi, 1)[0];
         const prods = pr.products || [];
-        const submitMT = newSubmitMT != null ? newSubmitMT : (pr.mt || 0);
-        const obtMT    = newObtainedMT != null ? newObtainedMT : 0;
-        const prodObj  = prods.reduce((o, p) => { o[p] = obtMT; return o; }, {});
+        // Use per-product data from tables, fall back to aggregate
+        const submitMT  = newSubmitMT   != null ? newSubmitMT   : (pr.mt || 0);
+        const obtMT     = newObtainedMT != null ? newObtainedMT : 0;
+        // Per-product breakdown for cycles.products
+        const subProdObj = Object.keys(newSubmitProds).length > 0
+          ? newSubmitProds
+          : (pr.cycles && pr.cycles[0] ? pr.cycles[0].products
+            : prods.reduce((o, p) => { o[p] = Math.round(submitMT / Math.max(prods.length,1)); return o; }, {}));
+        const obtProdObj = Object.keys(newObtainedProds).length > 0
+          ? newObtainedProds
+          : prods.reduce((o, p) => { o[p] = Math.round(obtMT / Math.max(prods.length,1)); return o; }, {});
         const newRec = {
           code: pr.code, group: pr.group || 'CD',
           submit1: submitMT, obtained: obtMT, products: prods,
@@ -4200,12 +5622,14 @@ function saveEdit() {
           remarks: newRem || pr.remarks || '',
           spiRef: hasSPI ? `SPI TERBIT ${newSpiDate}` : `PERTEK TERBIT ${newPertekDate}`,
           pertekNo: newPertekNo, spiNo: newSpiNo,
+          // statusUpdate is submission-level (one note, all products)
+          statusUpdate: newStatusUpdate || '',
           cycles: [
-            { type: 'Submit #1', mt: submitMT, products: (pr.cycles&&pr.cycles[0]?pr.cycles[0].products:{}),
+            { type: 'Submit #1', mt: submitMT, products: subProdObj,
               submitType: 'Submit MOI', submitDate: newSubmitDate || (pr.cycles&&pr.cycles[0]?pr.cycles[0].submitDate:''),
               releaseType: 'PERTEK', releaseDate: newPertekDate,
-              status: `PERTEK TERBIT ${newPertekDate}` },
-            { type: 'Obtained #1', mt: obtMT, products: prodObj,
+              status: newStatusUpdate ? `PERTEK TERBIT ${newPertekDate} · ${newStatusUpdate}` : `PERTEK TERBIT ${newPertekDate}` },
+            { type: 'Obtained #1', mt: obtMT, products: obtProdObj,
               submitType: 'Submit MOT', submitDate: 'TBA',
               releaseType: 'SPI', releaseDate: hasSPI ? newSpiDate : 'TBA',
               status: hasSPI ? `SPI TERBIT ${newSpiDate}` : `PERTEK Terbit: ${newPertekDate} · SPI: belum terbit` },
@@ -4217,12 +5641,19 @@ function saveEdit() {
       } else {
         // Stay in PENDING — update what we can
         const p = PENDING[pi];
+        // Update total MT from per-product sum
         if (newSubmitMT != null) p.mt = newSubmitMT;
         if (newRem) p.remarks = newRem;
         if (newStatus) p.status = newStatus;
+        // Store submission-level status update
+        if (newStatusUpdate !== null) p.statusUpdate = newStatusUpdate;
         const subCy = (p.cycles||[]).find(cy => /^submit/i.test(cy.type));
         if (subCy && newSubmitDate) subCy.submitDate = newSubmitDate;
         if (subCy && newSubmitMT != null) subCy.mt = newSubmitMT;
+        // Write per-product submit MT into pending cycle.products
+        if (subCy && canSubmit && Object.keys(newSubmitProds).length > 0) {
+          subCy.products = { ...subCy.products, ...newSubmitProds };
+        }
       }
     }
   }
@@ -4233,38 +5664,48 @@ function saveEdit() {
     const subCy  = ac.find(cy => /^submit #1/i.test(cy.type));
     const obtCy  = ac.find(cy => /^obtained #1/i.test(cy.type));
 
-    // Submit MT & date → KPI1
-    if (newSubmitMT != null) {
-      co.submit1 = newSubmitMT;
-      if (subCy) subCy.mt = newSubmitMT;
+    // ── Submit MT (per product) → KPI1 ─────────────────────────────
+    if (canSubmit && Object.keys(newSubmitProds).length > 0) {
+      // Update co.submit1 = total of all per-product submit MTs
+      co.submit1 = newSubmitMT || co.submit1;
+      if (subCy) {
+        subCy.mt = newSubmitMT || subCy.mt;
+        // Write per-product breakdown into cycle.products
+        subCy.products = { ...subCy.products, ...newSubmitProds };
+      }
     }
     if (newSubmitDate && subCy) subCy.submitDate = newSubmitDate;
 
-    // PERTEK No. → persisted on co record
+    // ── PERTEK No. — ONE per submission ──────────────────────────────
     if (newPertekNo) co.pertekNo = newPertekNo;
 
-    // PERTEK date → Submit #1 releaseDate (this is what KPI2 reads via getPertekTerbitForObtained)
+    // ── PERTEK date → Submit #1 releaseDate (KPI2 filter date) ───────
     if (hasPERTEK && subCy) {
       subCy.releaseDate = newPertekDate;
-      subCy.status = `PERTEK TERBIT ${newPertekDate}`;
+      subCy.status = newStatusUpdate
+        ? `PERTEK TERBIT ${newPertekDate} · ${newStatusUpdate}`
+        : `PERTEK TERBIT ${newPertekDate}`;
     }
 
-    // Obtained MT → KPI2
-    if (newObtainedMT != null) {
-      co.obtained = newObtainedMT;
+    // ── Obtained MT (per product) → KPI2 ────────────────────────────
+    if (canObtained && Object.keys(newObtainedProds).length > 0) {
+      co.obtained = newObtainedMT || co.obtained;
       if (obtCy) {
-        obtCy.mt = newObtainedMT;
-        // Update product qty if single product
-        if (co.products && co.products.length === 1) {
-          obtCy.products = { [co.products[0]]: newObtainedMT };
-        }
+        obtCy.mt = newObtainedMT || obtCy.mt;
+        // Write per-product breakdown — replaces old products map completely
+        // Merge: keep existing products not in the form, update those that are
+        obtCy.products = { ...obtCy.products, ...newObtainedProds };
       }
+      // Keep co.products list in sync (add any new product names)
+      Object.keys(newObtainedProds).forEach(p => {
+        if (!co.products.includes(p)) co.products.push(p);
+      });
     }
 
-    // SPI No. → persisted on co record
+    // ── SPI No. — ONE per submission ──────────────────────────────────
     if (newSpiNo) co.spiNo = newSpiNo;
 
-    // SPI date → Obtained #1 releaseDate (SPI Terbit)
+    // ── SPI date → Obtained #1 releaseDate (SPI Terbit) ──────────────
     if (hasSPI && obtCy) {
       obtCy.releaseDate = newSpiDate;
       obtCy.status = `SPI TERBIT ${newSpiDate}`;
@@ -4292,14 +5733,19 @@ function saveEdit() {
     if (newRem) co.remarks = newRem;
     if (newStatusUpdate !== null) co.statusUpdate = newStatusUpdate;
 
-    // Utilization MT + Available Quota
-    const newUtilMT = can('eUtilMT') ? parseMTField('eUtilMT') : null;
-    if (newUtilMT != null) {
-      co.utilizationMT  = newUtilMT;
-      co.availableQuota = co.obtained - newUtilMT;
-    } else if (co.obtained != null) {
-      // Recalculate from stored utilization if obtained changed
-      if (co.utilizationMT != null) co.availableQuota = co.obtained - co.utilizationMT;
+    // Utilization MT + Available Quota — always derive from shipments if they exist
+    if (co.shipments && Object.keys(co.shipments).length > 0) {
+      // Already computed by collectShipmentData() above — just ensure availableQuota is updated
+      co.availableQuota = Math.max(0, (co.obtained || 0) - (co.utilizationMT || 0));
+    } else {
+      // Legacy fallback: read from hidden input (SuperAdmin only)
+      const newUtilMT = can('eUtilMT') ? parseMTField('eUtilMT') : null;
+      if (newUtilMT != null) {
+        co.utilizationMT  = newUtilMT;
+        co.availableQuota = Math.max(0, co.obtained - newUtilMT);
+      } else if (co.obtained != null && co.utilizationMT != null) {
+        co.availableQuota = Math.max(0, co.obtained - co.utilizationMT);
+      }
     }
 
     // Updated By
@@ -4310,20 +5756,66 @@ function saveEdit() {
     }
   }
 
-  /* ── 3. Mutate RA record (realization data) ── */
+  /* ── 3. Mutate RA record + sync from shipment data ── */
   const ra = RA.find(r => r.code === c);
+
+  // ── 3a. Sync from co.shipments (Sales/Ops role saves) ────────────────
+  if (co && co.shipments && (can('salesShipTable') || can('opsShipTable'))) {
+    // Aggregate across all lots and products for the RA record
+    const allLots = Object.values(co.shipments).flat();
+    const totalUtil  = allLots.reduce((s, l) => s + (l.utilMT  || 0), 0);
+    const totalReal  = allLots.filter(l => l.arrived).reduce((s, l) => s + (l.realMT || 0), 0);
+    const totalBerat = allLots.reduce((s, l) => s + (l.realMT != null ? l.realMT : (l.utilMT || 0)), 0);
+    const anyArrived = allLots.some(l => l.arrived && l.realMT > 0);
+    const latestETA  = allLots.filter(l => l.etaJKT).map(l => l.etaJKT).join(' · ') || '';
+    const latestPIB  = allLots.filter(l => l.pibDate).map(l => l.pibDate).join(', ') || '';
+    const obtMT      = co.obtained || 1;
+
+    if (ra) {
+      // Merge shipment data into RA record
+      if (totalUtil > 0 || totalReal > 0) {
+        ra.berat        = anyArrived ? totalReal : totalUtil;
+        ra.cargoArrived = anyArrived;
+        ra.realPct      = anyArrived  ? Math.min(1, totalReal  / obtMT) : 0;
+        ra.utilPct      = !anyArrived ? Math.min(1, totalUtil  / obtMT) : null;
+      }
+      if (latestETA)  ra.etaJKT        = latestETA;
+      if (latestPIB)  ra.pibReleaseDate = latestPIB;
+    } else if (totalUtil > 0 || totalReal > 0) {
+      // No RA record yet — create one from shipment data
+      RA.push({
+        code: c, product: (co.products || []).join(' + '),
+        berat: anyArrived ? totalReal : totalUtil,
+        obtained: co.obtained || 0,
+        cargoArrived: anyArrived,
+        realPct:  anyArrived  ? Math.min(1, totalReal / obtMT) : 0,
+        utilPct:  !anyArrived ? Math.min(1, totalUtil / obtMT) : null,
+        arrivalDate: null,
+        etaJKT: latestETA,
+        pibReleaseDate: latestPIB,
+        reapplyEst: '', target: null,
+        pertek: co.pertekNo || '', spi: co.spiNo || '',
+        catatan: '',
+      });
+    }
+  }
+
+  // ── 3b. Legacy single-field updates (CorpSec / Ops direct entry) ─────
   if (ra) {
-    if (!isNaN(newBerat) && newBerat >= 0) {
+    if (!isNaN(newBerat) && newBerat >= 0 && can('eBerat')) {
       ra.berat = newBerat;
       const obtMT = (co && co.obtained > 0) ? co.obtained : (ra.obtained || 1);
       if (ra.cargoArrived) ra.realPct = newBerat / obtMT;
       else                 ra.utilPct = newBerat / obtMT;
     }
-    if (newETA)            ra.etaJKT  = newETA;
-    if (newPIBRelease)     ra.pibReleaseDate = newPIBRelease;
-    if (!isNaN(newTarget)) ra.target  = newTarget;
-    if (newPertekNo)       ra.pertekNo = newPertekNo;
-    if (newSpiNo)          ra.spiNo    = newSpiNo;
+    if (newETA        && can('eETA'))        ra.etaJKT         = newETA;
+    if (newPIBRelease && can('ePIBRelease')) ra.pibReleaseDate = newPIBRelease;
+    if (!isNaN(newTarget))                   ra.target         = newTarget;
+    // Always sync PERTEK / SPI numbers from CorpSec edits
+    if (newPertekNo) { ra.pertek = newPertekNo; ra.pertekNo = newPertekNo; }
+    if (newSpiNo)    { ra.spi    = newSpiNo;    ra.spiNo    = newSpiNo; }
+    // Keep ra.obtained in sync if CorpSec changed the obtained MT
+    if (co && co.obtained) ra.obtained = co.obtained;
   }
 
   /* ── 4. Refresh ALL dashboard sections ── */
