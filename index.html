@@ -148,6 +148,7 @@ body { font-family:'DM Sans','Calibri','Segoe UI',sans-serif; background:var(--b
 .g3  { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px }
 .g4  { display:grid; grid-template-columns:repeat(4,1fr); gap:12px }
 .g6  { display:grid; grid-template-columns:repeat(6,1fr); gap:var(--g) }
+.g7  { display:grid; grid-template-columns:repeat(7,1fr); gap:var(--g) }
 .g5  { display:grid; grid-template-columns:repeat(5,1fr); gap:12px }
 .g-1-2  { display:grid; grid-template-columns:1fr 2fr; gap:14px }
 .g-2-1  { display:grid; grid-template-columns:2fr 1fr; gap:14px }
@@ -176,14 +177,14 @@ body { font-family:'DM Sans','Calibri','Segoe UI',sans-serif; background:var(--b
 .kpi-tag  { display:inline-block; margin-top:7px; font-size:10px; font-weight:600; padding:2px 8px; border-radius:3px }
 
 /* ── KEY INSIGHTS STRIP ── */
-.insights { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-bottom:14px }
-.insight  { background:var(--surf); border:1px solid var(--border); border-radius:var(--r2); padding:13px 16px; box-shadow:var(--sh); display:flex; align-items:flex-start; gap:11px }
-.ins-ico  { font-size:20px; flex-shrink:0; line-height:1; margin-top:1px }
+.insights { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-bottom:14px }
+.insight  { background:var(--surf); border:1px solid var(--border); border-radius:var(--r2); padding:9px 12px; box-shadow:var(--sh); display:flex; align-items:flex-start; gap:8px }
+.ins-ico  { font-size:16px; flex-shrink:0; line-height:1; margin-top:1px }
 .ins-body { flex:1; min-width:0 }
-.ins-lbl  { font-size:9.5px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--txt3); margin-bottom:3px }
-.ins-val  { font-size:15px; font-weight:700; line-height:1.2; color:var(--txt) }
-.ins-sub  { font-size:10.5px; color:var(--txt2); margin-top:3px; line-height:1.4 }
-.ins-rule { font-size:10px; color:var(--txt3); margin-top:5px; font-style:italic; line-height:1.4; padding-top:5px; border-top:1px dashed var(--border) }
+.ins-lbl  { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--txt3); margin-bottom:2px }
+.ins-val  { font-size:13px; font-weight:700; line-height:1.2; color:var(--txt) }
+.ins-sub  { font-size:9.5px; color:var(--txt2); margin-top:2px; line-height:1.4 }
+.ins-rule { font-size:9.5px; color:var(--txt3); margin-top:4px; font-style:italic; line-height:1.4; padding-top:4px; border-top:1px dashed var(--border) }
 .insight-click { cursor:pointer; transition:box-shadow .16s, transform .16s, border-color .16s !important }
 .insight-click:hover { box-shadow:var(--sh2) !important; transform:translateY(-2px); border-color:var(--blue-bd) !important }
 .insight-click:hover .ins-arrow { opacity:1; transform:translate(0,0) }
@@ -245,6 +246,11 @@ tr:hover td { background:#f9fafb }
 .tr-reapply td { background:var(--blue-bg) }  .tr-reapply td:first-child { border-left:3px solid var(--blue) }
 .tr-revdone td { background:var(--violet-bg) } .tr-revdone td:first-child { border-left:3px solid var(--violet) }
 .tr-pending td { background:var(--red-bg) }    .tr-pending td:first-child { border-left:3px solid var(--red-lt) }
+.tr-sub td { background:#f9fafb; font-size:11px }
+.tr-sub td:first-child { border-left:3px solid #e2e8f0; padding-left:22px }
+.tr-sub td { border-bottom:1px solid var(--border) }
+.tr-totals td { background:var(--bg2); font-weight:700; border-top:2px solid var(--border2); font-size:11.5px }
+.tr-totals td:first-child { color:var(--txt3); font-size:10px; text-transform:uppercase; letter-spacing:.8px }
 
 .t-code { font-weight:700; font-size:13px; color:var(--blue); cursor:pointer }
 .t-code:hover { text-decoration:underline }
@@ -899,6 +905,37 @@ tr:hover td { background:#f9fafb }
                 display:flex; align-items:center; gap:8px; flex-wrap:wrap }
 .pq-footer-lbl{ font-size:10.5px; color:var(--txt3) }
 .pq-footer-val{ font-size:11px; font-weight:700; font-family:'DM Mono',monospace; color:var(--red) }
+
+/* ── AVQ PAGE TABS ── */
+#avqTabChart, #avqTabProd, #avqTabTable {
+  transition: all .15s;
+  font-family: 'DM Sans', sans-serif;
+}
+#avqTabChart:hover, #avqTabProd:hover, #avqTabTable:hover {
+  background: var(--bg) !important;
+  color: var(--txt2) !important;
+}
+
+/* ── STATUS SUMMARY STRIP ── */
+#revSummaryStrip, #pendingSummaryStrip {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+#pendingSummaryStrip {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* ── INSIGHT CLICK ── */
+.insight-click {
+  cursor: pointer;
+  transition: box-shadow .15s, transform .15s;
+}
+.insight-click:hover {
+  box-shadow: var(--sh2);
+  transform: translateY(-2px);
+}
 </style>
 </head>
 <body>
@@ -921,7 +958,7 @@ tr:hover td { background:#f9fafb }
       <input type="text" id="gSearch" placeholder="Search company, product, status…" oninput="handleSearch(this.value)" autocomplete="off">
     </div>
     <div id="sDrop" class="s-drop"></div>
-    <span class="tb-date">Updated: 26 Feb 2026</span>
+    <span class="tb-date" id="tbDateTime" title="Last dashboard update timestamp"></span>
     <button class="tb-btn" onclick="openImport()">⬆ Import</button>
     <button class="tb-btn" onclick="exportExecutivePDF()" title="Export Management Summary PDF (A4)" style="background:rgba(220,38,38,.15);border-color:rgba(220,38,38,.4);color:#fca5a5;letter-spacing:.3px">📄 PDF Summary</button>
     <button class="tb-btn pri" onclick="doExportXLSX()" title="Export filtered data to Excel (.xlsx)">📊 Export Excel</button>
@@ -1082,6 +1119,78 @@ tr:hover td { background:#f9fafb }
     <div style="padding:10px 20px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:var(--bg)">
       <div id="realDrillFooter" style="font-size:10px;color:var(--txt3)">Click row to open company detail</div>
       <button onclick="closeRealizedDrill()" style="background:var(--navy);color:#fff;border:none;border-radius:6px;padding:6px 16px;font-size:11.5px;font-weight:600;cursor:pointer">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- AVAILABLE QUOTA DRILL-DOWN MODAL -->
+<div id="avqDrillModal" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(15,23,42,.55);backdrop-filter:blur(3px)" onclick="if(event.target===this)closeAvqDrill()">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(94vw,900px);max-height:88vh;background:var(--bg);border-radius:12px;box-shadow:0 24px 60px rgba(0,0,0,.28);display:flex;flex-direction:column;overflow:hidden">
+    <div style="padding:16px 20px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg);flex-shrink:0">
+      <div>
+        <div style="font-size:15px;font-weight:700;color:var(--txt)">Available Quota — Breakdown</div>
+        <div id="avqDrillSubtitle" style="font-size:11px;color:var(--txt3);margin-top:2px">Obtained − Utilized · per company and product type</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <button onclick="goPage('availquota',document.querySelectorAll('.nav-tab')[4]);closeAvqDrill()" style="background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-bd);border-radius:6px;padding:5px 12px;font-size:11px;font-weight:600;cursor:pointer">Full Detail ↗</button>
+        <button onclick="closeAvqDrill()" style="background:var(--border);border:none;border-radius:6px;width:28px;height:28px;cursor:pointer;font-size:14px;color:var(--txt3);display:flex;align-items:center;justify-content:center">✕</button>
+      </div>
+    </div>
+    <div id="avqDrillSummary" style="padding:12px 20px;border-bottom:1px solid var(--border);display:flex;gap:14px;flex-wrap:wrap;background:var(--bg2);flex-shrink:0"></div>
+    <div style="overflow-y:auto;flex:1">
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead>
+          <tr style="position:sticky;top:0;background:var(--bg2);z-index:1">
+            <th style="padding:9px 14px;text-align:left;font-weight:700;color:var(--txt3);font-size:10.5px;border-bottom:2px solid var(--border)">Company</th>
+            <th style="padding:9px 10px;text-align:left;font-weight:700;color:var(--txt3);font-size:10.5px;border-bottom:2px solid var(--border)">Product</th>
+            <th style="padding:9px 10px;text-align:right;font-weight:700;color:var(--txt3);font-size:10.5px;border-bottom:2px solid var(--border)">Obtained (MT)</th>
+            <th style="padding:9px 10px;text-align:right;font-weight:700;color:var(--blue);font-size:10.5px;border-bottom:2px solid var(--blue)">Utilized (MT)</th>
+            <th style="padding:9px 10px;text-align:center;font-weight:700;color:var(--txt3);font-size:10.5px;border-bottom:2px solid var(--border)">Util. %</th>
+            <th style="padding:9px 10px;text-align:right;font-weight:700;color:#0891b2;font-size:10.5px;border-bottom:2px solid #0891b2">Available (MT) ★</th>
+            <th style="padding:9px 14px;text-align:left;font-weight:700;color:var(--txt3);font-size:10.5px;border-bottom:2px solid var(--border)">Status</th>
+          </tr>
+        </thead>
+        <tbody id="avqDrillBody"></tbody>
+      </table>
+    </div>
+    <div style="padding:10px 20px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:var(--bg)">
+      <div id="avqDrillFooter" style="font-size:10px;color:var(--txt3)">Click row to open company detail · Only companies with PERTEK / SPI issued shown</div>
+      <button onclick="closeAvqDrill()" style="background:var(--navy);color:#fff;border:none;border-radius:6px;padding:6px 16px;font-size:11.5px;font-weight:600;cursor:pointer">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOTAL UTILIZED DRILL-DOWN MODAL -->
+<div id="utilDrillModal" style="display:none;position:fixed;inset:0;z-index:9000;background:rgba(15,23,42,.55);backdrop-filter:blur(3px)" onclick="if(event.target===this)closeUtilDrill()">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(94vw,900px);max-height:88vh;background:var(--bg);border-radius:12px;box-shadow:0 24px 60px rgba(0,0,0,.28);display:flex;flex-direction:column;overflow:hidden">
+    <div style="padding:16px 20px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg);flex-shrink:0">
+      <div>
+        <div style="font-size:15px;font-weight:700;color:var(--txt)">Total Utilized — Breakdown</div>
+        <div id="utilDrillSubtitle" style="font-size:11px;color:var(--txt3);margin-top:2px">MT allocated per company · from SPI data</div>
+      </div>
+      <button onclick="closeUtilDrill()" style="background:var(--border);border:none;border-radius:6px;width:28px;height:28px;cursor:pointer;font-size:14px;color:var(--txt3);display:flex;align-items:center;justify-content:center">✕</button>
+    </div>
+    <div id="utilDrillSummary" style="padding:12px 20px;border-bottom:1px solid var(--border);display:flex;gap:16px;flex-wrap:wrap;background:var(--bg2);flex-shrink:0"></div>
+    <div style="overflow-y:auto;flex:1">
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead>
+          <tr style="position:sticky;top:0;background:var(--bg2);z-index:1">
+            <th style="padding:9px 14px;text-align:left;font-weight:700;color:var(--txt3);font-size:10.5px;border-bottom:2px solid var(--border)">Company</th>
+            <th style="padding:9px 10px;text-align:left;font-weight:700;color:var(--txt3);font-size:10.5px;border-bottom:2px solid var(--border)">Group</th>
+            <th style="padding:9px 10px;text-align:left;font-weight:700;color:var(--txt3);font-size:10.5px;border-bottom:2px solid var(--border)">Product</th>
+            <th style="padding:9px 10px;text-align:right;font-weight:700;color:var(--txt3);font-size:10.5px;border-bottom:2px solid var(--border)">Obtained (MT)</th>
+            <th style="padding:9px 10px;text-align:right;font-weight:700;color:var(--blue);font-size:10.5px;border-bottom:2px solid var(--blue)">Utilized (MT) ★</th>
+            <th style="padding:9px 10px;text-align:center;font-weight:700;color:var(--txt3);font-size:10.5px;border-bottom:2px solid var(--border)">Util. %</th>
+            <th style="padding:9px 10px;text-align:right;font-weight:700;color:var(--teal);font-size:10.5px;border-bottom:2px solid var(--teal)">Available (MT)</th>
+            <th style="padding:9px 14px;text-align:left;font-weight:700;color:var(--txt3);font-size:10.5px;border-bottom:2px solid var(--border)">Status</th>
+          </tr>
+        </thead>
+        <tbody id="utilDrillBody"></tbody>
+      </table>
+    </div>
+    <div style="padding:10px 20px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:var(--bg)">
+      <div id="utilDrillFooter" style="font-size:10px;color:var(--txt3)">Click row to open company detail</div>
+      <button onclick="closeUtilDrill()" style="background:var(--navy);color:#fff;border:none;border-radius:6px;padding:6px 16px;font-size:11.5px;font-weight:600;cursor:pointer">Close</button>
     </div>
   </div>
 </div>
@@ -1263,6 +1372,7 @@ tr:hover td { background:#f9fafb }
   <div class="nav-tab" onclick="goPage('spi',this)">PERTEK &amp; SPI <span class="n-count">28</span></div>
   <div class="nav-tab" onclick="goPage('utilization',this)">Utilization &amp; Realization</div>
   <div class="nav-tab" onclick="goPage('comparison',this)">Quota Comparison</div>
+  <div class="nav-tab" onclick="goPage('availquota',this)">📊 Available Quota</div>
   <div class="nav-tab" onclick="goPage('all',this)">All Companies <span class="n-count">33</span></div>
 </nav>
 
@@ -1273,7 +1383,7 @@ tr:hover td { background:#f9fafb }
 <div class="wrap">
 
   <!-- 5 KPI CARDS -->
-  <div class="g6 mb14">
+  <div class="g7 mb14">
     <div class="kpi" onclick="openSubmitDrill()" style="cursor:pointer" title="Click to see submission breakdown">
       <div class="kpi-accent" style="background:var(--navy)"></div>
       <div class="kpi-lbl">Total Submitted</div>
@@ -1293,20 +1403,40 @@ tr:hover td { background:#f9fafb }
       <div class="kpi-bar"><div class="kpi-fill" style="width:9.9%;background:var(--teal)"></div></div>
       <div class="kpi-tag" style="background:var(--teal-bg);color:var(--teal)">9.9% Approval Rate</div>
     </div>
+    <div class="kpi" onclick="openUtilDrill()" style="cursor:pointer" title="Click to see utilization breakdown">
+      <div class="kpi-accent" style="background:var(--blue)"></div>
+      <div class="kpi-lbl">Total Utilized</div>
+      <div class="kpi-val" id="kpiUtilCoCount">—</div>
+      <div class="kpi-unit" id="kpiUtilUnit">companies with shipment</div>
+      <div id="kpiUtilMT" style="font-size:13px;font-weight:700;color:var(--blue);margin-top:2px;font-family:'DM Mono',monospace">— MT</div>
+      <div class="kpi-bar"><div class="kpi-fill" id="kpiUtilFill" style="width:0%;background:var(--blue)"></div></div>
+      <div class="kpi-tag" id="kpiUtilTag" style="background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-bd)">Of obtained quota allocated</div>
+    </div>
     <div class="kpi" onclick="openRealizedDrill()" style="cursor:pointer" title="Click to see realization breakdown">
       <div class="kpi-accent" style="background:var(--green-lt)"></div>
       <div class="kpi-lbl">Total Realized</div>
-      <div class="kpi-val">4</div>
-      <div class="kpi-unit">Companies with realization</div>
+      <div class="kpi-val" id="kpiRealCoCount">4</div>
+      <div class="kpi-unit">Companies with utilization</div>
+      <div id="kpiRealMT" style="font-size:13px;font-weight:700;color:var(--green);margin-top:2px;font-family:'DM Mono',monospace">— MT</div>
       <div class="kpi-bar"><div class="kpi-fill" style="width:14.3%;background:var(--green-lt)"></div></div>
       <div class="kpi-tag" style="background:var(--green-bg);color:var(--green);display:flex;align-items:center;justify-content:space-between">
         <span>CGK, GNG, HDP, MIN</span><span style="font-size:9px;opacity:.5;margin-left:6px">↗ detail</span>
       </div>
     </div>
+    <div class="kpi" onclick="openAvqDrill()" style="cursor:pointer" title="Click to see Available Quota breakdown">
+      <div class="kpi-accent" style="background:#0891b2"></div>
+      <div class="kpi-lbl">Available Quota</div>
+      <div class="kpi-val" id="kpiAvqVal">—</div>
+      <div class="kpi-unit" id="kpiAvqUnit">MT · companies with utilization</div>
+      <div class="kpi-bar"><div class="kpi-fill" id="kpiAvqFill" style="width:0%;background:#0891b2"></div></div>
+      <div class="kpi-tag" id="kpiAvqTag" style="background:#ecfeff;color:#0891b2;border:1px solid #a5f3fc;display:flex;align-items:center;justify-content:space-between">
+        <span>Obtained − Utilization</span><span style="font-size:9px;opacity:.5;margin-left:6px">↗ detail</span>
+      </div>
+    </div>
     <div class="kpi" onclick="openReapplyDrill()" style="cursor:pointer" title="Click to see re-apply breakdown">
       <div class="kpi-accent" style="background:var(--amber-lt)"></div>
       <div class="kpi-lbl">Target Re-Apply</div>
-      <div class="kpi-val" style="font-size:38px">3</div>
+      <div class="kpi-val" id="kpiReapplyVal">3</div>
       <div class="kpi-unit">Companies — Re-Apply On Process</div>
       <div class="kpi-bar"><div class="kpi-fill" style="width:36.7%;background:var(--amber-lt)"></div></div>
       <div class="kpi-tag" style="background:#f5f3ff;color:#5b21b6;border:1px solid #c4b5fd;display:flex;align-items:center;justify-content:space-between">
@@ -1324,104 +1454,88 @@ tr:hover td { background:#f9fafb }
         <span style="font-size:9px;opacity:.6;margin-left:6px">↗ detail</span>
       </div>
     </div>
-    <div class="kpi" onclick="document.getElementById('avqSection').scrollIntoView({behavior:'smooth'})" style="cursor:pointer" title="Click to see Available Quota breakdown">
-      <div class="kpi-accent" style="background:#0891b2"></div>
-      <div class="kpi-lbl">Available Quota</div>
-      <div class="kpi-val" id="kpiAvqVal">—</div>
-      <div class="kpi-unit" id="kpiAvqUnit">MT · companies with utilization</div>
-      <div class="kpi-bar"><div class="kpi-fill" id="kpiAvqFill" style="width:0%;background:#0891b2"></div></div>
-      <div class="kpi-tag" id="kpiAvqTag" style="background:#ecfeff;color:#0891b2;border:1px solid #a5f3fc">Obtained − Utilization</div>
-    </div>
   </div>
 
   <!-- KEY INSIGHTS STRIP -->
-  <div class="insights mb14">
+  <div class="insights mb14" style="grid-template-columns:repeat(4,1fr)">
+
+    <!-- 1: Top Quota -->
     <div class="insight insight-click" onclick="openDrawer('BTS')">
       <div class="ins-ico">🏆</div>
       <div class="ins-body">
         <div class="ins-lbl">Top Obtained Quota</div>
         <div class="ins-val">BTS — 6,000 MT</div>
-        <div class="ins-sub">4 products · PERTEK issued 25/02/26</div>
+        <div class="ins-sub">4 products · PERTEK 25/02/26</div>
       </div>
       <div class="ins-arrow">↗</div>
     </div>
+
+    <!-- 2: Active Revisions — simplified -->
     <div class="insight insight-click" onclick="goPage('spi',document.querySelectorAll('.nav-tab')[1]);setTimeout(()=>{setSPIF('REV',document.querySelectorAll('#page-spi .fpill')[2])},80)">
       <div class="ins-ico">🔄</div>
       <div class="ins-body">
         <div class="ins-lbl">Active Revisions</div>
-        <div class="ins-val" id="insRevVal">—</div>
-        <div class="ins-sub" id="insRevSub">—</div>
+        <div class="ins-val" id="insRevVal" style="font-size:13px">—</div>
+        <div class="ins-sub" id="insRevSub" style="margin-top:3px">—</div>
       </div>
       <div class="ins-arrow">↗</div>
     </div>
-    <div class="insight insight-click" onclick="goPage('utilization',document.querySelectorAll('.nav-tab')[2])">
-      <div class="ins-ico">📦</div>
-      <div class="ins-body">
-        <div class="ins-lbl">Realization &amp; Re-Apply</div>
-        <div style="margin-bottom:4px">
-          <div class="ins-val insight-real" id="insRealVal" style="font-size:12.5px;line-height:1.25">3 Submitted · 0 Eligible · 14 In Shipment</div>
-          <div class="ins-sub insight-real-sub" id="insRealSub">Submitted: CGK, GNG, HDP</div>
-        </div>
-        <div style="display:flex;align-items:center;gap:5px;padding:5px 7px;margin-top:4px;background:var(--green-bg);border:1px solid var(--green-bd);border-radius:4px">
-          <span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--txt3);white-space:nowrap">Rule</span>
-          <span style="font-size:11.5px;font-weight:700;color:var(--green)">Realization ≥ 60%</span>
-          <span style="font-size:9.5px;color:var(--txt3);margin-left:2px">to re-apply</span>
-        </div>
-        <div class="ins-rule" style="margin-top:4px">Util% → Real% automatically when cargo arrives at JKT &amp; Beacukai-registered</div>
-      </div>
-      <div class="ins-arrow">↗</div>
-    </div>
-    <!-- OBTAIN vs UTILIZATION LEAD TIME — combined KPI insight card -->
+
+    <!-- 4: Obtain vs Utilization — simplified -->
     <div class="insight insight-click" id="ouLeadTimeInsight" onclick="openLeadTimeDrill()" style="position:relative">
       <div style="position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r2) var(--r2) 0 0" id="ouInsightAccent"></div>
       <div class="ins-ico" id="ouInsightIco">⏱</div>
       <div class="ins-body">
         <div class="ins-lbl" id="ouInsightLbl">Obtain vs Utilization</div>
-        <div class="ins-val" id="ouInsightVal" style="font-size:13px;line-height:1.3">—</div>
-        <div class="ins-sub" id="ouInsightSub">Near limit &amp; overdue · 14-day standard</div>
-        <div class="ins-rule">Click for company breakdown</div>
+        <div class="ins-val" id="ouInsightVal" style="font-size:13px;line-height:1.3;color:var(--red2)">—</div>
+        <div class="ins-sub" id="ouInsightSub" style="margin-top:3px;font-size:10px">14-day utilization standard</div>
       </div>
       <div class="ins-arrow">↗</div>
     </div>
-    <!-- SALES PRIORITY insight card -->
+
+    <!-- 5: Sales Priority — simplified -->
     <div class="insight insight-click" id="salesPriorityInsight" onclick="openSalesPriority('ALL')" style="position:relative;border-color:#182644">
       <div style="position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r2) var(--r2) 0 0;background:linear-gradient(90deg,#dc2626,#d97706,#8b5cf6)"></div>
       <div class="ins-ico">🎯</div>
       <div class="ins-body">
         <div class="ins-lbl" style="color:#182644;font-weight:700">Sales Priority</div>
         <div class="ins-val" id="spInsightVal" style="font-size:13px;line-height:1.3;color:#182644">—</div>
-        <div class="ins-sub" id="spInsightSub">Auto-ranked by urgency &amp; re-apply readiness</div>
-        <div class="ins-rule">Click to see full priority breakdown</div>
+        <div class="ins-sub" id="spInsightSub" style="margin-top:3px">—</div>
       </div>
       <div class="ins-arrow">↗</div>
     </div>
+
   </div>
 
-  <!-- PIPELINE + PRODUCT MIX + TOP COMPANIES -->
+    <!-- PIPELINE + PRODUCT MIX + TOP COMPANIES -->
   <div class="g-112 mb14">
 
     <!-- PIPELINE (compact, hover shows company list) -->
-    <div class="card">
-      <div class="ch"><div><div class="ct">Approval Pipeline</div><div class="cs">MT by status · hover for companies</div></div></div>
-      <div class="cb" style="padding:12px 14px">
+    <div class="card" style="display:flex;flex-direction:column">
+      <div class="ch"><div><div class="ct">Approval Pipeline</div><div class="cs">MT by status · click section to filter</div></div></div>
+      <div class="cb" style="padding:10px 14px;flex:1;display:flex;flex-direction:column;gap:8px">
+
+        <!-- Donut + status pills -->
         <div class="pipeline-wrap" id="pipelineWrap">
-          <canvas id="pipelineChart" height="155"></canvas>
+          <canvas id="pipelineChart" height="130"></canvas>
           <div class="pipeline-hover" id="pipelineHover"></div>
         </div>
-        <div style="display:flex;flex-direction:column;gap:5px;margin-top:10px">
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;border-radius:var(--r);background:var(--green-bg);cursor:pointer;border:1px solid var(--green-bd)" onclick="navFilter('SPI')">
-            <span style="font-size:11px;font-weight:600;color:var(--green)">✅ SPI / PERTEK Obtained</span>
-            <span style="font-size:12px;font-weight:700;color:var(--green);font-family:'DM Mono',monospace" id="pipelineSpiStat">22,370 MT · 29 co.</span>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 8px;border-radius:var(--r);background:var(--green-bg);cursor:pointer;border:1px solid var(--green-bd)" onclick="navFilter('SPI')">
+            <span style="font-size:10.5px;font-weight:600;color:var(--green)">✅ SPI / PERTEK Obtained</span>
+            <span style="font-size:11px;font-weight:700;color:var(--green);font-family:'DM Mono',monospace" id="pipelineSpiStat">22,370 MT · 29 co.</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;border-radius:var(--r);background:#f5f3ff;cursor:pointer;border:1px solid #c4b5fd" onclick="goPage('utilization',document.querySelectorAll('.nav-tab')[2])">
-            <span style="font-size:11px;font-weight:600;color:#5b21b6">🔵 Re-Apply Eligible</span>
-            <span style="font-size:12px;font-weight:700;color:#5b21b6;font-family:'DM Mono',monospace" id="pipelineReapplyStat">3 co.</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 8px;border-radius:var(--r);background:#f5f3ff;cursor:pointer;border:1px solid #c4b5fd" onclick="goPage('utilization',document.querySelectorAll('.nav-tab')[2])">
+            <span style="font-size:10.5px;font-weight:600;color:#5b21b6">🔵 Re-Apply Eligible</span>
+            <span style="font-size:11px;font-weight:700;color:#5b21b6;font-family:'DM Mono',monospace" id="pipelineReapplyStat">3 co.</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;border-radius:var(--r);background:var(--red-bg);cursor:pointer;border:1px solid var(--red-bd)" onclick="navFilter('PENDING')">
-            <span style="font-size:11px;font-weight:600;color:var(--red)">📬 New Submission</span>
-            <span style="font-size:12px;font-weight:700;color:var(--red);font-family:'DM Mono',monospace" id="pipelinePendStat">15,000 MT · 4 co.</span>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:4px 8px;border-radius:var(--r);background:var(--red-bg);cursor:pointer;border:1px solid var(--red-bd)" onclick="navFilter('PENDING')">
+            <span style="font-size:10.5px;font-weight:600;color:var(--red)">📬 New Submission</span>
+            <span style="font-size:11px;font-weight:700;color:var(--red);font-family:'DM Mono',monospace" id="pipelinePendStat">15,000 MT · 4 co.</span>
           </div>
         </div>
+
+
       </div>
     </div>
 
@@ -1470,51 +1584,40 @@ tr:hover td { background:#f9fafb }
     <div class="cb"><canvas id="obtainUtilChartOverview" height="110"></canvas></div>
   </div>
 
-  <!-- REVISION SUMMARY + PENDING QUICK VIEW -->
+  <!-- 🔄 ACTIVE REVISIONS & 📬 NEW SUBMISSIONS — below Obtained vs Utilization -->
   <div class="g2 mb14">
+
+    <!-- Active Revisions card -->
     <div class="card">
       <div class="ch">
-        <div><div class="ct">Active Revisions</div><div class="cs">Product changes in process · click to expand</div></div>
-        <span class="badge b-rev" id="revCardBadge" style="font-size:11px;padding:3px 10px">— Active</span>
-      </div>
-      <div id="revList" class="cb-0"></div>
-    </div>
-    <!-- PERTEK PENDING — standalone full-detail card beside revisions -->
-    <div class="card" style="display:flex;flex-direction:column">
-      <div class="ch" style="flex-shrink:0">
         <div>
-          <div class="ct" style="display:flex;align-items:center;gap:8px">
-            📬 New Submission
-            <span class="badge b-pending" style="font-size:11px;padding:3px 10px" id="pendingCardBadge">4 Pending</span>
-          </div>
-          <div class="cs" id="pendingCardSubtitle" style="margin-top:3px">
-            Company → Submission → Product · click rows to expand
-          </div>
+          <div class="ct">🔄 Active Revisions</div>
+          <div class="cs">Companies with ongoing revision process · click to view detail</div>
         </div>
-        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:3px">
-          <span id="pendTotalMT" style="font-size:15px;font-weight:800;font-family:'DM Mono',monospace;color:var(--red)">15,000 MT</span>
-          <span style="font-size:9.5px;color:var(--txt3)">total volume pending</span>
-        </div>
+        <span class="badge b-rev" id="revCardBadge" style="font-size:9.5px;padding:2px 9px">— Active</span>
       </div>
-      <div id="pendingQuick" class="cb-0" style="flex:1;overflow-y:auto;max-height:340px"></div>
+      <div class="cb" style="cursor:pointer" onclick="goPage('spi',document.querySelectorAll('.nav-tab')[1])">
+        <div id="revSummaryStrip" style="display:flex;flex-direction:column;gap:5px"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- AVAILABLE QUOTA BAR CHART -->
-  <div class="card mb14" id="avqSection">
-    <div class="ch">
-      <div>
-        <div class="ct">📊 Available Quota — Obtained minus Utilization</div>
-        <div class="cs">Per company · shows remaining importable volume from issued SPI/PERTEK · update via Manual Import</div>
+    <!-- New Submissions card -->
+    <div class="card">
+      <div class="ch">
+        <div>
+          <div class="ct">📬 New Submissions</div>
+          <div class="cs">Awaiting PERTEK / SPI · click to view detail</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span id="pendTotalMT" style="font-size:11px;font-weight:800;font-family:'DM Mono',monospace;color:var(--red)">— MT</span>
+          <span class="badge b-pending" id="pendingCardBadge" style="font-size:9.5px;padding:2px 9px">—</span>
+        </div>
       </div>
-      <div style="display:flex;gap:6px;align-items:center">
-        <div id="avqFilterWrap" style="display:flex;gap:4px;flex-wrap:wrap"></div>
-        <span id="avqTotalBadge" style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:3px;background:#ecfeff;color:#0891b2;border:1px solid #a5f3fc;white-space:nowrap"></span>
+      <div class="cb" style="cursor:pointer" onclick="navFilter('PENDING')">
+        <div id="pendingSummaryStrip" style="display:flex;flex-wrap:wrap;gap:5px"></div>
       </div>
     </div>
-    <div class="cb" style="padding:14px 18px">
-      <div id="avqChart"></div>
-    </div>
+
   </div>
 
   <!-- PERTEK PROCESS LEAD TIME ANALYTICS -->
@@ -1663,7 +1766,7 @@ tr:hover td { background:#f9fafb }
   <div class="card mb14">
     <div class="ch" style="flex-wrap:wrap;gap:10px;align-items:flex-start">
       <div style="flex:1;min-width:220px">
-        <div class="ct">Utilization - Realization Monitoring</div>
+        <div class="ct">Realization Monitoring</div>
         <div class="cs">All companies with SPI obtained · Utilization (in-shipment) &amp; Realization (arrived) · ETA JKT · Shipment status · click row for detail</div>
       </div>
       <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center">
@@ -1752,7 +1855,7 @@ tr:hover td { background:#f9fafb }
           <thead><tr>
             <th>Company</th>
             <th>Product</th>
-            <th class="has-tip">Shipment Status<span class="tip">Current shipment status synced from Utilization - Realization Monitoring</span></th>
+            <th class="has-tip">Shipment Status<span class="tip">Current shipment status synced from Realization Monitoring</span></th>
             <th class="t-r has-tip">Realization (MT)<span class="tip">Cargo arrived at JKT AND Beacukai-registered. Zero while still in shipment.</span></th>
             <th class="has-tip">Realization (%)<span class="tip">Realization MT ÷ Obtained × 100%. Eligibility threshold: ≥ 60%.</span></th>
             <th class="t-r has-tip">Remaining Balance (MT)<span class="tip">Obtained − Realization MT. Quota not yet realized.</span></th>
@@ -1832,24 +1935,129 @@ tr:hover td { background:#f9fafb }
           <th class="no-sort">Products</th>
           <th onclick="sortM('submit1')" class="t-r">Submit (MT)</th>
           <th onclick="sortM('obtained')" class="t-r">Obtained (MT)</th>
-          <th onclick="sortM('berat')" class="t-r">Realized (MT)</th>
-          <th class="no-sort has-tip">Realization %<span class="tip">Berat Realized ÷ Obtained × 100%</span></th>
+          <th onclick="sortM('utilMT')" class="t-r has-tip">Utilization (MT)<span class="tip">Total MT allocated / in-shipment from SPI data</span></th>
+          <th onclick="sortM('berat')" class="t-r has-tip">Realization (MT)<span class="tip">MT arrived at JKT · Beacukai registered</span></th>
+          <th class="no-sort has-tip">Realization (%)<span class="tip">Realized ÷ Obtained × 100% (arrived only)</span></th>
+          <th onclick="sortM('availMT')" class="t-r has-tip">Available Quota (MT)<span class="tip">Obtained − Utilized · remaining unallocated quota</span></th>
           <th class="no-sort">Re-Apply</th>
           <th class="no-sort">Status</th>
-          <th class="no-sort">SPI Ref / Status</th>
+          <th class="no-sort">PERTEK / SPI Status</th>
         </tr></thead>
         <tbody id="mainBody"></tbody>
+        <tfoot id="mainFoot"></tfoot>
       </table>
     </div>
-    <div class="tbl-foot">
+    <div class="tbl-foot" style="flex-wrap:wrap;gap:6px">
       <span><span class="ldot" style="background:var(--green-bd)"></span>Completed</span>
       <span><span class="ldot" style="background:var(--amber-bd)"></span>Revision</span>
       <span><span class="ldot" style="background:var(--blue-bd)"></span>Re-Apply</span>
       <span><span class="ldot" style="background:var(--violet-bd)"></span>Rev. Complete</span>
       <span><span class="ldot" style="background:var(--red-bd)"></span>New Submission</span>
-      <span id="mainCount" style="margin-left:auto"></span>
+      <span style="margin-left:auto;display:flex;gap:14px;font-size:10.5px;font-weight:600;color:var(--txt2)" id="mainTotalsBar"></span>
+      <span id="mainCount" style="color:var(--txt3)"></span>
     </div>
   </div>
+</div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE: AVAILABLE QUOTA
+══════════════════════════════════════════ -->
+<div id="page-availquota" class="page">
+<div class="wrap">
+
+  <!-- AVQ TABS + SUMMARY KPIS -->
+  <div class="g4 mb14">
+    <div class="kpi" style="cursor:default">
+      <div class="kpi-accent" style="background:#0891b2"></div>
+      <div class="kpi-lbl">Total Available</div>
+      <div class="kpi-val" id="avqKpi1">—</div>
+      <div class="kpi-unit">MT · remaining from obtained</div>
+      <div class="kpi-bar"><div class="kpi-fill" id="avqKpiFill1" style="width:0%;background:#0891b2"></div></div>
+      <div class="kpi-tag" id="avqKpiTag1" style="background:#ecfeff;color:#0891b2;border:1px solid #a5f3fc">Obtained − Utilized</div>
+    </div>
+    <div class="kpi" style="cursor:default">
+      <div class="kpi-accent" style="background:var(--teal)"></div>
+      <div class="kpi-lbl">Total Obtained</div>
+      <div class="kpi-val" id="avqKpi2">—</div>
+      <div class="kpi-unit">MT · SPI / PERTEK issued</div>
+      <div class="kpi-bar"><div class="kpi-fill" id="avqKpiFill2" style="width:100%;background:var(--teal)"></div></div>
+      <div class="kpi-tag" style="background:var(--teal-bg);color:var(--teal)">All active permits</div>
+    </div>
+    <div class="kpi" style="cursor:default">
+      <div class="kpi-accent" style="background:var(--green-lt)"></div>
+      <div class="kpi-lbl">Total Utilized</div>
+      <div class="kpi-val" id="avqKpi3">—</div>
+      <div class="kpi-unit">MT · allocated to customers</div>
+      <div class="kpi-bar"><div class="kpi-fill" id="avqKpiFill3" style="width:0%;background:var(--green-lt)"></div></div>
+      <div class="kpi-tag" id="avqKpiTag3" style="background:var(--green-bg);color:var(--green)">Utilization rate</div>
+    </div>
+    <div class="kpi" style="cursor:default">
+      <div class="kpi-accent" style="background:var(--amber-lt)"></div>
+      <div class="kpi-lbl">Companies w/ Quota</div>
+      <div class="kpi-val" id="avqKpi4">—</div>
+      <div class="kpi-unit">companies with available balance</div>
+      <div class="kpi-bar"><div class="kpi-fill" id="avqKpiFill4" style="width:100%;background:var(--amber-lt)"></div></div>
+      <div class="kpi-tag" style="background:var(--amber-bg);color:var(--amber)">Active SPI/PERTEK holders</div>
+    </div>
+  </div>
+
+  <!-- AVQ BREAKDOWN TABS -->
+  <div class="card mb14">
+    <div class="ch" style="flex-wrap:wrap;gap:8px">
+      <div style="flex:1;min-width:200px">
+        <div class="ct">📊 Available Quota Breakdown</div>
+        <div class="cs">Obtained minus Utilized · per company and product type</div>
+      </div>
+      <div style="display:flex;gap:5px;align-items:center;flex-wrap:wrap">
+        <!-- View tabs -->
+        <div style="display:flex;gap:0;border:1px solid var(--border2);border-radius:var(--r);overflow:hidden">
+          <button id="avqTabChart" onclick="setAvqTab('chart',this)" style="font-size:11px;font-weight:600;padding:5px 12px;border:none;background:var(--navy);color:#fff;cursor:pointer">📊 Chart</button>
+          <button id="avqTabProd"  onclick="setAvqTab('prod',this)"  style="font-size:11px;font-weight:600;padding:5px 12px;border:none;background:var(--bg);color:var(--txt3);cursor:pointer;border-left:1px solid var(--border2)">By Product</button>
+          <button id="avqTabTable" onclick="setAvqTab('table',this)" style="font-size:11px;font-weight:600;padding:5px 12px;border:none;background:var(--bg);color:var(--txt3);cursor:pointer;border-left:1px solid var(--border2)">📋 Table</button>
+        </div>
+        <div id="avqFilterWrap" style="display:flex;gap:4px;flex-wrap:wrap"></div>
+        <span id="avqTotalBadge" style="font-size:11px;font-weight:700;padding:3px 10px;border-radius:3px;background:#ecfeff;color:#0891b2;border:1px solid #a5f3fc;white-space:nowrap"></span>
+      </div>
+    </div>
+
+    <!-- CHART VIEW -->
+    <div id="avqViewChart" class="cb" style="padding:14px 18px">
+      <div id="avqChart"></div>
+    </div>
+
+    <!-- BY PRODUCT VIEW -->
+    <div id="avqViewProd" style="display:none;padding:14px 18px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px" id="avqProdGrid"></div>
+    </div>
+
+    <!-- TABLE VIEW -->
+    <div id="avqViewTable" style="display:none">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr>
+            <th>Company</th>
+            <th>Group</th>
+            <th>Product</th>
+            <th class="t-r">Obtained (MT)</th>
+            <th class="t-r">Utilized (MT)</th>
+            <th class="t-r">Available (MT)</th>
+            <th style="min-width:110px">Utilization %</th>
+            <th>Updated</th>
+          </tr></thead>
+          <tbody id="avqTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVQ PRODUCT SUMMARY BAR -->
+  <div class="card">
+    <div class="ch"><div class="ct">📦 By Product Type — Available vs Obtained</div><div class="cs">Aggregated per product category across all companies</div></div>
+    <div class="cb"><canvas id="avqProdChart" height="80"></canvas></div>
+  </div>
+
 </div>
 </div>
 
@@ -2220,7 +2428,7 @@ let SPI = [
   {code:'AMP',  group:'AB', submit1:7000,  obtained:800,  products:['GL BORON','PPGL CARBON'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
    utilizationMT:800, availableQuota:0,
-   utilizationByProd:{"GL BORON": 400, "PPGL CARBON": 400}, availableByProd:{},
+   utilizationByProd:{"GL BORON": 400, "PPGL CARBON": 400}, availableByProd:{"GL BORON": 0, "PPGL CARBON": 0},
    remarks:'SUBMIT MOT 4/11/25', spiRef:"SPI TERBIT 27/11/25 · Target re-apply April'26",
    cycles:[
      {type:'Submit #1',  mt:7000, products:{'GL BORON':6000,'PPGL CARBON':1000}, submitType:'Submit MOI', submitDate:'16/10/2025', releaseType:'PERTEK', releaseDate:'23/10/2025', status:''},
@@ -2327,6 +2535,9 @@ let SPI = [
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
    utilizationMT:950, availableQuota:0,
    utilizationByProd:{"GL BORON": 950}, availableByProd:{},
+   realizationByProd:{"GL BORON": 546.57},
+   etaByProd:{"GL BORON": "Done (06 Mar ✓)"},
+   arrivedByProd:{"GL BORON": true},
    remarks:'SUBMIT MOT 03/12/25', spiRef:'SPI TERBIT 31/12/25 · Target re-apply Mid-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GL BORON':6000}, submitType:'Submit MOI', submitDate:'15/10/2025', releaseType:'PERTEK', releaseDate:'11/11/2025', status:''},
@@ -2336,6 +2547,9 @@ let SPI = [
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
    utilizationMT:750, availableQuota:0,
    utilizationByProd:{"GL BORON": 750}, availableByProd:{},
+   realizationByProd:{"GL BORON": 249.94},
+   etaByProd:{"GL BORON": "Done (06 Mar ✓)"},
+   arrivedByProd:{"GL BORON": true},
    remarks:'SUBMIT MOT 03/12/25', spiRef:'SPI TERBIT 31/12/25 · Target re-apply Early-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{'GL BORON':6000}, submitType:'Submit MOI', submitDate:'16/10/2025', releaseType:'PERTEK', releaseDate:'14/11/2025', status:''},
@@ -2452,8 +2666,11 @@ let SPI = [
    ]},
   {code:'SGD',  group:'AB', submit1:6000,  obtained:2000, products:['SHEETPILE'],
    revType:'none', revNote:'', revSubmitDate:'', revStatus:'', revFrom:[], revTo:[], revMT:0,
-   utilizationMT:1508, availableQuota:492,
-   utilizationByProd:{"SHEETPILE": 1508}, availableByProd:{"SHEETPILE": 492},
+   utilizationMT:2000, availableQuota:0,
+   utilizationByProd:{"SHEETPILE": 2000}, availableByProd:{},
+   realizationByProd:{"SHEETPILE": 492},
+   etaByProd:{"SHEETPILE": "Partial Arrived · Remaining ETA 31 Mar 26"},
+   arrivedByProd:{"SHEETPILE": false},
    remarks:'SUBMIT MOT 20/01/26', spiRef:'SPI TERBIT 28/01/26 · Target re-apply Early-March',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{SHEETPILE:6000}, submitType:'Submit MOI', submitDate:'14/11/2025', releaseType:'PERTEK', releaseDate:'19/01/2026', status:''},
@@ -2463,8 +2680,8 @@ let SPI = [
    revType:'complete', revSubmitDate:'07/11/25', revStatus:'PERTEK TERBIT 25/02/26',
    revNote:'Full Pertek issued 25/02/26 — 6,000 MT across 4 products (BORDES 900, AS STEEL 900, SHEETPILE 3,200, SEAMLESS 1,000)',
    revFrom:[], revTo:[], revMT:0,
-   utilizationMT:0, availableQuota:6000,
-   utilizationByProd:{}, availableByProd:{"BORDES ALLOY": 900, "AS STEEL": 900, "SHEETPILE": 3200, "SEAMLESS PIPE": 1000},
+   utilizationMT:1203.2, availableQuota:4796.8,
+   utilizationByProd:{"SHEETPILE": 1203.2}, availableByProd:{"BORDES ALLOY": 900, "AS STEEL": 900, "SHEETPILE": 1996.8, "SEAMLESS PIPE": 1000},
    remarks:'Penerimaan permohonan di Inatrade', spiRef:'PERTEK TERBIT 25/02/26',
    cycles:[
      {type:'Submit #1',  mt:16000,products:{'BORDES ALLOY':3000,'AS STEEL':2000,SHEETPILE:8000,'SEAMLESS PIPE':3000}, submitType:'Submit MOI', submitDate:'26/11/2025', releaseType:'PERTEK', releaseDate:'25/02/2026', status:''},
@@ -2473,8 +2690,8 @@ let SPI = [
   {code:'SMS',  group:'AB', submit1:6000,  obtained:150,  products:['SHEETPILE'],
    revType:'complete', revSubmitDate:'27/02/26', revStatus:'PERTEK TERBIT 26/02/26 — SPI belum terbit',
    revNote:'PERTEK TERBIT 26/02/26 — SPI belum terbit', revFrom:[], revTo:[], revMT:0,
-   utilizationMT:0, availableQuota:150,
-   utilizationByProd:{}, availableByProd:{"SHEETPILE": 150},
+   utilizationMT:150, availableQuota:0,
+   utilizationByProd:{"SHEETPILE": 150}, availableByProd:{},
    remarks:'SUBMIT MOT 27/02/26', spiRef:'PERTEK TERBIT 26/02/26',
    cycles:[
      {type:'Submit #1',  mt:6000, products:{SHEETPILE:6000}, submitType:'Submit MOI', submitDate:'14/11/2025', releaseType:'PERTEK', releaseDate:'26/02/2026', status:''},
@@ -2484,8 +2701,8 @@ let SPI = [
    revType:'complete', revSubmitDate:'01/03/26',
    revStatus:'PERTEK TERBIT 01/03/26 — SPI belum terbit',
    revNote:'PERTEK TERBIT 01/03/26 — SPI belum terbit', revFrom:[], revTo:[], revMT:0,
-   utilizationMT:0, availableQuota:400,
-   utilizationByProd:{}, availableByProd:{"SHEETPILE": 400},
+   utilizationMT:400, availableQuota:0,
+   utilizationByProd:{"SHEETPILE": 400}, availableByProd:{},
    remarks:'SUBMIT MOT TBA', spiRef:'PERTEK TERBIT 01/03/26',
    cycles:[
      {type:'Submit #1',         mt:6000, products:{SHEETPILE:6000}, submitType:'Submit MOI', submitDate:'27/10/2025', releaseType:'PERTEK', releaseDate:'01/03/2026', status:'PERTEK TERBIT 01/03/26'},
@@ -2618,9 +2835,9 @@ let RA = [
    cargoArrived:true,  realPct:0.333, utilPct:null,  arrivalDate:'2026-03-06',
    etaJKT:'Done (06 Mar ✓)', reapplyEst:'',
    target:500,  pertek:'1083/ILMATE/PERTEK-SPI-U/XI/2025', spi:'04.PI-05.25.3895', catatan:'KEWEI 64A'},
-  {code:'SGD', product:'SHEETPILE',berat:1507.5,obtained:2000,
-   cargoArrived:false, realPct:0,     utilPct:0.754, arrivalDate:null,
-   etaJKT:'31 Mar 26',  reapplyEst:'',
+  {code:'SGD', product:'SHEETPILE',berat:2000,obtained:2000,
+   cargoArrived:false, realPct:0,     utilPct:1.000, arrivalDate:null,
+   etaJKT:'492 MT Arrived · Remaining ETA 31 Mar 26',  reapplyEst:'',
    target:1400, pertek:'1046/ILMATE/PERTEK-SPI-U/X/2025',  spi:'04.PI-05.25.3512', catatan:'MLION #9'},
   {code:'GKL', product:'GI BORON + ERW PIPE',  berat:593.93, obtained:2400,
    cargoArrived:true,  realPct:0.247, utilPct:null,  arrivalDate:'2026-03-06',
@@ -2995,6 +3212,8 @@ function applyPeriodFilter() {
   buildCmpList();
   buildRevList();
   buildPendingQuick();
+  buildRevSummaryStrip();
+  buildPendingSummaryStrip();
   buildPendingTable();
   buildLeadTimeAnalytics();
   buildOUChart();
@@ -3105,6 +3324,13 @@ function updateOverviewKPIs() {
     if (inScope) { pendMT += p.mt; pendCoSet.add(p.code); }
   });
 
+  /* ── KPI 2b: Total Utilized MT ──────────────────────────────────────── */
+  const totalUtilizedMT = filteredSPI().reduce((s, co) => {
+    const ubp = co.utilizationByProd || {};
+    return s + Object.values(ubp).reduce((t, v) => t + (typeof v === 'number' ? v : 0), 0);
+  }, 0);
+  const utilCoCount = filteredSPI().filter(co => (co.utilizationMT || 0) > 0).length;
+
   /* ── Update DOM ───────────────────────────────────────────────────── */
   if (kpis[0]) {
     kpis[0].querySelector('.kpi-val').textContent  = totalSubmitMT.toLocaleString();
@@ -3118,22 +3344,42 @@ function updateOverviewKPIs() {
     const t = kpis[1].querySelector('.kpi-tag');
     if (t) { const rate = totalSubmitMT>0?(totalObtainedMT/totalSubmitMT*100).toFixed(1):'—'; t.textContent=`${rate}% Approval Rate`; }
   }
+  // Total Utilized KPI (addressed by ID — index-independent)
+  const kpiUtilCoEl   = document.getElementById('kpiUtilCoCount');
+  const kpiUtilMTEl   = document.getElementById('kpiUtilMT');
+  const kpiUtilUnitEl = document.getElementById('kpiUtilUnit');
+  const kpiUtilFillEl = document.getElementById('kpiUtilFill');
+  const kpiUtilTagEl  = document.getElementById('kpiUtilTag');
+  if (kpiUtilCoEl)   kpiUtilCoEl.textContent   = utilCoCount > 0 ? utilCoCount : '—';
+  if (kpiUtilMTEl)   kpiUtilMTEl.textContent   = totalUtilizedMT > 0 ? totalUtilizedMT.toLocaleString() + ' MT total utilized' : '— MT';
+  if (kpiUtilUnitEl) kpiUtilUnitEl.textContent = `compan${utilCoCount!==1?'ies':'y'} with shipment`;
+  if (kpiUtilFillEl && totalObtainedMT > 0) kpiUtilFillEl.style.width = Math.min(100, totalUtilizedMT / totalObtainedMT * 100).toFixed(1) + '%';
+  if (kpiUtilTagEl)  kpiUtilTagEl.textContent  = totalObtainedMT > 0 ? `${(totalUtilizedMT/totalObtainedMT*100).toFixed(1)}% of obtained allocated` : 'Of obtained quota allocated';
   if (kpis[2]) {
     kpis[2].querySelector('.kpi-val').textContent  = realizedCount;
-    kpis[2].querySelector('.kpi-unit').textContent = `Companies with realization${PERIOD.active?' in period':''}`;
+    kpis[2].querySelector('.kpi-unit').textContent = `Companies with utilization${PERIOD.active?' in period':''}`;
+    const kpiRealMTEl = document.getElementById('kpiRealMT');
+    if (kpiRealMTEl) kpiRealMTEl.textContent = totalRealizedMT.toLocaleString() + ' MT total realized';
     const t = kpis[2].querySelector('.kpi-tag'); if (t) t.textContent = arrivedCodes;
     const fill = kpis[2].querySelector('.kpi-fill');
     if (fill && totalObtainedMT>0) fill.style.width = Math.min(100,totalRealizedMT/totalObtainedMT*100).toFixed(1)+'%';
   }
-  if (kpis[3]) {
-    kpis[3].querySelector('.kpi-val').textContent  = reapplyTotal;
-    kpis[3].querySelector('.kpi-unit').textContent = 'Companies — Re-Apply On Process';
-    const t = kpis[3].querySelector('.kpi-tag');
-    if (t) t.textContent = `🔵 ${submittedCount} Submitted · ✅ ${eligCount} Eligible`;
+  // Re-Apply KPI (by ID — index-independent after reorder)
+  const kpiReapplyValEl = document.getElementById('kpiReapplyVal');
+  if (kpiReapplyValEl) kpiReapplyValEl.textContent = reapplyTotal;
+  // Also update Re-Apply tag (find by traversing from kpiReapplyVal's parent .kpi)
+  const reapplyKpiEl = kpiReapplyValEl ? kpiReapplyValEl.closest('.kpi') : null;
+  if (reapplyKpiEl) {
+    const ru = reapplyKpiEl.querySelector('.kpi-unit'); if (ru) ru.textContent = 'Companies — Re-Apply On Process';
+    const rt = reapplyKpiEl.querySelector('.kpi-tag');  if (rt) rt.textContent = `🔵 ${submittedCount} Submitted · ✅ ${eligCount} Eligible`;
   }
-  if (kpis[4]) {
-    kpis[4].querySelector('.kpi-val').textContent  = pendMT.toLocaleString();
-    kpis[4].querySelector('.kpi-unit').textContent = `MT · ${pendCoSet.size} companies`;
+  // Pending KPI (index 6 after reorder: Submit[0] Obtained[1] Utilized[via ID] Realized[2] AvailQuota[3] ReApply[4] Pending[5])
+  // Use ID-based approach for safety
+  const kpiPendValEl = document.getElementById('kpiPendVal');
+  if (kpiPendValEl) {
+    kpiPendValEl.textContent = pendMT.toLocaleString();
+    const pendKpiEl = kpiPendValEl.closest('.kpi');
+    if (pendKpiEl) { const pu = pendKpiEl.querySelector('.kpi-unit'); if(pu) pu.textContent = `MT · ${pendCoSet.size} companies`; }
   }
 
   // ── Also update pipeline sidebar labels ──────────────────────────────
@@ -3268,6 +3514,222 @@ function refreshRealizedDrill() {
 
   document.getElementById('realDrillFooter').textContent =
     `${rows.length} compan${rows.length!==1?'ies':'y'} with cargo arrived · Click row to open detail`;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   AVAILABLE QUOTA DRILL-DOWN MODAL
+   ───────────────────────────────────────────────────────────────── */
+function openAvqDrill()  { const m=document.getElementById('avqDrillModal'); if(!m) return; refreshAvqDrill(); m.style.display='block'; }
+function closeAvqDrill() { const m=document.getElementById('avqDrillModal'); if(m) m.style.display='none'; }
+
+function refreshAvqDrill() {
+  // Build rows using exact same logic as buildAvailableQuota() — single source of truth
+  const rows = [];
+  filteredSPI().forEach(co => {
+    const obtained = typeof co.obtained === 'number' ? co.obtained : 0;
+    if (obtained <= 0) return;
+    const totalUtil = co.utilizationMT  != null ? co.utilizationMT  : 0;
+    const totalAvq  = co.availableQuota != null ? co.availableQuota : (obtained - totalUtil);
+
+    const aProd = co.availableByProd   || {};
+    const uProd = co.utilizationByProd || {};
+
+    // Build cycle-level obtained-per-product map
+    const cycleProds = {};
+    (co.cycles||[]).forEach(c => {
+      if (!/^obtained/i.test(c.type) || (typeof c.mt==='number' && c.mt < 0)) return;
+      Object.entries(c.products||{}).forEach(([p,v]) => {
+        if (typeof v==='number' && v>0) cycleProds[p] = (cycleProds[p]||0) + v;
+      });
+    });
+
+    if (Object.keys(aProd).length > 0) {
+      Object.entries(aProd).forEach(([prod, avq]) => {
+        const utilP = uProd[prod] || 0;
+        const obtP  = cycleProds[prod] || (avq + utilP);
+        rows.push({ code:co.code, group:co.group, product:prod, obtained:obtP, utilMT:utilP, avq });
+      });
+      Object.entries(uProd).forEach(([prod, util]) => {
+        if (aProd[prod] != null) return;
+        rows.push({ code:co.code, group:co.group, product:prod, obtained:cycleProds[prod]||util, utilMT:util, avq:0 });
+      });
+    } else {
+      const prodEntries = Object.entries(cycleProds);
+      if (prodEntries.length > 0) {
+        const cycleTotal = prodEntries.reduce((s,[,v])=>s+v, 0);
+        prodEntries.forEach(([prod, mt]) => {
+          rows.push({ code:co.code, group:co.group, product:prod,
+            obtained: mt,
+            utilMT:  cycleTotal>0 ? Math.round(totalUtil * mt/cycleTotal) : 0,
+            avq:     cycleTotal>0 ? Math.round(totalAvq  * mt/cycleTotal) : 0,
+          });
+        });
+      } else {
+        rows.push({ code:co.code, group:co.group, product:(co.products||[])[0]||'—', obtained, utilMT:totalUtil, avq:totalAvq });
+      }
+    }
+  });
+
+  rows.sort((a,b) => a.code.localeCompare(b.code) || a.product.localeCompare(b.product));
+
+  const totalAvq  = rows.reduce((s,r) => s+r.avq,    0);
+  const totalUtil = rows.reduce((s,r) => s+r.utilMT,  0);
+  const totalObt  = rows.reduce((s,r) => s+r.obtained,0);
+  const uniqueCos = new Set(rows.map(r=>r.code)).size;
+  const utilRate  = totalObt > 0 ? (totalUtil/totalObt*100).toFixed(1) : '—';
+  const avqRate   = totalObt > 0 ? (totalAvq /totalObt*100).toFixed(1) : '—';
+
+  document.getElementById('avqDrillSubtitle').textContent =
+    `${uniqueCos} companies · ${rows.length} product-rows · Obtained − Utilized`;
+
+  document.getElementById('avqDrillSummary').innerHTML = [
+    ['Available (MT)',  totalAvq.toLocaleString()+' MT',  '#0891b2',       '#ecfeff',           '#a5f3fc'],
+    ['Obtained (MT)',   totalObt.toLocaleString()+' MT',  'var(--teal)',   'var(--teal-bg)',    'var(--teal-bd)'],
+    ['Utilized (MT)',   totalUtil.toLocaleString()+' MT', 'var(--blue)',   'var(--blue-bg)',    'var(--blue-bd)'],
+    ['Util. Rate',      utilRate+'%',                      'var(--blue)',   'var(--blue-bg)',    'var(--blue-bd)'],
+    ['Avail. Rate',     avqRate+'%',                       '#0891b2',       '#ecfeff',           '#a5f3fc'],
+  ].map(([lbl,val,col,bg,bd]) => `
+    <div style="text-align:center;padding:6px 14px;background:${bg};border-radius:6px;border:1px solid ${bd}">
+      <div style="font-size:10px;font-weight:700;color:${col};text-transform:uppercase;letter-spacing:.8px">${lbl}</div>
+      <div style="font-size:18px;font-weight:700;color:${col};line-height:1.3">${val}</div>
+    </div>`).join('');
+
+  const body = document.getElementById('avqDrillBody');
+  if (!rows.length) {
+    body.innerHTML = `<tr><td colspan="7" style="padding:24px;text-align:center;color:var(--txt3)">No available quota data found</td></tr>`;
+    return;
+  }
+
+  const maxAvq = Math.max(...rows.map(r=>r.avq), 1);
+  let lastCode = null;
+  body.innerHTML = rows.map(r => {
+    const isFirst = r.code !== lastCode; lastCode = r.code;
+    const utilPct  = r.obtained > 0 ? r.utilMT / r.obtained : 0;
+    const avqPct   = r.obtained > 0 ? r.avq    / r.obtained : 0;
+    const barW     = (r.avq / maxAvq * 100).toFixed(1);
+    const avqCol   = r.avq > 0 ? '#0891b2' : r.avq === 0 ? 'var(--txt3)' : 'var(--red2)';
+    const coSpi    = getSPI(r.code);
+    const badge    = coSpi ? statusBadge(coSpi) : '';
+    const rowBg    = isFirst ? '' : 'background:#f9fafb';
+    const lBorder  = isFirst ? 'border-left:3px solid #0891b2' : 'border-left:3px solid #a5f3fc';
+    return `<tr style="border-bottom:1px solid var(--border);${rowBg};cursor:pointer" onclick="closeAvqDrill();setTimeout(()=>openDrawer('${r.code}'),100)">
+      <td style="padding:8px 14px;font-weight:700;color:var(--navy);${lBorder};padding-left:11px">${isFirst ? r.code : ''}</td>
+      <td style="padding:8px 10px;font-size:11px;color:var(--txt2)">${r.product}</td>
+      <td style="padding:8px 10px;text-align:right;font-family:'DM Mono',monospace;color:var(--txt3)">${r.obtained.toLocaleString()}</td>
+      <td style="padding:8px 10px;text-align:right;font-family:'DM Mono',monospace;color:var(--blue)">${r.utilMT > 0 ? r.utilMT.toLocaleString() : '—'}</td>
+      <td style="padding:8px 10px;text-align:center;color:var(--blue);font-weight:600">${r.obtained>0?(utilPct*100).toFixed(0)+'%':'—'}</td>
+      <td style="padding:8px 10px;text-align:right">
+        <div style="display:flex;align-items:center;gap:6px;justify-content:flex-end">
+          <div style="width:60px;height:4px;background:var(--border);border-radius:2px;overflow:hidden;flex-shrink:0">
+            <div style="height:4px;background:${avqCol};border-radius:2px;width:${barW}%"></div>
+          </div>
+          <span style="font-weight:${r.avq>0?'700':'400'};font-family:'DM Mono',monospace;color:${avqCol}">${r.avq.toLocaleString()}</span>
+        </div>
+      </td>
+      <td style="padding:8px 14px">${badge}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('avqDrillFooter').textContent =
+    `${uniqueCos} companies · ${rows.length} product-rows · Click row to open company detail`;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   TOTAL UTILIZED DRILL-DOWN MODAL
+   ───────────────────────────────────────────────────────────────── */
+function openUtilDrill()  { const m=document.getElementById('utilDrillModal'); if(!m) return; refreshUtilDrill(); m.style.display='block'; }
+function closeUtilDrill() { const m=document.getElementById('utilDrillModal'); if(m) m.style.display='none'; }
+
+function refreshUtilDrill() {
+  const utilColor  = u => u >= 0.8 ? 'var(--green)' : u >= 0.5 ? 'var(--blue)' : 'var(--amber)';
+  const periodLabel = PERIOD.active ? PERIOD.label : 'All Time';
+
+  // Build per-product rows from SPI — same source as Available Quota and flow KPI strip
+  const rows = [];
+  filteredSPI().forEach(co => {
+    const obtained = typeof co.obtained === 'number' ? co.obtained : 0;
+    if (obtained <= 0) return;
+    const ubp = co.utilizationByProd || {};
+    const abp = co.availableByProd   || {};
+    const totalUtil = co.utilizationMT != null ? co.utilizationMT : 0;
+    if (totalUtil <= 0 && Object.keys(ubp).length === 0) return; // skip zero-util companies
+
+    if (Object.keys(ubp).length > 0) {
+      Object.entries(ubp).forEach(([prod, util]) => {
+        if ((util || 0) <= 0) return;
+        const avq = abp[prod] != null ? abp[prod] : Math.max(0, obtained - util);
+        const obtProd = (() => {
+          const cycleProds = {};
+          (co.cycles||[]).forEach(c => {
+            if (!/^obtained/i.test(c.type)) return;
+            Object.entries(c.products||{}).forEach(([p,v]) => { if(typeof v==='number'&&v>0) cycleProds[p]=(cycleProds[p]||0)+v; });
+          });
+          return cycleProds[prod] || (util + (abp[prod]||0));
+        })();
+        rows.push({ code: co.code, group: co.group, product: prod, obtained: obtProd, utilMT: util, availMT: avq });
+      });
+    } else if (totalUtil > 0) {
+      const prod = (co.products||[])[0] || '—';
+      rows.push({ code: co.code, group: co.group, product: prod, obtained, utilMT: totalUtil, availMT: co.availableQuota ?? Math.max(0, obtained - totalUtil) });
+    }
+  });
+
+  rows.sort((a,b) => a.code.localeCompare(b.code) || a.product.localeCompare(b.product));
+
+  const totalUtil  = rows.reduce((s,r) => s+r.utilMT, 0);
+  const totalAvail = rows.reduce((s,r) => s+r.availMT, 0);
+  const totalObt   = filteredSPI().reduce((s,co) => s+(co.obtained||0), 0);
+  const avgUtil    = totalObt > 0 ? (totalUtil/totalObt*100).toFixed(1) : '—';
+
+  document.getElementById('utilDrillSubtitle').textContent =
+    `Period: ${periodLabel} · ${rows.length} product-rows · ${new Set(rows.map(r=>r.code)).size} companies`;
+
+  document.getElementById('utilDrillSummary').innerHTML = [
+    ['Utilized (MT)',   totalUtil.toLocaleString()+' MT',  'var(--blue)',  'var(--blue-bg)',  'var(--blue-bd)'],
+    ['Available (MT)',  totalAvail.toLocaleString()+' MT', 'var(--teal)',  'var(--teal-bg)',  'var(--teal-bd)'],
+    ['Obtained (MT)',   totalObt.toLocaleString()+' MT',   'var(--navy)',  '#eef2ff',         '#c7d2fe'],
+    ['Util. Rate',      avgUtil+'%',                        'var(--blue)',  'var(--blue-bg)',  'var(--blue-bd)'],
+  ].map(([lbl,val,col,bg,bd]) => `
+    <div style="text-align:center;padding:6px 14px;background:${bg};border-radius:6px;border:1px solid ${bd}">
+      <div style="font-size:10px;font-weight:700;color:${col};text-transform:uppercase;letter-spacing:.8px">${lbl}</div>
+      <div style="font-size:18px;font-weight:700;color:${col};line-height:1.3">${val}</div>
+    </div>`).join('');
+
+  const body = document.getElementById('utilDrillBody');
+  if (!rows.length) {
+    body.innerHTML = `<tr><td colspan="8" style="padding:24px;text-align:center;color:var(--txt3)">No utilization data recorded in ${periodLabel}</td></tr>`;
+    return;
+  }
+
+  const maxUtil = Math.max(...rows.map(r=>r.utilMT), 1);
+  body.innerHTML = rows.map(r => {
+    const pct     = r.obtained > 0 ? r.utilMT/r.obtained : 0;
+    const barW    = (r.utilMT/maxUtil*100).toFixed(1);
+    const col     = utilColor(pct);
+    const avqCol  = r.availMT > 0 ? 'var(--teal)' : r.availMT === 0 ? 'var(--txt3)' : 'var(--red2)';
+    const coSpi   = getSPI(r.code);
+    const badge   = coSpi ? statusBadge(coSpi) : '';
+    return `<tr style="border-bottom:1px solid var(--border);cursor:pointer" onclick="closeUtilDrill();setTimeout(()=>openDrawer('${r.code}'),100)">
+      <td style="padding:8px 14px;font-weight:700;color:var(--navy)">${r.code}</td>
+      <td style="padding:8px 10px;font-size:11px;font-weight:600;color:var(--txt2)">${r.group}</td>
+      <td style="padding:8px 10px;font-size:11px;color:var(--txt)">${r.product}</td>
+      <td style="padding:8px 10px;text-align:right;font-family:'DM Mono',monospace;color:var(--txt3)">${r.obtained.toLocaleString()}</td>
+      <td style="padding:8px 10px;text-align:right">
+        <div style="display:flex;align-items:center;gap:6px;justify-content:flex-end">
+          <div style="width:60px;height:4px;background:var(--border);border-radius:2px;overflow:hidden;flex-shrink:0">
+            <div style="height:4px;background:${col};border-radius:2px;width:${barW}%"></div>
+          </div>
+          <span style="font-weight:700;font-family:'DM Mono',monospace;color:${col}">${r.utilMT.toLocaleString()}</span>
+        </div>
+      </td>
+      <td style="padding:8px 10px;text-align:center;font-weight:700;color:${col}">${(pct*100).toFixed(0)}%</td>
+      <td style="padding:8px 10px;text-align:right;font-weight:${r.availMT>0?'700':'400'};font-family:'DM Mono',monospace;color:${avqCol}">${r.availMT.toLocaleString()}</td>
+      <td style="padding:8px 14px">${badge}</td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('utilDrillFooter').textContent =
+    `${new Set(rows.map(r=>r.code)).size} companies · ${rows.length} product-rows · Click row to open detail`;
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -4289,8 +4751,8 @@ function buildAvailableQuota() {
     }
   });
 
-  // Sort by available quota descending
-  rows.sort((a, b) => b.avq - a.avq);
+  // Sort A→Z by company code, then by product name
+  rows.sort((a, b) => a.code.localeCompare(b.code) || a.product.localeCompare(b.product));
 
   // KPI totals — sum avq across all product-rows; company count uses unique codes
   const totalAvq = rows.reduce((s, r) => s + r.avq, 0);
@@ -4461,8 +4923,8 @@ function buildTopCo() {
       periodObtained: getObtainedForPeriod(co),
     }))
     .filter(co => co.periodObtained > 0)
-    .sort((a, b) => b.periodObtained - a.periodObtained)
-    .slice(0, 10);
+    .sort((a, b) => a.code.localeCompare(b.code))
+    .slice(0, 15);
 
   if (!dataset.length) return;
 
@@ -4570,7 +5032,7 @@ function buildTopCo() {
 }
 
 function buildCmpChart() {
-  const data = [...filteredSPI()].sort((a,b) => b.submit1 - a.submit1).slice(0, 15);
+  const data = [...filteredSPI()].sort((a,b) => a.code.localeCompare(b.code)).slice(0, 15);
   mkChart('cmpChart', {
     type: 'bar',
     data: {
@@ -4691,6 +5153,100 @@ function buildGauge() {
 
 function buildUtilChart() {
   const sorted = [...filteredRA()].sort((a,b) => b.realPct - a.realPct);
+
+  /* ── inject panel container once ── */
+  const chartWrap = document.getElementById('utilChart').parentElement;
+  let panel = document.getElementById('utilChartPanel');
+  if (!panel) {
+    panel = document.createElement('div');
+    panel.id = 'utilChartPanel';
+    panel.style.cssText = 'display:none;margin-top:8px;padding:10px 14px;background:var(--surf);border:1px solid var(--border2);border-radius:var(--r2);box-shadow:var(--sh);animation:fadeUp .15s ease';
+    chartWrap.appendChild(panel);
+  }
+
+  function showUtilPanel(d) {
+    const co   = getSPI(d.code);
+    const rbp  = co ? (co.realizationByProd || {}) : {};
+    const ubp  = co ? (co.utilizationByProd || {}) : {};
+    const abp  = co ? (co.arrivedByProd     || {}) : {};
+    const obtByProd = co ? getObtainedByProd(co) : {};
+    const prods = co ? (co.products || []) : [d.product];
+
+    /* status colour */
+    const statusColor = isReapplySubmitted(d) ? '#7c3aed' : isEligible(d) ? 'var(--green)' : !d.cargoArrived ? 'var(--orange)' : 'var(--red2)';
+    const statusLabel = isReapplySubmitted(d) ? '🔵 Re-Apply Submitted' : isEligible(d) ? '✅ Eligible' : !d.cargoArrived ? '🚢 In Shipment' : '❌ Below 60%';
+
+    /* overall realization bar */
+    const overallPct = (d.realPct * 100);
+    const barFill    = isReapplySubmitted(d) ? '#8b5cf6' : isEligible(d) ? '#21c55d' : !d.cargoArrived ? '#f97316' : '#ef4444';
+
+    /* per-product rows */
+    const prodRows = prods.map(p => {
+      const obt     = obtByProd[p] || 0;
+      const util    = ubp[p]  != null ? ubp[p]  : 0;
+      const arrived = abp[p]  != null ? abp[p]  : d.cargoArrived;
+      let   real    = rbp[p]  != null ? rbp[p]  : (arrived ? (obt > 0 ? Math.round(d.berat*(obt/(d.obtained||1))*100)/100 : 0) : 0);
+      const realPct = obt > 0 ? (real / obt * 100) : (arrived ? (d.realPct*100) : 0);
+      const utilPct = obt > 0 ? (util / obt * 100) : 0;
+      const pColor  = pc(p).solid;
+      const pBg     = pc(p).light;
+
+      /* bar color per product */
+      const pBarCol = arrived
+        ? (realPct >= 60 ? '#21c55d' : '#ef4444')
+        : '#f97316';
+
+      const statusTxt = arrived
+        ? `${realPct.toFixed(1)}% Realization`
+        : `${utilPct.toFixed(1)}% Utilization (In Shipment)`;
+
+      return `
+        <div style="display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:var(--r);background:${pBg}22;border:1px solid ${pColor}22;margin-bottom:4px">
+          <div style="width:8px;height:8px;border-radius:2px;background:${pColor};flex-shrink:0"></div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:11px;font-weight:700;color:var(--txt);margin-bottom:3px">${p}</div>
+            <div style="display:flex;align-items:center;gap:6px">
+              <div style="flex:1;height:6px;background:var(--border);border-radius:3px;overflow:hidden">
+                <div style="height:6px;background:${pBarCol};border-radius:3px;width:${Math.min(realPct||utilPct,100).toFixed(1)}%;transition:width .3s"></div>
+              </div>
+              <span style="font-size:10.5px;font-weight:700;color:${pBarCol};white-space:nowrap">${statusTxt}</span>
+            </div>
+            ${obt > 0 ? `<div style="font-size:9.5px;color:var(--txt3);margin-top:2px">${arrived ? `${real.toLocaleString()} MT arrived` : `${util.toLocaleString()} MT allocated`} · ${obt.toLocaleString()} MT obtained</div>` : ''}
+          </div>
+        </div>`;
+    }).join('');
+
+    panel.style.display = 'block';
+    panel.innerHTML = `
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:14px;font-weight:800;color:var(--navy)">${d.code}</span>
+          <span style="font-size:10px;font-weight:700;padding:2px 8px;border-radius:3px;background:${barFill}20;color:${statusColor};border:1px solid ${barFill}40">${statusLabel}</span>
+          <span style="font-size:11px;font-weight:700;color:${barFill};font-family:'DM Mono',monospace">${overallPct.toFixed(1)}% overall</span>
+        </div>
+        <button onclick="document.getElementById('utilChartPanel').style.display='none'" style="background:var(--border);border:none;border-radius:4px;width:22px;height:22px;cursor:pointer;font-size:12px;color:var(--txt3);display:flex;align-items:center;justify-content:center;flex-shrink:0">✕</button>
+      </div>
+      <div style="margin-bottom:6px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+          <span style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--txt3)">Overall Realization</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div style="flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden">
+            <div style="height:8px;background:${barFill};border-radius:4px;width:${Math.min(overallPct,100).toFixed(1)}%;transition:width .4s"></div>
+          </div>
+          <span style="font-size:11px;font-weight:700;color:${barFill};font-family:'DM Mono',monospace;min-width:44px;text-align:right">${overallPct.toFixed(1)}%</span>
+        </div>
+        <div style="font-size:9.5px;color:var(--txt3);margin-top:3px">${d.berat.toLocaleString()} MT ${d.cargoArrived ? 'arrived' : 'allocated'} · ${(d.obtained||0).toLocaleString()} MT obtained · ETA: ${d.etaJKT||'—'}</div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:8px">
+        <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--txt3);margin-bottom:6px">Products Breakdown</div>
+        ${prodRows}
+      </div>
+      <div style="margin-top:8px;border-top:1px solid var(--border);padding-top:6px;display:flex;justify-content:flex-end">
+        <button onclick="openDrawer('${d.code}')" style="font-size:10.5px;font-weight:600;padding:4px 12px;border-radius:var(--r);border:1px solid var(--blue-bd);background:var(--blue-bg);color:var(--blue);cursor:pointer">View Full Detail ↗</button>
+      </div>`;
+  }
+
   mkChart('utilChart', {
     type: 'bar',
     data: {
@@ -4707,13 +5263,50 @@ function buildUtilChart() {
       responsive: true,
       plugins: {
         legend: { labels:{font:{size:11,family:'DM Sans'},color:'#4a5568',boxWidth:10} },
-        tooltip: { callbacks:{ label: ctx => ctx.dataset.label==='60% Threshold'?null:` ${ctx.parsed.y.toFixed(1)}% realization` }}
+        tooltip: {
+          callbacks:{
+            title: ctx => {
+              if (ctx[0]?.dataset?.label === '60% Threshold') return null;
+              const d = sorted[ctx[0].dataIndex];
+              return `${d.code} · ${d.product}`;
+            },
+            label: ctx => {
+              if (ctx.dataset.label === '60% Threshold') return null;
+              const d = sorted[ctx.dataIndex];
+              const co  = getSPI(d.code);
+              const rbp = co ? (co.realizationByProd || {}) : {};
+              const ubp = co ? (co.utilizationByProd || {}) : {};
+              const abp = co ? (co.arrivedByProd     || {}) : {};
+              const obtByProd = co ? getObtainedByProd(co) : {};
+              const prods = co ? (co.products || [d.product]) : [d.product];
+              const lines = [` Overall: ${ctx.parsed.y.toFixed(1)}% realization`];
+              prods.forEach(p => {
+                const obt  = obtByProd[p] || 0;
+                const arrived = abp[p] != null ? abp[p] : d.cargoArrived;
+                const real = rbp[p] != null ? rbp[p] : (arrived && obt > 0 ? Math.round(d.berat*(obt/(d.obtained||1))*100)/100 : 0);
+                const util = ubp[p] != null ? ubp[p] : 0;
+                const pct  = obt > 0 ? (arrived ? (real/obt*100) : (util/obt*100)) : (d.realPct*100);
+                lines.push(` ${p}: ${pct.toFixed(1)}% ${arrived ? 'realized' : 'utilized'} (${arrived ? real.toLocaleString() : util.toLocaleString()} MT)`);
+              });
+              return lines;
+            },
+            afterBody: ctx => {
+              if (ctx[0]?.dataset?.label === '60% Threshold') return null;
+              return ['', ' ↗ Click bar to see full breakdown'];
+            }
+          }
+        }
       },
       scales: {
         x: { grid:{display:false}, ticks:{font:{size:10,family:'DM Sans'},color:'#1a1f2e'} },
         y: { min:0, max:108, grid:{color:'#f1f5f9'}, ticks:{font:{size:10},color:'#64748b',callback:v=>v+'%'} }
       },
-      onClick: (e, els) => { if (els.length) openDrawer(sorted[els[0].index].code); }
+      onClick: (e, els) => {
+        if (!els.length) return;
+        const d = sorted[els[0].index];
+        if (els[0].datasetIndex === 1) { openDrawer(d.code); return; }
+        showUtilPanel(d);
+      }
     }
   });
 }
@@ -4724,7 +5317,7 @@ function buildUtilChart() {
 
 /* Overview: revision list */
 function buildRevList() {
-  const el = document.getElementById('revList'); el.innerHTML = '';
+  const el = document.getElementById('revList'); if(!el) return; el.innerHTML = '';
   const sections = [
     { rs: 'active',  label: '🔄 Under Revision', color: 'var(--amber)', bg: 'var(--amber-bg)', bd: 'var(--amber-bd)',  badge: 'b-rev' },
     { rs: 'reapply', label: '📨 Re-Apply (Submit #2)', color: 'var(--blue)',  bg: 'var(--blue-bg)',  bd: 'var(--blue-bd)',   badge: 'b-reapply' },
@@ -4732,7 +5325,8 @@ function buildRevList() {
   ];
 
   sections.forEach(sec => {
-    const cos = filteredSPI().filter(d => d.revType !== 'none' && revisionStatus(d) === sec.rs);
+    const cos = filteredSPI().filter(d => d.revType !== 'none' && revisionStatus(d) === sec.rs)
+      .sort((a, b) => a.code.localeCompare(b.code));
     if (!cos.length) return;
 
     // Section label
@@ -4770,7 +5364,7 @@ function buildRevList() {
 /* Overview: pending quick list */
 function buildPendingQuick() {
   const el = document.getElementById('pendingQuick');
-  el.innerHTML = '';
+  if(!el) return; el.innerHTML = '';
   const today = new Date();
   today.setHours(0,0,0,0);
   const pending = filteredPending();
@@ -5267,7 +5861,7 @@ function setUtilTab(mode, el) {
   }
 }
 
-/* Utilization - Realization Monitoring — flat per-product rows, one row per product per company */
+/* Realization Monitoring — flat per-product rows, one row per product per company */
 function renderUtilTable() {
   buildFlowKPIStrip();
 
@@ -5547,7 +6141,7 @@ function renderRATable() {
   const groupLabels = [
     {txt:'🔵 Re-Apply Submitted — New PERTEK On Process (Stage 2)',        col:'#5b21b6',       bg:'#f5f3ff',           bd:'#c4b5fd'},
     {txt:'✅ Eligible — Realization ≥ 60% · Ready to Submit Re-Apply',     col:'var(--green)',   bg:'var(--green-bg)',   bd:'var(--green-bd)'},
-    {txt:'🚢 In Shipment — Cargo NOT Yet at JKT · See Utilization - Realization Monitoring above', col:'var(--orange)',  bg:'var(--orange-bg)',  bd:'var(--orange-bd)'},
+    {txt:'🚢 In Shipment — Cargo NOT Yet at JKT · See Realization Monitoring above', col:'var(--orange)',  bg:'var(--orange-bg)',  bd:'var(--orange-bd)'},
     {txt:'❌ Arrived — Realization < 60% · Not Yet Eligible for Re-Apply', col:'var(--red2)',    bg:'var(--red-bg)',     bd:'var(--red-bd)'},
   ];
 
@@ -5750,7 +6344,7 @@ function renderRATable() {
 function buildCmpList() {
   const maxS = Math.max(...SPI.map(d => d.submit1));
   const el = document.getElementById('cmpList'); el.innerHTML = '';
-  filteredSPI().forEach(co => {
+  [...filteredSPI()].sort((a,b) => a.code.localeCompare(b.code)).forEach(co => {
     const ra = getRA(co.code);
     const div = document.createElement('div');
     div.style.cssText = 'padding:6px 2px;border-bottom:1px solid var(--border);cursor:pointer;border-radius:3px;transition:background .1s';
@@ -5783,7 +6377,7 @@ function buildCmpList() {
 /* Pending table */
 function buildPendingTable() {
   const tbody = document.getElementById('pendingBody'); tbody.innerHTML = '';
-  filteredPending().forEach(d => {
+  [...filteredPending()].sort((a,b) => a.code.localeCompare(b.code)).forEach(d => {
     tbody.innerHTML += `<tr class="tr-pending" style="cursor:pointer" onclick="openDrawerPending('${d.code}')">
       <td><div class="t-code">${d.code}</div></td>
       <td style="font-size:11.5px;font-weight:600">${d.group}</td>
@@ -5801,66 +6395,280 @@ function setMF(f, el) { mFilter=f; document.querySelectorAll('#page-all .fpill')
 function sortM(col) { if(mSort.col===col)mSort.dir*=-1; else{mSort.col=col;mSort.dir=1;} renderMain(); }
 function renderMain() {
   const q = (document.getElementById('mainQ')||{}).value||'';
+
+  /* ══════════════════════════════════════════════════════════════════
+     BUILD COMPANY-LEVEL ROWS
+     Data pulled from same sources as other modules:
+     · Submit/Obtained  → SPI.cycles  (same as PERTEK & SPI page)
+     · Utilization      → SPI.utilizationByProd/utilizationMT (same as Available Quota page)
+     · Realization      → SPI.realizationByProd + RA.berat (same as Realization Monitoring)
+     · Available Quota  → SPI.availableByProd/availableQuota (same as Available Quota page)
+  ══════════════════════════════════════════════════════════════════ */
+  const buildCompanyRow = (d) => {
+    const ra  = getRA(d.code);
+    const _rs = revisionStatus(d);
+    const rowType = (_rs==='clean'||_rs==='completed') ? 'SPI'
+                  : _rs==='reapply'  ? 'REAPPLY'
+                  : _rs==='active'   ? 'REV'
+                  : _rs==='revpending' ? 'REV' : 'SPI';
+
+    const utilMT  = d.utilizationMT || 0;
+    const availMT = (d.availableQuota != null) ? d.availableQuota : Math.max(0, d.obtained - utilMT);
+    const realMT  = (ra && ra.cargoArrived) ? ra.berat   : 0;
+    const realPct = (ra && ra.cargoArrived) ? ra.realPct : null;
+    const utilPct = (ra && !ra.cargoArrived) ? ra.utilPct : null;
+
+    // Per-product data
+    const ubp = d.utilizationByProd  || {};
+    const abp = d.availableByProd    || {};
+    const rbp = d.realizationByProd  || {};
+    const arb = d.arrivedByProd      || {};
+    const obtByProd = getObtainedByProd(d);
+
+    // Submit per product from cycle data
+    const submitByProd = {};
+    (d.cycles||[]).forEach(c => {
+      if (!/^submit\s*#1/i.test(c.type)) return;
+      Object.entries(c.products||{}).forEach(([p,v]) => {
+        if (typeof v==='number' && v>0) submitByProd[p] = (submitByProd[p]||0) + v;
+      });
+    });
+
+    // All product keys (union of obtained, util, avail)
+    const allProds = [...new Set([
+      ...Object.keys(obtByProd),
+      ...Object.keys(ubp),
+      ...Object.keys(abp),
+    ])];
+
+    const subRows = [];
+    if (allProds.length > 1) {
+      allProds.forEach(prod => {
+        const obtP  = obtByProd[prod]  || 0;
+        const subP  = submitByProd[prod] || 0;
+        const utilP = ubp[prod]  || 0;
+        const avqP  = abp[prod] != null ? abp[prod] : Math.max(0, obtP - utilP);
+        const realP   = rbp[prod] != null ? rbp[prod]
+                      : (arb[prod] === true && ra && ra.obtained > 0)
+                        ? Math.round(ra.berat * (obtP / (ra.obtained||1)) * 100) / 100
+                        : 0;
+        const arrivedP  = arb[prod] != null ? arb[prod] : false;
+        const realPctP  = obtP > 0 && arrivedP  ? realP / obtP  : null;
+        const utilPctP  = obtP > 0 && !arrivedP && utilP > 0 ? utilP / obtP : null;
+        subRows.push({ prod, subP, obtP, utilP, realP, realPctP, utilPctP, avqP, arrivedP });
+      });
+    }
+
+    return { ...d, utilMT, availMT, berat: realMT, realPct, utilPct, rowType, subRows };
+  };
+
   const all = [
-    ...filteredSPI().map(d => {
-      const ra=getRA(d.code);
-      const _rs=revisionStatus(d);
-      // Live util from shipments (if Sales has entered data)
-      const shipLots = d.shipments ? Object.values(d.shipments).flat() : [];
-      const shipUtil = shipLots.reduce((s,l)=>s+(l.utilMT||0),0);
-      const shipReal = shipLots.filter(l=>l.arrived).reduce((s,l)=>s+(l.realMT||0),0);
-      const berat    = shipUtil>0 ? (shipReal>0?shipReal:shipUtil) : (ra?ra.berat:0);
-      const realPct  = ra ? ra.realPct : null;
-      return {...d, berat, realPct, utilizationMT: shipUtil||d.utilizationMT||0,
-              rowType:(_rs==='clean'||_rs==='completed')?'SPI':_rs==='reapply'?'REAPPLY':_rs==='active'?'REV':_rs==='revpending'?'REV':'SPI'};
-    }),
-    ...filteredPending().map(d => ({code:d.code,group:d.group,products:d.products,submit1:d.mt,obtained:0,berat:0,realPct:null,revType:'none',revNote:'',spiRef:d.status,remarks:d.remarks,rowType:'PENDING'}))
+    ...filteredSPI().map(buildCompanyRow),
+    ...filteredPending().map(d => ({
+      code:d.code, group:d.group, products:d.products,
+      submit1:d.mt, obtained:0, utilMT:0, berat:0,
+      realPct:null, utilPct:null, availMT:0,
+      revType:'none', revNote:'', spiRef:d.status, remarks:d.remarks,
+      rowType:'PENDING', subRows:[],
+    }))
   ];
+
+  /* ── Filter ────────────────────────────────────────────────────── */
   let rows = all.filter(d => {
-    const mq = !q || d.code.toLowerCase().includes(q.toLowerCase()) || d.products.some(p=>p.toLowerCase().includes(q.toLowerCase())) || (d.spiRef||'').toLowerCase().includes(q.toLowerCase());
-    const mf = mFilter==='ALL' ? true
-             : mFilter==='SPI' ? ['SPI','REV','REAPPLY'].includes(d.rowType)
-             : mFilter==='PENDING' ? d.rowType==='PENDING'
-             : mFilter==='REV' ? (d.rowType==='REV' || d.rowType==='REAPPLY')
+    const mq = !q
+      || d.code.toLowerCase().includes(q.toLowerCase())
+      || d.products.some(p => p.toLowerCase().includes(q.toLowerCase()))
+      || (d.spiRef||'').toLowerCase().includes(q.toLowerCase());
+    const mf = mFilter==='ALL'      ? true
+             : mFilter==='SPI'      ? ['SPI','REV','REAPPLY'].includes(d.rowType)
+             : mFilter==='PENDING'  ? d.rowType==='PENDING'
+             : mFilter==='REV'      ? (d.rowType==='REV' || d.rowType==='REAPPLY')
              : mFilter==='ELIGIBLE' ? (d.realPct!=null && d.realPct>=0.6)
              : true;
     return mq && mf;
   });
-  // Default A→Z by company code; override with column sort if active
-  rows.sort((a,b) => a.code.localeCompare(b.code));
-  if (mSort.col) rows.sort((a,b)=>(typeof a[mSort.col]==='number'?(a[mSort.col]||0)-(b[mSort.col]||0):String(a[mSort.col]||'').localeCompare(String(b[mSort.col]||'')))*mSort.dir);
 
+  /* ── Sort ────────────────────────────────────────────────────── */
+  rows.sort((a,b) => a.code.localeCompare(b.code));
+  if (mSort.col) {
+    const col = mSort.col;
+    rows.sort((a,b) => {
+      const av = typeof a[col]==='number' ? (a[col]||0) : String(a[col]||'');
+      const bv = typeof b[col]==='number' ? (b[col]||0) : String(b[col]||'');
+      return (typeof av==='number' ? av-bv : av.localeCompare(bv)) * mSort.dir;
+    });
+  }
+
+  /* ── Cell builders ──────────────────────────────────────────── */
+  const mkNumCell = (val, col) => val > 0
+    ? `<span style="color:${col};font-weight:600;font-family:'DM Mono',monospace">${val.toLocaleString()}</span>`
+    : '<span style="color:var(--txt3)">—</span>';
+
+  const mkPctCell = (pct, isUtilMode) => {
+    if (pct == null) return '<span style="color:var(--txt3)">—</span>';
+    const lbl  = isUtilMode ? 'Util' : 'Real';
+    const col  = isUtilMode ? 'var(--blue)' : realColor(pct);
+    const fill = isUtilMode ? 'var(--blue)'  : realFill(pct);
+    return `<div class="u-cell">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px">
+        <span style="font-size:9px;color:var(--txt3);font-weight:600">${lbl}</span>
+        <span style="font-size:11px;font-weight:700;color:${col}">${(pct*100).toFixed(0)}%</span>
+      </div>
+      <div class="u-trk"><div class="u-fill" style="width:${Math.min(pct*100,100)}%;background:${fill}"></div></div>
+    </div>`;
+  };
+
+  const mkAvqCell = (avq, isPending) => {
+    if (isPending) return '<span style="color:var(--txt3)">—</span>';
+    const col = avq > 0 ? 'var(--teal)' : avq === 0 ? 'var(--txt3)' : 'var(--red2)';
+    return `<span style="color:${col};font-weight:${avq>0?'700':'400'};font-family:'DM Mono',monospace">${avq.toLocaleString()} MT</span>`;
+  };
+
+  const mkPertekCell = (d) => {
+    if (d.rowType === 'PENDING') return `<div style="font-size:10.5px;color:var(--txt2);line-height:1.4">${(d.spiRef||'—').slice(0,80)}</div>`;
+    const spiD = getSPI(d.code);
+    const pertekNo = spiD && spiD.pertekNo ? `<div style="font-size:10px;font-family:'DM Mono',monospace;color:var(--blue);margin-top:2px">${spiD.pertekNo}</div>` : '';
+    const spiNo    = spiD && spiD.spiNo    ? `<div style="font-size:10px;font-family:'DM Mono',monospace;color:var(--teal)">${spiD.spiNo}</div>` : '';
+    return `<div style="line-height:1.5"><div style="font-size:10.5px;color:var(--txt2)">${(d.spiRef||'—').slice(0,60)}</div>${pertekNo}${spiNo}</div>`;
+  };
+
+  /* ── Render rows ─────────────────────────────────────────────── */
   const tbody = document.getElementById('mainBody'); tbody.innerHTML = '';
+
   rows.forEach(d => {
-    const rc = d.rowType==='PENDING'?'tr-pending':d.rowType==='REV'?'tr-rev':d.rowType==='REAPPLY'?'tr-reapply':d.rowType==='DONE'?'tr-revdone':'';
-    // Show Realization% if arrived, Utilization% if in shipment
-    const raRec = getRA(d.code);
+    const rc = d.rowType==='PENDING' ? 'tr-pending'
+             : d.rowType==='REV'     ? 'tr-rev'
+             : d.rowType==='REAPPLY' ? 'tr-reapply'
+             : d.rowType==='DONE'    ? 'tr-revdone' : '';
+    const raRec  = getRA(d.code);
+    const isMulti = d.subRows && d.subRows.length > 1;
+
+    /* Re-Apply badge */
     const eligHtml = (() => {
-      if (!raRec || d.realPct == null) return '';
-      if (isReapplySubmitted(raRec)) return '<span class="badge b-reapply" style="font-size:9px;padding:1px 6px">🔵 Submitted</span>';
-      if (isEligible(raRec)) return '<span class="badge b-eligible" style="font-size:9px;padding:1px 6px">✓ Eligible</span>';
-      return '<span class="badge b-ineligible" style="font-size:9px;padding:1px 6px">✗</span>';
+      if (!raRec || d.realPct == null) return '<span style="color:var(--txt3)">—</span>';
+      if (isReapplySubmitted(raRec)) return '<span class="badge b-reapply" style="font-size:9px;padding:1px 5px">🔵 Submitted</span>';
+      if (isEligible(raRec))         return '<span class="badge b-eligible" style="font-size:9px;padding:1px 5px">✓ Eligible</span>';
+      return '<span class="badge b-ineligible" style="font-size:9px;padding:1px 5px">✗ &lt;60%</span>';
     })();
-    const dispPct = raRec ? (raRec.cargoArrived ? raRec.realPct : raRec.utilPct) : null;
-    const dispLabel = raRec && !raRec.cargoArrived ? 'Util' : 'Real';
-    const dispColor = raRec && !raRec.cargoArrived ? 'var(--blue)' : (dispPct!=null?realColor(dispPct):'var(--txt3)');
-    const realHtml = dispPct != null
-      ? `<div class="u-cell"><div class="u-pct" style="color:${dispColor};font-size:10.5px">${dispLabel}: ${(dispPct*100).toFixed(0)}%</div><div class="u-trk"><div class="u-fill" style="width:${Math.min(dispPct*100,100)}%;background:${raRec&&!raRec.cargoArrived?'var(--blue)':realFill(dispPct)}"></div></div></div>`
-      : '<span style="color:var(--txt3)">—</span>';
+
+    const dispPct = d.realPct != null ? d.realPct : d.utilPct;
+
     const tr = document.createElement('tr'); tr.className = rc;
-    tr.innerHTML = `
-      <td><div class="t-code" onclick="openDrawer('${d.code}')">${d.code}</div><div class="t-sub">${d.group}</div></td>
-      <td style="font-size:11.5px;font-weight:600">${d.group}</td>
-      <td>${chips(d.products)}</td>
-      <td class="t-r t-mono">${N(d.submit1)}</td>
-      <td class="t-r t-mono" style="color:${d.obtained>0?'var(--teal)':'var(--txt3)'}">${d.obtained>0?N(d.obtained):'—'}</td>
-      <td class="t-r t-mono" style="color:${d.berat>0?'var(--green)':'var(--txt3)'}">${d.berat>0?d.berat.toLocaleString():'—'}</td>
-      <td>${realHtml}</td>
-      <td>${eligHtml}</td>
-      <td>${d.rowType==='PENDING'?'<span class="badge b-pending">⏳ Pending</span>':statusBadge(d)}</td>
-      <td style="font-size:11px;max-width:200px;line-height:1.4;color:var(--txt2)">${(d.spiRef||'').slice(0,68)}</td>`;
-    tbody.appendChild(tr);
+    if (isMulti) {
+      tr.innerHTML = `
+        <td>
+          <div class="t-code" onclick="openDrawer('${d.code}')">${d.code}</div>
+          <div style="font-size:9px;color:var(--txt3);margin-top:1px">▼ ${d.subRows.length} products</div>
+        </td>
+        <td style="font-size:11.5px;font-weight:600">${d.group}</td>
+        <td style="font-size:10.5px;color:var(--txt3);font-style:italic">${d.products.length} products · total</td>
+        <td class="t-r t-mono" style="font-weight:700">${N(d.submit1)}</td>
+        <td class="t-r t-mono" style="color:${d.obtained>0?'var(--teal)':'var(--txt3)'};font-weight:700">${d.obtained>0?N(d.obtained):'—'}</td>
+        <td class="t-r">${mkNumCell(d.utilMT,'var(--blue)')}</td>
+        <td class="t-r">${mkNumCell(d.berat,'var(--green)')}</td>
+        <td style="min-width:90px">${mkPctCell(dispPct, d.realPct==null && d.utilPct!=null)}</td>
+        <td class="t-r">${mkAvqCell(d.availMT, false)}</td>
+        <td>${eligHtml}</td>
+        <td>${statusBadge(d)}</td>
+        <td style="min-width:160px">${mkPertekCell(d)}</td>`;
+      tbody.appendChild(tr);
+
+      /* Sub-rows: one per product */
+      d.subRows.forEach(s => {
+        const trSub = document.createElement('tr');
+        trSub.className = 'tr-sub' + (rc ? ' '+rc : '');
+        const dispPctS = s.realPctP != null ? s.realPctP : s.utilPctP;
+        trSub.innerHTML = `
+          <td></td>
+          <td></td>
+          <td>
+            <span style="display:inline-block;width:5px;height:5px;background:var(--txt3);border-radius:1px;margin-right:5px;vertical-align:middle;opacity:.4"></span>
+            <span style="font-size:11px;color:var(--txt2);font-weight:500">${s.prod}</span>
+          </td>
+          <td class="t-r t-mono" style="color:var(--txt3)">${s.subP>0?s.subP.toLocaleString():'—'}</td>
+          <td class="t-r t-mono" style="color:${s.obtP>0?'var(--teal)':'var(--txt3)'}">${s.obtP>0?s.obtP.toLocaleString():'—'}</td>
+          <td class="t-r">${s.utilP>0?`<span style="color:var(--blue);font-family:'DM Mono',monospace">${s.utilP.toLocaleString()}</span>`:'<span style="color:var(--txt3)">—</span>'}</td>
+          <td class="t-r">${s.realP>0?`<span style="color:var(--green);font-family:'DM Mono',monospace">${Number(s.realP).toLocaleString()}</span>`:'<span style="color:var(--txt3)">—</span>'}</td>
+          <td style="min-width:90px">${mkPctCell(dispPctS, s.realPctP==null && s.utilPctP!=null)}</td>
+          <td class="t-r">${mkAvqCell(s.avqP, false)}</td>
+          <td></td><td></td><td></td>`;
+        tbody.appendChild(trSub);
+      });
+
+    } else {
+      tr.innerHTML = `
+        <td><div class="t-code" onclick="openDrawer('${d.code}')">${d.code}</div></td>
+        <td style="font-size:11.5px;font-weight:600">${d.group}</td>
+        <td>${chips(d.products)}</td>
+        <td class="t-r t-mono">${N(d.submit1)}</td>
+        <td class="t-r t-mono" style="color:${d.obtained>0?'var(--teal)':'var(--txt3)'}">${d.obtained>0?N(d.obtained):'—'}</td>
+        <td class="t-r">${mkNumCell(d.utilMT,'var(--blue)')}</td>
+        <td class="t-r">${mkNumCell(d.berat,'var(--green)')}</td>
+        <td style="min-width:90px">${mkPctCell(dispPct, d.realPct==null && d.utilPct!=null)}</td>
+        <td class="t-r">${mkAvqCell(d.availMT, d.rowType==='PENDING')}</td>
+        <td>${eligHtml}</td>
+        <td>${d.rowType==='PENDING'?'<span class="badge b-pending">⏳ Pending</span>':statusBadge(d)}</td>
+        <td style="min-width:160px">${mkPertekCell(d)}</td>`;
+      tbody.appendChild(tr);
+    }
   });
+
+  /* ── Totals row in tfoot ────────────────────────────────────── */
+  const tfoot = document.getElementById('mainFoot');
+  if (tfoot) {
+    const tSubmit = rows.reduce((s,d) => s + (d.submit1||0), 0);
+    const tObtain = rows.reduce((s,d) => s + (d.obtained||0), 0);
+    const tUtil   = rows.reduce((s,d) => s + (d.utilMT||0),   0);
+    const tReal   = rows.reduce((s,d) => s + (d.berat||0),    0);
+    const tAvail  = rows.reduce((s,d) => s + (d.availMT||0),  0);
+    const arrived = rows.filter(d => d.realPct != null);
+    const avgPct  = arrived.length ? arrived.reduce((s,d) => s + d.realPct, 0) / arrived.length : null;
+    const pctStr  = avgPct != null
+      ? `<div class="u-cell"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px">
+           <span style="font-size:9px;color:var(--txt3)">Avg</span>
+           <span style="font-size:11px;font-weight:700;color:${realColor(avgPct)}">${(avgPct*100).toFixed(0)}%</span>
+         </div><div class="u-trk"><div class="u-fill" style="width:${Math.min(avgPct*100,100)}%;background:${realFill(avgPct)}"></div></div></div>`
+      : '<span style="color:var(--txt3)">—</span>';
+    tfoot.innerHTML = `<tr class="tr-totals">
+      <td colspan="3" style="padding-left:14px">TOTAL &nbsp;·&nbsp; ${rows.length} companies</td>
+      <td class="t-r t-mono">${tSubmit.toLocaleString()}</td>
+      <td class="t-r t-mono" style="color:var(--teal)">${tObtain.toLocaleString()}</td>
+      <td class="t-r t-mono" style="color:var(--blue)">${tUtil.toLocaleString()}</td>
+      <td class="t-r t-mono" style="color:var(--green)">${tReal.toLocaleString()}</td>
+      <td style="min-width:90px">${pctStr}</td>
+      <td class="t-r t-mono" style="color:var(--teal)">${tAvail.toLocaleString()} MT</td>
+      <td></td><td></td><td></td>
+    </tr>`;
+  }
+
+  /* ── Pill counts ──────────────────────────────────────────────── */
+  const cAll    = filteredSPI().length + filteredPending().length;
+  const cSPI    = filteredSPI().length;
+  const cPending = filteredPending().length;
+  const pillAll  = document.getElementById('pillMAll');     if(pillAll)  pillAll.textContent  = cAll;
+  const pillSPI  = document.getElementById('pillMSPI');     if(pillSPI)  pillSPI.textContent  = cSPI;
+  const pillPend = document.getElementById('pillMPending'); if(pillPend) pillPend.textContent = cPending;
+
+  /* ── Footer totals bar ───────────────────────────────────────── */
+  const totBar = document.getElementById('mainTotalsBar');
+  if (totBar) {
+    const tS = rows.reduce((s,d) => s+(d.submit1||0), 0);
+    const tO = rows.reduce((s,d) => s+(d.obtained||0), 0);
+    const tU = rows.reduce((s,d) => s+(d.utilMT||0), 0);
+    const tR = rows.reduce((s,d) => s+(d.berat||0), 0);
+    const tA = rows.reduce((s,d) => s+(d.availMT||0), 0);
+    totBar.innerHTML =
+      `<span style="color:var(--navy)">Submit: <strong>${tS.toLocaleString()}</strong></span>` +
+      `<span style="opacity:.3">·</span>` +
+      `<span style="color:var(--teal)">Obtained: <strong>${tO.toLocaleString()}</strong></span>` +
+      `<span style="opacity:.3">·</span>` +
+      `<span style="color:var(--blue)">Utilized: <strong>${tU.toLocaleString()}</strong></span>` +
+      `<span style="opacity:.3">·</span>` +
+      `<span style="color:var(--green)">Realized: <strong>${tR.toLocaleString()}</strong></span>` +
+      `<span style="opacity:.3">·</span>` +
+      `<span style="color:#0891b2">Available: <strong>${tA.toLocaleString()}</strong></span>`;
+  }
+
   document.getElementById('mainCount').textContent = `${rows.length} companies`;
 }
 
@@ -6207,12 +7015,21 @@ function hdAnswer(q) {
 function goPage(id, el) {
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('page-'+id).classList.add('active');
+  const pg = document.getElementById('page-'+id);
+  if (pg) pg.classList.add('active');
   if (el) el.classList.add('active');
+  // Rebuild Available Quota page on navigate
+  if (id === 'availquota') {
+    buildAvqPageKPIs();
+    buildAvailableQuota(); // existing chart builder
+    buildAvqProdChart();
+    // reset tab to chart view
+    setAvqTab('chart', document.getElementById('avqTabChart'));
+  }
 }
 function navFilter(f) {
   const tabs = document.querySelectorAll('.nav-tab');
-  goPage('all', tabs[4]);
+  goPage('all', tabs[5]);
   mFilter = f;
   document.querySelectorAll('#page-all .fpill').forEach(p=>p.classList.remove('on'));
   const map = {ALL:0,SPI:1,PENDING:2,REV:3,ELIGIBLE:4};
@@ -8431,6 +9248,14 @@ function exportExecutivePDF() {
     return sum + (obtained - utilMT);
   }, 0);
 
+  // Utilization total — same source as Overview KPI and Available Quota page
+  const utilTotal   = filteredSPI().reduce((s, co) => {
+    const ubp = co.utilizationByProd || {};
+    return s + Object.values(ubp).reduce((t,v) => t + (typeof v==='number' ? v : 0), 0);
+  }, 0);
+  const utilCoCount = filteredSPI().filter(co => (co.utilizationMT||0) > 0).length;
+  const utilRate    = s2_mt > 0 ? (utilTotal/s2_mt*100).toFixed(1) : '—';
+
   // Top 5 Products by obtained MT (PERTEK Terbit filter)
   const prodMap = {};
   SPI.forEach(co => {
@@ -8689,7 +9514,7 @@ function exportExecutivePDF() {
       <div class="sb">${PERIOD.active ? periodLabel : 'All Submissions'}</div>
     </div>
 
-    <div class="kg" style="grid-template-columns:repeat(5,1fr)">
+    <div class="kg" style="grid-template-columns:repeat(6,1fr)">
       <div class="kc" style="border-top-color:#0c7c84">
         <div class="kl">Total Submitted</div>
         <div class="kv" style="color:#0c7c84">${N(s1_mt)}</div>
@@ -8702,17 +9527,23 @@ function exportExecutivePDF() {
         <div class="ku">MT &nbsp;·&nbsp; ${s2_co.size} companies</div>
         <div class="kn">Approval rate: ${appRate}%</div>
       </div>
-      <div class="kc" style="border-top-color:#0f766e">
-        <div class="kl">Available Quota</div>
-        <div class="kv" style="color:#0f766e">${N(availQuotaTotal)}</div>
-        <div class="ku">MT remaining across companies</div>
-        <div class="kn">Obtained − Utilization</div>
+      <div class="kc" style="border-top-color:#2563eb">
+        <div class="kl">Total Utilized</div>
+        <div class="kv" style="color:#2563eb">${N(utilTotal)}</div>
+        <div class="ku">MT &nbsp;·&nbsp; ${utilCoCount} companies</div>
+        <div class="kn">Utilization rate: ${utilRate}%</div>
       </div>
       <div class="kc" style="border-top-color:#15803d">
         <div class="kl">Cargo Realized</div>
         <div class="kv" style="color:#15803d">${s3_co}</div>
         <div class="ku">companies &nbsp;·&nbsp; ${N(Math.round(s3_mt))} MT</div>
         <div class="kn">Avg realization: ${Nf(avgReal)}%</div>
+      </div>
+      <div class="kc" style="border-top-color:#0f766e">
+        <div class="kl">Available Quota</div>
+        <div class="kv" style="color:#0f766e">${N(availQuotaTotal)}</div>
+        <div class="ku">MT remaining across companies</div>
+        <div class="kn">Obtained − Utilization</div>
       </div>
       <div class="kc" style="border-top-color:#dc2626">
         <div class="kl">New Submission</div>
@@ -8725,6 +9556,7 @@ function exportExecutivePDF() {
     <div class="fn">
       ★ Quota Obtained filtered by PERTEK release date &nbsp;|&nbsp;
       Submitted filtered by submission date &nbsp;|&nbsp;
+      Utilized = MT allocated to customers &nbsp;|&nbsp;
       Realized = cargo physically arrived at Jakarta port
     </div>
 
@@ -8740,6 +9572,7 @@ function exportExecutivePDF() {
           ? `Submission activity began in October 2025 — <strong>${N(s1_mt)} MT</strong> submitted across <strong>${s1_co.size} companies</strong>.`
           : `No submission activity recorded in the selected period. All submissions begin from <strong>October 2025</strong>.`}</li>
         <li>Obtained quota performance shows <strong>${N(s2_mt)} MT</strong> approved${s2_co.size > 0 ? ` across <strong>${s2_co.size} companies</strong>` : ''} — approval rate <strong>${appRate}%</strong>.</li>
+        <li>Utilization: <strong>${N(utilTotal)} MT</strong> allocated to customers across <strong>${utilCoCount} companies</strong> — utilization rate <strong>${utilRate}%</strong> of obtained quota.</li>
         <li>Realization progress: <strong>${s3_co} ${s3_co===1?'company has':'companies have'}</strong> executed imports${s3_co > 0 ? `, averaging <strong>${Nf(avgReal)}% realization</strong>` : ''}.</li>
         <li><strong>${s4_tot} ${s4_tot===1?'company is':'companies are'}</strong> in the re-apply pipeline${s4_sub > 0 ? ` — <strong>${s4_sub}</strong> already submitted for new quota` : ''}.</li>
         <li>Overall pipeline status: <strong>${status}</strong>${s1_mt===0?' — no activity in this period':s2_mt>0?' — approvals progressing on schedule':' — awaiting quota approvals'}.</li>
@@ -8902,7 +9735,7 @@ function exportExecutivePDF() {
 
     <div class="sec">
       <div class="sn" style="background:#0c7c84">📋</div>
-      <div class="st">Utilization – Realization Monitoring</div>
+      <div class="st">Realization Monitoring</div>
       <div class="sb">Per-company shipment status · Utilization = in-shipment · Realization = arrived &amp; Beacukai-registered</div>
     </div>
 
@@ -9344,6 +10177,9 @@ function exportExecutivePDF() {
 <div class="spc"></div>
 ${p1}
 ${p2}
+<!-- Hidden placeholder divs for JS builders that target specific IDs -->
+<div id="revList"      style="display:none"></div>
+<div id="pendingQuick" style="display:none"></div>
 </body></html>`);
   win.document.close();
 }
@@ -11522,6 +12358,7 @@ window.onload = () => {
 
   // Lists
   buildRevList(); buildPendingQuick(); buildRevDetailTable(); buildCmpList(); buildPendingTable();
+  buildRevSummaryStrip(); buildPendingSummaryStrip();
 
   // Tables
   renderSPI(); renderUtilTable(); renderRATable(); renderMain();
@@ -11534,6 +12371,294 @@ window.onload = () => {
   updateOverviewKPIs();
   buildAvailableQuota();
 };
+
+/* ── LAST UPDATE CLOCK ──────────────────────────────────────────── */
+(function initLastUpdateClock() {
+  function formatDT(d) {
+    const dd = String(d.getDate()).padStart(2,'0');
+    const mo = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getMonth()];
+    const yy = d.getFullYear();
+    const hh = String(d.getHours()).padStart(2,'0');
+    const mm = String(d.getMinutes()).padStart(2,'0');
+    const ss = String(d.getSeconds()).padStart(2,'0');
+    return `Last update: ${dd} ${mo} ${yy}  ${hh}:${mm}:${ss}`;
+  }
+  const el = document.getElementById('tbDateTime');
+  if (!el) return;
+  function tick() { el.textContent = formatDT(new Date()); }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ══════════════════════════════════════════════════
+   AVAILABLE QUOTA PAGE — TAB CONTROLLER
+══════════════════════════════════════════════════ */
+function setAvqTab(tab, el) {
+  ['chart','prod','table'].forEach(t => {
+    const v = document.getElementById('avqView' + t.charAt(0).toUpperCase() + t.slice(1));
+    if (v) v.style.display = (t === tab) ? (t==='chart'?'block':'') : 'none';
+  });
+  // Reset all tab buttons
+  ['avqTabChart','avqTabProd','avqTabTable'].forEach(id => {
+    const b = document.getElementById(id);
+    if (b) { b.style.background = 'var(--bg)'; b.style.color = 'var(--txt3)'; }
+  });
+  if (el) { el.style.background = 'var(--navy)'; el.style.color = '#fff'; }
+  // Set display of prod view properly
+  const pv = document.getElementById('avqViewProd');
+  if (pv) pv.style.display = tab==='prod' ? 'block' : 'none';
+  const tv = document.getElementById('avqViewTable');
+  if (tv) tv.style.display = tab==='table' ? 'block' : 'none';
+  // Rebuild if needed
+  if (tab === 'prod')  buildAvqProdGrid();
+  if (tab === 'table') buildAvqTable();
+}
+
+/* ── KPI cards on Available Quota page ── */
+function buildAvqPageKPIs() {
+  let totalObt = 0, totalUtil = 0, totalAvq = 0, coSet = new Set();
+  const rows = [];
+  filteredSPI().forEach(co => {
+    const obtained = co.obtained || 0;
+    if (obtained <= 0) return;
+    const util = co.utilizationMT || 0;
+    const avail = co.availableQuota != null ? co.availableQuota : (obtained - util);
+    totalObt  += obtained;
+    totalUtil += util;
+    totalAvq  += avail;
+    if (avail > 0) coSet.add(co.code);
+  });
+
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  set('avqKpi1', totalAvq.toLocaleString());
+  set('avqKpi2', totalObt.toLocaleString());
+  set('avqKpi3', totalUtil.toLocaleString());
+  set('avqKpi4', coSet.size);
+
+  const utilPct = totalObt > 0 ? (totalUtil / totalObt * 100).toFixed(1) : 0;
+  const avqPct  = totalObt > 0 ? (totalAvq  / totalObt * 100).toFixed(1) : 0;
+
+  const f1 = document.getElementById('avqKpiFill1');
+  if (f1) f1.style.width = avqPct + '%';
+  const f3 = document.getElementById('avqKpiFill3');
+  if (f3) f3.style.width = utilPct + '%';
+
+  const t1 = document.getElementById('avqKpiTag1');
+  if (t1) t1.textContent = avqPct + '% of obtained remaining';
+  const t3 = document.getElementById('avqKpiTag3');
+  if (t3) t3.textContent = utilPct + '% utilization rate';
+}
+
+/* ── By Product grid view ── */
+function buildAvqProdGrid() {
+  const grid = document.getElementById('avqProdGrid');
+  if (!grid) return;
+  const prodMap = {}; // product → { obtained, util, avail, companies[] }
+  filteredSPI().forEach(co => {
+    const ap = co.availableByProd || {};
+    const up = co.utilizationByProd || {};
+    // Collect per-product data
+    (co.products || []).forEach(p => {
+      if (!prodMap[p]) prodMap[p] = { obtained:0, util:0, avail:0, cos:[] };
+      const cycleObt = (co.cycles||[]).filter(c=>/^obtained/i.test(c.type))
+        .reduce((s,c) => s + (c.products&&c.products[p]||0), 0);
+      const obtForProd = Number(cycleObt) > 0 ? Number(cycleObt) : (Number(co.obtained) / Math.max((co.products||[]).length, 1));
+      const utilForProd = up[p] || 0;
+      const avqForProd  = ap[p] != null ? ap[p] : (obtForProd - utilForProd);
+      prodMap[p].obtained += Number(obtForProd) || 0;
+      prodMap[p].util     += Number(utilForProd) || 0;
+      prodMap[p].avail    += Number(avqForProd) || 0;
+      prodMap[p].cos.push(co.code);
+    });
+  });
+  const PROD_CLR = {
+    'GL BORON':'#0369a1','GI BORON':'#0f766e','SHEETPILE':'#b45309',
+    'BORDES ALLOY':'#dc2626','PPGL CARBON':'#7c3aed','ERW PIPE OD≤140mm':'#9333ea',
+    'ERW PIPE OD>140mm':'#0891b2','AS STEEL':'#64748b','Hollow Pipe':'#78716c',
+    'SEAMLESS PIPE':'#0d6946','HRC/HRPO ALLOY':'#ca8a04',
+  };
+  const clr = p => { for (const k in PROD_CLR) if (p && p.toUpperCase().includes(k.toUpperCase())) return PROD_CLR[k]; return '#64748b'; };
+  const entries = Object.entries(prodMap).sort((a,b) => b[1].avail - a[1].avail);
+  grid.innerHTML = entries.map(([prod, d]) => {
+    const utilPct = d.obtained > 0 ? Math.min((d.util / d.obtained * 100), 100).toFixed(0) : 0;
+    const avqPct  = d.obtained > 0 ? Math.min((d.avail / d.obtained * 100), 100).toFixed(0) : 0;
+    const c = clr(prod);
+    return `<div style="border:1px solid var(--border);border-radius:var(--r2);overflow:hidden;box-shadow:var(--sh)">
+      <div style="background:${c};padding:9px 14px;display:flex;justify-content:space-between;align-items:center">
+        <span style="font-size:11.5px;font-weight:700;color:#fff">${prod}</span>
+        <span style="font-size:10px;font-weight:600;padding:2px 7px;border-radius:3px;background:rgba(255,255,255,.2);color:#fff">${d.cos.length} co.</span>
+      </div>
+      <div style="padding:10px 14px">
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+          <div style="text-align:center;flex:1"><div style="font-size:16px;font-weight:700;color:var(--teal)">${d.obtained.toLocaleString()}</div><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--txt3)">Obtained</div></div>
+          <div style="text-align:center;flex:1"><div style="font-size:16px;font-weight:700;color:var(--green)">${d.util.toLocaleString()}</div><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--txt3)">Utilized</div></div>
+          <div style="text-align:center;flex:1"><div style="font-size:16px;font-weight:700;color:${c}">${d.avail.toLocaleString()}</div><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--txt3)">Available</div></div>
+        </div>
+        <div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;margin-bottom:5px">
+          <div style="height:6px;background:${c};border-radius:3px;width:${avqPct}%;transition:width .8s"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--txt3)">
+          <span>${avqPct}% available</span>
+          <span style="font-size:9.5px;color:var(--txt3)">${d.cos.slice(0,4).join(', ')}${d.cos.length>4?'…':''}</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ── Table view ── */
+function buildAvqTable() {
+  const tbody = document.getElementById('avqTableBody');
+  if (!tbody) return;
+  const rows = [];
+  filteredSPI().forEach(co => {
+    const obtained = co.obtained || 0;
+    if (obtained <= 0) return;
+    const ap = co.availableByProd || {};
+    const up = co.utilizationByProd || {};
+    const spi = getSPI(co.code);
+    const grp = spi ? spi.group : '';
+    if (Object.keys(ap).length > 0) {
+      (co.products || []).forEach(p => {
+        const cycleObt = (co.cycles||[]).filter(c=>/^obtained/i.test(c.type))
+          .reduce((s,c) => s + (c.products&&c.products[p]||0), 0);
+        const obt  = cycleObt || (obtained / (co.products||[]).length);
+        const util = up[p] || 0;
+        const avq  = ap[p] != null ? ap[p] : (obt - util);
+        rows.push({ code:co.code, grp, prod:p, obt, util, avq, updBy:co.updatedBy||'', updDate:co.updatedDate||'' });
+      });
+    } else {
+      const util = co.utilizationMT || 0;
+      const avq  = co.availableQuota != null ? co.availableQuota : (obtained - util);
+      (co.products || [co.products[0] || '—']).forEach(p => {
+        rows.push({ code:co.code, grp, prod:p, obt:obtained/((co.products||[p]).length), util, avq, updBy:co.updatedBy||'', updDate:co.updatedDate||'' });
+      });
+    }
+  });
+  rows.sort((a,b) => b.avq - a.avq);
+  tbody.innerHTML = rows.map(r => {
+    const utilPct = r.obt > 0 ? (r.util / r.obt * 100) : 0;
+    const fill = utilPct >= 80 ? 'var(--red2)' : utilPct >= 50 ? 'var(--amber-lt)' : 'var(--green-lt)';
+    return `<tr>
+      <td><div class="t-code" onclick="openDrawer('${r.code}')">${r.code}</div></td>
+      <td style="font-size:11.5px;font-weight:600">${r.grp}</td>
+      <td><span class="chip" style="background:#f0f9ff;color:#0369a1;font-size:10px;padding:2px 7px">${r.prod}</span></td>
+      <td class="t-r t-mono">${r.obt.toLocaleString()}</td>
+      <td class="t-r t-mono" style="color:var(--green)">${r.util > 0 ? r.util.toLocaleString() : '<span style="color:var(--txt3)">—</span>'}</td>
+      <td class="t-r t-mono" style="color:#0891b2;font-weight:700">${r.avq.toLocaleString()}</td>
+      <td>
+        <div style="display:flex;align-items:center;gap:6px">
+          <div style="flex:1;height:5px;background:var(--border);border-radius:3px;overflow:hidden">
+            <div style="height:5px;background:${fill};border-radius:3px;width:${Math.min(utilPct,100).toFixed(0)}%"></div>
+          </div>
+          <span style="font-size:10.5px;font-weight:600;color:${fill};width:36px;text-align:right">${utilPct.toFixed(0)}%</span>
+        </div>
+      </td>
+      <td style="font-size:10px;color:var(--txt3)">${r.updDate || '—'}</td>
+    </tr>`;
+  }).join('');
+}
+
+/* ── By-Product bar chart (bottom of page) ── */
+function buildAvqProdChart() {
+  const el = document.getElementById('avqProdChart');
+  if (!el) return;
+  const prodMap = {};
+  filteredSPI().forEach(co => {
+    const ap = co.availableByProd || {};
+    const up = co.utilizationByProd || {};
+    (co.products || []).forEach(p => {
+      if (!prodMap[p]) prodMap[p] = { obtained:0, util:0, avail:0 };
+      const cycleObt = (co.cycles||[]).filter(c=>/^obtained/i.test(c.type))
+        .reduce((s,c) => s + (Number(c.products&&c.products[p])||0), 0);
+      const obt = Number(cycleObt) > 0 ? Number(cycleObt) : (Number(co.obtained) / Math.max((co.products||[]).length,1));
+      prodMap[p].obtained += Number(obt) || 0;
+      prodMap[p].util     += Number(up[p]) || 0;
+      prodMap[p].avail    += ap[p] != null ? (Number(ap[p]) || 0) : Math.max((Number(obt)||0) - (Number(up[p])||0), 0);
+    });
+  });
+  const sorted = Object.entries(prodMap).sort((a,b) => b[1].obtained - a[1].obtained);
+  if (CH['avqProdChart']) CH['avqProdChart'].destroy();
+  CH['avqProdChart'] = new Chart(el, {
+    type: 'bar',
+    data: {
+      labels: sorted.map(([k]) => k),
+      datasets: [
+        { label:'Obtained', data: sorted.map(([,v]) => Math.round(v.obtained)), backgroundColor:'rgba(12,124,132,.22)', borderColor:'#0c7c84', borderWidth:1, borderRadius:3 },
+        { label:'Utilized', data: sorted.map(([,v]) => Math.round(v.util)),     backgroundColor:'rgba(33,197,93,.65)',  borderColor:'#21c55d', borderWidth:0, borderRadius:3 },
+        { label:'Available',data: sorted.map(([,v]) => Math.round(v.avail)),    backgroundColor:'rgba(8,145,178,.65)',  borderColor:'#0891b2', borderWidth:0, borderRadius:3 },
+      ]
+    },
+    options: {
+      responsive:true,
+      plugins:{
+        legend:{ labels:{ font:{size:11,family:'DM Sans'}, color:'#4a5568', boxWidth:10, padding:12 } },
+        tooltip:{ mode:'index', intersect:false }
+      },
+      scales:{
+        x:{ grid:{display:false}, ticks:{font:{size:10.5,family:'DM Sans'},color:'#1a1f2e'} },
+        y:{ grid:{color:'#f1f5f9'}, ticks:{font:{size:10},color:'#64748b',callback:v=>v.toLocaleString()+' MT'} }
+      }
+    }
+  });
+}
+
+/* ══════════════════════════════════════════════════
+   COMPACT STATUS STRIPS (Overview)
+══════════════════════════════════════════════════ */
+function buildRevSummaryStrip() {
+  const el = document.getElementById('revSummaryStrip');
+  if (!el) return;
+  const badge = document.getElementById('revCardBadge');
+  // Group by revisionStatus
+  const active  = SPI.filter(d => revisionStatus(d) === 'active');
+  const reapply = SPI.filter(d => revisionStatus(d) === 'reapply');
+  const revpend = SPI.filter(d => revisionStatus(d) === 'revpending');
+  const total   = active.length + reapply.length + revpend.length;
+  if (badge) badge.textContent = total + ' Active';
+
+  const groups = [
+    { items: active,  label: '🔄 Under Revision', color:'var(--amber)',  bg:'var(--amber-bg)',  bd:'var(--amber-bd)' },
+    { items: reapply, label: '📨 Re-Apply Submit', color:'#7c3aed',      bg:'#f5f3ff',          bd:'#c4b5fd' },
+    { items: revpend, label: '⏳ PERTEK Pending',  color:'var(--red2)',   bg:'var(--red-bg)',    bd:'var(--red-bd)' },
+  ].filter(g => g.items.length > 0);
+
+  el.innerHTML = groups.map(g => `
+    <div style="padding:5px 8px;background:${g.bg};border:1px solid ${g.bd};border-radius:var(--r);display:flex;align-items:center;justify-content:space-between">
+      <span style="font-size:10.5px;font-weight:700;color:${g.color}">${g.label}</span>
+      <div style="display:flex;flex-wrap:wrap;gap:3px;justify-content:flex-end;max-width:65%">
+        ${g.items.map(d => `<span style="font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;background:rgba(0,0,0,.06);color:${g.color}">${d.code}</span>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+function buildPendingSummaryStrip() {
+  const el    = document.getElementById('pendingSummaryStrip');
+  const mtEl  = document.getElementById('pendTotalMT');
+  const bdgEl = document.getElementById('pendingCardBadge');
+  if (!el) return;
+  const pending = filteredPending();
+  const totalMT = pending.reduce((s,d) => s + (d.mt||0), 0);
+  if (mtEl)  mtEl.textContent  = totalMT.toLocaleString() + ' MT';
+  if (bdgEl) bdgEl.textContent = pending.length + ' Pending';
+  el.innerHTML = pending.map(d => {
+    const daysEl = d.date ? (() => {
+      const parsed = pDate(d.date);
+      if (!parsed) return '';
+      const days = Math.round((Date.now() - parsed) / 86400000);
+      const col = days > 90 ? 'var(--red2)' : days > 30 ? 'var(--amber)' : 'var(--txt3)';
+      return `<span style="font-size:9.5px;font-weight:600;color:${col}">⏱ ${days}d</span>`;
+    })() : '';
+    return `<div style="display:flex;align-items:center;gap:5px;padding:4px 9px;background:var(--red-bg);border:1px solid var(--red-bd);border-radius:var(--r)">
+      <span style="font-size:11px;font-weight:700;color:var(--red2)">${d.code}</span>
+      <span style="font-size:9.5px;color:var(--txt3)">${(d.mt||0).toLocaleString()} MT</span>
+      ${daysEl}
+    </div>`;
+  }).join('');
+}
+
+/* Trigger rebuild when navigating to availquota page */
+const _origGoPage = typeof goPage === 'function' ? goPage : null;
 </script>
 </body>
 </html>
